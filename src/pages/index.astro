@@ -7,45 +7,9 @@ import RoomCard from '../components/RoomCard.astro';
 import AmenityItem from '../components/AmenityItem.astro';
 import Footer from '../components/Footer.astro';
 import StickyContactBar from '../components/StickyContactBar.astro';
+import { publicRoomTypes } from '../data/rooms';
 
-const rooms = [
-  {
-    title: 'Phòng Đơn',
-    name: 'Phòng đơn có ban công',
-    nameEn: 'Single Room with Balcony',
-    capacity: 'Cá nhân',
-    amenities: ['Giường đơn', 'Ban công', 'Nước nóng'],
-    price: 'TBD',
-    image: 'https://via.placeholder.com/400x300?text=Single+with+Balcony'
-  },
-  {
-    title: 'Phòng Đơn',
-    name: 'Phòng đơn không ban công',
-    nameEn: 'Single Room without Balcony',
-    capacity: 'Cá nhân',
-    amenities: ['Giường đơn', 'Nước nóng'],
-    price: 'TBD',
-    image: 'https://via.placeholder.com/400x300?text=Single+without+Balcony'
-  },
-  {
-    title: 'Phòng Đôi',
-    name: 'Phòng đôi có ban công',
-    nameEn: 'Double Room with Balcony',
-    capacity: '1-2 người',
-    amenities: ['Giường đôi', 'Ban công', 'Nước nóng'],
-    price: 'TBD',
-    image: 'https://via.placeholder.com/400x300?text=Double+with+Balcony'
-  },
-  {
-    title: 'Phòng Đôi',
-    name: 'Phòng đôi không ban công',
-    nameEn: 'Double Room without Balcony',
-    capacity: '1-2 người',
-    amenities: ['Giường đôi', 'Nước nóng'],
-    price: 'TBD',
-    image: 'https://via.placeholder.com/400x300?text=Double+without+Balcony'
-  }
-];
+const rooms = publicRoomTypes;
 
 const amenities = [
   { icon: '📶', title: 'Wi-Fi Miễn Phí', description: 'Kết nối internet nhanh' },
@@ -117,7 +81,8 @@ const amenities = [
             title={room.title}
             name={room.name}
             capacity={room.capacity}
-            price={room.price}
+            priceDay={room.priceDay}
+            priceHourly={room.priceHourly}
             amenities={room.amenities}
             image={room.image}
             description={room.nameEn}

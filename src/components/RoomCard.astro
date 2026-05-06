@@ -3,7 +3,8 @@ interface Props {
   title?: string;
   name: string;
   capacity?: string;
-  price?: string;
+  priceDay?: number;
+  priceHourly?: number;
   amenities?: string[];
   image?: string;
   description?: string;
@@ -13,11 +14,21 @@ const {
   title,
   name,
   capacity,
-  price,
+  priceDay,
+  priceHourly,
   amenities = [],
   image = 'https://via.placeholder.com/400x300?text=Room',
   description
 } = Astro.props;
+
+const formatPrice = (price: number | undefined) => {
+  if (!price) return '';
+  return new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+    maximumFractionDigits: 0
+  }).format(price);
+};
 ---
 
 <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -47,7 +58,12 @@ const {
       </div>
     )}
 
-    {price && <p class="text-lg font-semibold text-accent mb-4">{price}</p>}
+    {(priceDay || priceHourly) && (
+      <div class="mb-4">
+        {priceDay && <p class="text-lg font-semibold text-accent">Theo ngày: {formatPrice(priceDay)}</p>}
+        {priceHourly && <p class="text-sm text-text-muted">Theo giờ: {formatPrice(priceHourly)}</p>}
+      </div>
+    )}
 
     <a
       href="tel:TBD"
