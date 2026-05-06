@@ -6,6 +6,7 @@ import Button from '../components/Button.astro';
 import RoomCard from '../components/RoomCard.astro';
 import AmenityItem from '../components/AmenityItem.astro';
 import Footer from '../components/Footer.astro';
+import StickyContactBar from '../components/StickyContactBar.astro';
 
 const rooms = [
   {
@@ -105,7 +106,7 @@ const amenities = [
   </section>
 
   <!-- Room Types Section -->
-  <section id="phong-tro" class="bg-bg-warm">
+  <section id="phong-nghi" class="bg-bg-warm">
     <Section maxWidth={true}>
       <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
         Các Loại Phòng
@@ -140,6 +141,20 @@ const amenities = [
             description={amenity.description}
           />
         ))}
+      </div>
+    </Section>
+  </section>
+
+  <!-- Ăn Uống Section -->
+  <section id="an-uong" class="bg-white">
+    <Section maxWidth={true}>
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
+        Ăn Uống
+      </h2>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-text-muted mb-4 leading-relaxed">
+          TBD - Thông tin về dịch vụ ăn uống
+        </p>
       </div>
     </Section>
   </section>
@@ -225,4 +240,5 @@ const amenities = [
   </section>
 
   <Footer />
+  <StickyContactBar />
 </Layout>
