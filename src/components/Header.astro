@@ -18,9 +18,50 @@ import Button from './Button.astro';
       <a href="#lien-he" class="text-text-muted hover:text-primary text-sm">Liên Hệ</a>
     </nav>
 
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-primary text-2xl"
+      aria-label="Toggle menu"
+    >
+      ☰
+    </button>
+
     <!-- Contact Button -->
-    <Button variant="accent" size="sm">
+    <Button variant="accent" size="sm" class="hidden sm:inline-flex">
       ☎ Gọi Ngay
     </Button>
   </div>
+
+  <!-- Mobile Navigation Menu -->
+  <nav
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-t border-border-warm"
+  >
+    <div class="max-w-container mx-auto px-4 py-4 space-y-3">
+      <a href="#gioi-thieu" class="block text-text-muted hover:text-primary text-sm py-2">Giới Thiệu</a>
+      <a href="#phong-tro" class="block text-text-muted hover:text-primary text-sm py-2">Phòng Trọ</a>
+      <a href="#tien-nghi" class="block text-text-muted hover:text-primary text-sm py-2">Tiện Nghi</a>
+      <a href="#vi-tri" class="block text-text-muted hover:text-primary text-sm py-2">Vị Trí</a>
+      <a href="#lien-he" class="block text-text-muted hover:text-primary text-sm py-2">Liên Hệ</a>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+</script>

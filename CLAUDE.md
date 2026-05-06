@@ -33,6 +33,32 @@ This file contains instructions for AI assistance on this project.
 - Use Tailwind CSS utility classes for styling
 - No additional packages unless necessary
 
+## Workflow
+
+### 1. Brainstorming
+- Clarify the goal
+- Identify options
+- Explain trade-offs
+- Do not modify files
+
+### 2. Planning
+- Break the selected option into small tasks
+- List files to create or modify
+- Explain verification steps
+- Do not modify files until approval
+
+### 3. Execution
+- Implement only the approved task
+- Keep changes small
+- Do not refactor unrelated files
+- Do not add unnecessary libraries
+
+### 4. Verification
+- Report changed files
+- Explain how to run and test
+- Report risks or TODOs
+- Recommend next step
+
 ## Project Structure
 ```
 src/
