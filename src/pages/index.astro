@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import RoomCard from '../components/RoomCard.astro';
+import AmenityItem from '../components/AmenityItem.astro';
+import Footer from '../components/Footer.astro';
+
+const rooms = [
+  {
+    title: 'Phòng Đơn',
+    name: 'Phòng đơn có ban công',
+    nameEn: 'Single Room with Balcony',
+    capacity: 'Cá nhân',
+    amenities: ['Giường đơn', 'Ban công', 'Nước nóng'],
+    price: 'TBD',
+    image: 'https://via.placeholder.com/400x300?text=Single+with+Balcony'
+  },
+  {
+    title: 'Phòng Đơn',
+    name: 'Phòng đơn không ban công',
+    nameEn: 'Single Room without Balcony',
+    capacity: 'Cá nhân',
+    amenities: ['Giường đơn', 'Nước nóng'],
+    price: 'TBD',
+    image: 'https://via.placeholder.com/400x300?text=Single+without+Balcony'
+  },
+  {
+    title: 'Phòng Đôi',
+    name: 'Phòng đôi có ban công',
+    nameEn: 'Double Room with Balcony',
+    capacity: '1-2 người',
+    amenities: ['Giường đôi', 'Ban công', 'Nước nóng'],
+    price: 'TBD',
+    image: 'https://via.placeholder.com/400x300?text=Double+with+Balcony'
+  },
+  {
+    title: 'Phòng Đôi',
+    name: 'Phòng đôi không ban công',
+    nameEn: 'Double Room without Balcony',
+    capacity: '1-2 người',
+    amenities: ['Giường đôi', 'Nước nóng'],
+    price: 'TBD',
+    image: 'https://via.placeholder.com/400x300?text=Double+without+Balcony'
+  }
+];
+
+const amenities = [
+  { icon: '📶', title: 'Wi-Fi Miễn Phí', description: 'Kết nối internet nhanh' },
+  { icon: '🏍️', title: 'Đỗ Xe Máy', description: 'An toàn và miễn phí' },
+  { icon: '🚗', title: 'Đỗ Ô Tô', description: 'Tiện lợi cho lưu khách' },
+  { icon: '🚿', title: 'Nước Nóng', description: 'Luôn sẵn sàng' },
+  { icon: '🛏️', title: 'Phòng Sạch Sẽ', description: 'Chất lượng cao' },
+  { icon: '👨‍👩‍👧‍👦', title: 'Thân Thiện Với Gia Đình', description: 'Không gian ấm cúng' },
+  { icon: '💬', title: 'Liên Hệ Trực Tiếp', description: 'Điện thoại / Zalo' }
+];
+---
+
+<Layout title="Hải An Villa Hotel - Khách Sạn Gia Đình Sạch Sẽ Tại [Địa Chỉ]">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-accent-soft to-bg-warm py-16 md:py-32">
+    <Section maxWidth={true}>
+      <div class="text-center">
+        <h1 class="text-3xl md:text-5xl font-bold text-primary mb-4">
+          Chào Mừng Đến Hải An Hotel
+        </h1>
+        <p class="text-lg text-text-muted mb-8 max-w-2xl mx-auto">
+          Khách sạn gia đình nhỏ, sạch sẽ và ấm cúng với đội ngũ thân thiện
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button variant="primary" size="lg">
+            📞 Gọi Ngay
+          </Button>
+          <Button variant="secondary" size="lg">
+            💬 Zalo
+          </Button>
+          <Button variant="secondary" size="lg">
+            🗺️ Xem Bản Đồ
+          </Button>
+        </div>
+      </div>
+    </Section>
+  </section>
+
+  <!-- Introduction Section -->
+  <section id="gioi-thieu" class="bg-white">
+    <Section maxWidth={true}>
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+        Về Hải An Hotel
+      </h2>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-text-muted mb-4 leading-relaxed">
+          Hải An Hotel là một khách sạn gia đình nhỏ với tôi yêu cầu cao về sạch sẽ và sự thân thiện.
+          Chúng tôi cung cấp các phòng tiện nghi, dịch vụ chân thành và giá cả hợp lý.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Với đội ngũ nhân viên nhiệt tình, chúng tôi cam kết mang đến cho khách hàng những trải nghiệm tốt nhất
+          trong suốt kỳ nghỉ của bạn.
+        </p>
+      </div>
+    </Section>
+  </section>
+
+  <!-- Room Types Section -->
+  <section id="phong-tro" class="bg-bg-warm">
+    <Section maxWidth={true}>
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
+        Các Loại Phòng
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {rooms.map(room => (
+          <RoomCard
+            title={room.title}
+            name={room.name}
+            capacity={room.capacity}
+            price={room.price}
+            amenities={room.amenities}
+            image={room.image}
+            description={room.nameEn}
+          />
+        ))}
+      </div>
+    </Section>
+  </section>
+
+  <!-- Amenities Section -->
+  <section id="tien-nghi" class="bg-white">
+    <Section maxWidth={true}>
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
+        Tiện Nghi & Dịch Vụ
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {amenities.map(amenity => (
+          <AmenityItem
+            icon={amenity.icon}
+            title={amenity.title}
+            description={amenity.description}
+          />
+        ))}
+      </div>
+    </Section>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="hinh-anh" class="bg-bg-warm">
+    <Section maxWidth={true}>
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
+        Thư Viện Ảnh
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[1, 2, 3, 4, 5, 6].map(i => (
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm h-64">
+            <img
+              src={`https://via.placeholder.com/400x300?text=Ảnh+${i}`}
+              alt={`Ảnh khách sạn ${i}`}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </Section>
+  </section>
+
+  <!-- Location Section -->
+  <section id="vi-tri" class="bg-white">
+    <Section maxWidth={true}>
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+        Vị Trí
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold text-primary mb-4">Địa Chỉ</h3>
+          <p class="text-text-muted mb-6">
+            📍 TBD
+          </p>
+          <Button variant="accent" href="https://maps.google.com">
+            🗺️ Mở Bản Đồ Google
+          </Button>
+        </div>
+        <div class="bg-accent-soft rounded-lg h-64 flex items-center justify-center">
+          <p class="text-text-muted">Google Map (TBD)</p>
+        </div>
+      </div>
+    </Section>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="lien-he" class="bg-accent">
+    <Section maxWidth={true}>
+      <div class="text-center text-white">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">
+          Hãy Liên Hệ Với Chúng Tôi
+        </h2>
+        <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+          Chúng tôi sẵn sàng trả lời mọi câu hỏi và giúp bạn đặt phòng
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-white bg-opacity-10 rounded-lg p-6">
+            <p class="text-3xl mb-2">📞</p>
+            <p class="font-semibold mb-2">Gọi Điện</p>
+            <p class="opacity-90">TBD</p>
+          </div>
+          <div class="bg-white bg-opacity-10 rounded-lg p-6">
+            <p class="text-3xl mb-2">💬</p>
+            <p class="font-semibold mb-2">Zalo</p>
+            <p class="opacity-90">TBD</p>
+          </div>
+          <div class="bg-white bg-opacity-10 rounded-lg p-6">
+            <p class="text-3xl mb-2">📧</p>
+            <p class="font-semibold mb-2">Email</p>
+            <p class="opacity-90">TBD</p>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-sm">
+          <p>⏰ Check-in: 14:00 | Check-out: 12:00</p>
+          <p class="opacity-90">Liên hệ trực tiếp cho các yêu cầu đặc biệt</p>
+        </div>
+      </div>
+    </Section>
+  </section>
+
+  <Footer />
+</Layout>

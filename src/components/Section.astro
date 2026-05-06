@@ -1,0 +1,14 @@
+---
+interface Props {
+  maxWidth?: boolean;
+}
+
+const { maxWidth = true } = Astro.props;
+const className = maxWidth
+  ? 'max-w-container mx-auto px-4 md:px-0'
+  : 'w-full';
+---
+
+<div class={`py-12 md:py-20 ${className}`}>
+  <slot />
+</div>

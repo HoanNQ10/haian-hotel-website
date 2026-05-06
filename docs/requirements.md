@@ -10,17 +10,17 @@
 ### Required Sections
 1. **Header**: Navigation and basic contact info
 2. **Hero**: Welcome section with main call-to-action
-3. **Introduction**: Brief hotel description
-4. **Rooms**: Overview of room types
+3. **Introduction**: Brief hotel description (family-run, cozy atmosphere)
+4. **Rooms**: Overview of 4 room types with optional feature tags
 5. **Amenities**: Hotel facilities and services
 6. **Gallery**: Photo gallery of the hotel
 7. **Location**: Address and map integration
-8. **Contact**: Contact information and methods
+8. **Contact**: Contact information and methods (phone, Zalo)
 9. **Footer**: Additional links and copyright
 
 ### Main Actions
-- Call phone number (click-to-call)
-- Contact via Zalo (link to Zalo chat)
+- Call phone number (click-to-call) - Direct contact
+- Contact via Zalo (link to Zalo chat) - Preferred messaging method
 - Open Google Map (link to location)
 
 ### Technical Requirements

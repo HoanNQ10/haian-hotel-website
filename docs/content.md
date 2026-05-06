@@ -3,7 +3,7 @@
 ## Hotel Information
 
 ### Basic Details
-- **Hotel Name**: Haian Hotel
+- **Hotel Name**: Hải An Villa Hotel
 - **Location**: TBD
 - **Address**: TBD
 - **Phone Number**: TBD
@@ -25,23 +25,37 @@
 - **Background Image**: TBD
 
 ### Introduction Section
-- **Title**: About Haian Hotel
+- **Title**: About Hải An Villa Hotel
 - **Content**: TBD
 - **Key Features**: TBD
 
 ### Rooms Section
 - **Title**: Our Rooms
-- **Room Types**:
-  - Standard Room: TBD
-  - Deluxe Room: TBD
-  - Suite: TBD
-- **Features**: TBD
+- **Room Types** (classified by bed count and balcony):
+  1. Phòng đơn có ban công (Single Room with Balcony)
+  2. Phòng đơn không ban công (Single Room without Balcony)
+  3. Phòng đôi có ban công (Double Room with Balcony)
+  4. Phòng đôi không ban công (Double Room without Balcony)
+- **Optional Feature Tags** (not main room types):
+  - BBQ yard access
+  - Attic room
+  - Nice view
+  - Special layout
+- **Pricing**: TBD
 - **Images**: TBD
 
 ### Amenities Section
 - **Title**: Amenities & Services
-- **Facilities**: TBD
-- **Services**: TBD
+- **Main Facilities**:
+  - Free Wi-Fi
+  - Motorbike parking
+  - Car parking
+  - Hot water
+  - Clean rooms
+  - Family-friendly atmosphere
+- **Services**:
+  - Direct contact via phone or Zalo
+  - TBD
 - **Icons/Images**: TBD
 
 ### Gallery Section
@@ -62,10 +76,12 @@
 - **Zalo**: TBD
 - **Email**: TBD
 - **Address**: TBD
-- **Business Hours**: TBD
+- **Business Hours**:
+  - Check-in: 14:00
+  - Check-out: 12:00
 
 ### Footer
-- **Copyright**: © 2024 Haian Hotel
+- **Copyright**: © 2024 Hải An Villa Hotel
 - **Links**: TBD
 - **Social Media**: TBD
 

@@ -1,0 +1,23 @@
+---
+import '../styles/globals.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Hải An Villa Hotel', description = 'A small family-run hotel with clean, comfortable rooms.' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-bg-warm text-text-primary font-sans">
+    <slot />
+  </body>
+</html>

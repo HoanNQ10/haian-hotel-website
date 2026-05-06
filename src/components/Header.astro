@@ -1,0 +1,26 @@
+---
+import Button from './Button.astro';
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-container mx-auto px-4 md:px-0 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <h1 class="text-xl font-bold text-primary">HẢI AN HOTEL</h1>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex gap-8 flex-1 justify-center">
+      <a href="#gioi-thieu" class="text-text-muted hover:text-primary text-sm">Giới Thiệu</a>
+      <a href="#phong-tro" class="text-text-muted hover:text-primary text-sm">Phòng Trọ</a>
+      <a href="#tien-nghi" class="text-text-muted hover:text-primary text-sm">Tiện Nghi</a>
+      <a href="#vi-tri" class="text-text-muted hover:text-primary text-sm">Vị Trí</a>
+      <a href="#lien-he" class="text-text-muted hover:text-primary text-sm">Liên Hệ</a>
+    </nav>
+
+    <!-- Contact Button -->
+    <Button variant="accent" size="sm">
+      ☎ Gọi Ngay
+    </Button>
+  </div>
+</header>

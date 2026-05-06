@@ -1,0 +1,21 @@
+---
+interface Props {
+  icon?: string;
+  title: string;
+  description?: string;
+}
+
+const { icon, title, description } = Astro.props;
+---
+
+<div class="text-center">
+  {icon && (
+    <div class="text-3xl mb-3">
+      {icon}
+    </div>
+  )}
+  <h4 class="font-semibold text-primary mb-2">{title}</h4>
+  {description && (
+    <p class="text-sm text-text-muted">{description}</p>
+  )}
+</div>
