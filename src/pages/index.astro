@@ -36,31 +36,27 @@ const amenities = [
         <p class="text-text-muted text-sm mt-3">Hệ thống lưu trú của Hải An tại Đà Lạt và Bảo Lộc</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="md:col-span-2">
-          <PropertyCard
-            featured={true}
-            name="Haian Đà Lạt"
-            description="Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý."
-            ctaText="Xem Phòng"
-            ctaHref="#lien-he"
-          />
-        </div>
-        <div class="flex flex-col gap-6">
-          <PropertyCard
-            name="Haian Bảo Lộc Hotel"
-            description="Khách sạn tại Bảo Lộc"
-            status="Sắp Cập Nhật"
-            ctaText="Liên Hệ"
-            ctaHref="#lien-he"
-          />
-          <PropertyCard
-            name="Haian Homestay Bảo Lộc"
-            description="Homestay tại Bảo Lộc"
-            status="Sắp Cập Nhật"
-            ctaText="Liên Hệ"
-            ctaHref="#lien-he"
-          />
-        </div>
+        <PropertyCard
+          featured={true}
+          name="Haian Đà Lạt"
+          description="Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý."
+          ctaText="Xem Phòng"
+          ctaHref="#phong-nghi"
+        />
+        <PropertyCard
+          featured={true}
+          name="Haian Bảo Lộc Hotel"
+          description="Khách sạn gia đình tại Bảo Lộc — không gian yên tĩnh, sạch sẽ, giá cả phải chăng."
+          ctaText="Xem Phòng"
+          ctaHref="#phong-nghi"
+        />
+        <PropertyCard
+          featured={true}
+          name="Haian Homestay Bảo Lộc"
+          description="Homestay ấm cúng tại Bảo Lộc — trải nghiệm gần gũi, không gian xanh mát."
+          ctaText="Xem Phòng"
+          ctaHref="#phong-nghi"
+        />
       </div>
     </Section>
   </section>
