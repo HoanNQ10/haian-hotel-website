@@ -3,24 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import HeroCarousel from '../components/HeroCarousel.astro';
 import Section from '../components/Section.astro';
-import Button from '../components/Button.astro';
-import RoomCard from '../components/RoomCard.astro';
 import PropertyCard from '../components/PropertyCard.astro';
 import AmenityItem from '../components/AmenityItem.astro';
 import Footer from '../components/Footer.astro';
 import StickyContactBar from '../components/StickyContactBar.astro';
-import { publicRoomTypes } from '../data/rooms';
-
-const rooms = publicRoomTypes;
 
 const amenities = [
-  { icon: '📶', title: 'Wi-Fi Miễn Phí', description: 'Kết nối internet nhanh' },
-  { icon: '🏍️', title: 'Đỗ Xe Máy', description: 'An toàn và miễn phí' },
-  { icon: '🚗', title: 'Đỗ Ô Tô', description: 'Tiện lợi cho lưu khách' },
-  { icon: '🚿', title: 'Nước Nóng', description: 'Luôn sẵn sàng' },
-  { icon: '🛏️', title: 'Phòng Sạch Sẽ', description: 'Chất lượng cao' },
-  { icon: '👨‍👩‍👧‍👦', title: 'Thân Thiện Với Gia Đình', description: 'Không gian ấm cúng' },
-  { icon: '💬', title: 'Liên Hệ Trực Tiếp', description: 'Điện thoại / Zalo' }
+  { icon: '📶', title: 'Wi-Fi' },
+  { icon: '🏍️', title: 'Đỗ Xe Máy' },
+  { icon: '🚗', title: 'Đỗ Ô Tô' },
+  { icon: '🚿', title: 'Nước Nóng' },
+  { icon: '🛏️', title: 'Phòng Sạch' },
+  { icon: '👨‍👩‍👧‍👦', title: 'Thân Thiện GĐ' },
+  { icon: '💬', title: 'Zalo / Điện Thoại' }
 ];
 ---
 
@@ -29,34 +24,6 @@ const amenities = [
 
   <!-- Hero Image Carousel -->
   <HeroCarousel />
-
-  <!-- Hero Section -->
-  <section class="bg-background">
-    <Section maxWidth={true}>
-      <div class="text-center">
-        <h1 class="text-4xl md:text-6xl font-heading font-bold text-primary mb-4">
-          Chào Mừng Đến Hải An Hotel
-        </h1>
-        <p class="text-lg text-text-muted italic mb-10 max-w-2xl mx-auto leading-relaxed">
-          Khách sạn gia đình nhỏ, sạch sẽ và ấm cúng với đội ngũ thân thiện
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button variant="primary" size="lg" href="tel:TBD">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-            Gọi Ngay
-          </Button>
-          <Button variant="accent" size="lg" href="https://zalo.me/TBD">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-            Zalo
-          </Button>
-          <Button variant="secondary" size="lg" href="https://maps.google.com">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            Xem Bản Đồ
-          </Button>
-        </div>
-      </div>
-    </Section>
-  </section>
 
   <!-- Properties Section -->
   <section id="co-so" class="bg-surface">
@@ -69,113 +36,52 @@ const amenities = [
         <p class="text-text-muted text-sm mt-3">Hệ thống lưu trú của Hải An tại Đà Lạt và Bảo Lộc</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <PropertyCard
-          name="Haian Đà Lạt"
-          description="Khách sạn gia đình nhỏ tại Đà Lạt"
-          ctaText="Xem Phòng"
-          ctaHref="#phong-nghi"
-        />
-        <PropertyCard
-          name="Haian Bảo Lộc Hotel"
-          description="Khách sạn tại Bảo Lộc"
-          status="Sắp Cập Nhật"
-          ctaText="Liên Hệ"
-          ctaHref="#lien-he"
-        />
-        <PropertyCard
-          name="Haian Homestay Bảo Lộc"
-          description="Homestay tại Bảo Lộc"
-          status="Sắp Cập Nhật"
-          ctaText="Liên Hệ"
-          ctaHref="#lien-he"
-        />
-      </div>
-    </Section>
-  </section>
-
-  <!-- Introduction Section -->
-  <section id="gioi-thieu" class="bg-surface-warm">
-    <Section maxWidth={true}>
-      <div class="text-center mb-8">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
-          Về Hải An Hotel
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
-      </div>
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="text-text-muted mb-4 leading-relaxed">
-          Hải An Hotel là một khách sạn gia đình nhỏ với tôi yêu cầu cao về sạch sẽ và sự thân thiện.
-          Chúng tôi cung cấp các phòng tiện nghi, dịch vụ chân thành và giá cả hợp lý.
-        </p>
-        <p class="text-text-muted leading-relaxed">
-          Với đội ngũ nhân viên nhiệt tình, chúng tôi cam kết mang đến cho khách hàng những trải nghiệm tốt nhất
-          trong suốt kỳ nghỉ của bạn.
-        </p>
-      </div>
-    </Section>
-  </section>
-
-  <!-- Room Types Section -->
-  <section id="phong-nghi" class="bg-surface-warm">
-    <Section maxWidth={true}>
-      <div class="text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
-          Các Loại Phòng
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
-        <p class="text-text-muted text-sm mt-3">Liên hệ trực tiếp để được tư vấn và đặt phòng</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {rooms.map(room => (
-          <RoomCard
-            title={room.title}
-            name={room.name}
-            capacity={room.capacity}
-            priceDay={room.priceDay}
-            priceHourly={room.priceHourly}
-            amenities={room.amenities}
-            image={room.image}
-            description={room.nameEn}
+        <div class="md:col-span-2">
+          <PropertyCard
+            featured={true}
+            name="Haian Đà Lạt"
+            description="Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý."
+            ctaText="Xem Phòng"
+            ctaHref="#phong-nghi"
           />
-        ))}
+        </div>
+        <div class="flex flex-col gap-6">
+          <PropertyCard
+            name="Haian Bảo Lộc Hotel"
+            description="Khách sạn tại Bảo Lộc"
+            status="Sắp Cập Nhật"
+            ctaText="Liên Hệ"
+            ctaHref="#lien-he"
+          />
+          <PropertyCard
+            name="Haian Homestay Bảo Lộc"
+            description="Homestay tại Bảo Lộc"
+            status="Sắp Cập Nhật"
+            ctaText="Liên Hệ"
+            ctaHref="#lien-he"
+          />
+        </div>
       </div>
     </Section>
   </section>
 
   <!-- Amenities Section -->
-  <section id="tien-nghi" class="bg-surface">
+  <section id="tien-nghi" class="bg-surface-warm">
     <Section maxWidth={true}>
-      <div class="text-center mb-12">
+      <div class="text-center mb-10">
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
           Tiện Nghi & Dịch Vụ
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="flex flex-wrap justify-center gap-8 md:gap-12">
         {amenities.map(amenity => (
           <AmenityItem
+            strip={true}
             icon={amenity.icon}
             title={amenity.title}
-            description={amenity.description}
           />
         ))}
-      </div>
-    </Section>
-  </section>
-
-  <!-- Ăn Uống Section -->
-  <section id="an-uong" class="bg-surface-warm">
-    <Section maxWidth={true}>
-      <div class="text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
-          Ăn Uống
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
-      </div>
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="text-text-muted mb-4 leading-relaxed">
-          TBD - Thông tin về dịch vụ ăn uống
-        </p>
       </div>
     </Section>
   </section>
@@ -208,64 +114,76 @@ const amenities = [
     </Section>
   </section>
 
-  <!-- Location Section -->
-  <section id="vi-tri" class="bg-surface">
+  <!-- Vị Trí & Liên Hệ -->
+  <section id="lien-he" class="bg-primary text-white">
     <Section maxWidth={true}>
       <div class="text-center mb-10">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
-          Vị Trí
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-white">
+          Vị Trí & Liên Hệ
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+        <!-- Left: contact info -->
         <div>
-          <h3 class="text-xl font-semibold text-primary mb-4">Địa Chỉ</h3>
-          <p class="text-text-muted mb-6">
-            📍 TBD
-          </p>
-          <Button variant="accent" href="https://maps.google.com">
-            🗺️ Mở Bản Đồ Google
-          </Button>
-        </div>
-        <div class="bg-accent-soft rounded-lg h-64 flex items-center justify-center">
-          <p class="text-text-muted">Google Map (TBD)</p>
-        </div>
-      </div>
-    </Section>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="lien-he" class="bg-accent">
-    <Section maxWidth={true}>
-      <div class="text-center text-white">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6">
-          Hãy Liên Hệ Với Chúng Tôi
-        </h2>
-        <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-          Chúng tôi sẵn sàng trả lời mọi câu hỏi và giúp bạn đặt phòng
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div class="border border-white/20 rounded-xl p-6">
-            <p class="text-3xl mb-2">📞</p>
-            <p class="font-semibold mb-2">Gọi Điện</p>
-            <p class="opacity-90 text-sm">TBD</p>
+          <div class="space-y-5 mb-8">
+            <a href="tel:TBD" class="flex items-center gap-3 text-white hover:text-accent transition-colors duration-200 group">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-white/50 uppercase tracking-wide">Điện thoại</p>
+                <p class="font-semibold">TBD</p>
+              </div>
+            </a>
+            <a href="https://zalo.me/TBD" class="flex items-center gap-3 text-white hover:text-accent transition-colors duration-200">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-white/50 uppercase tracking-wide">Zalo</p>
+                <p class="font-semibold">TBD</p>
+              </div>
+            </a>
+            <div class="flex items-center gap-3 text-white/80">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-white/50 uppercase tracking-wide">Địa chỉ</p>
+                <p class="font-semibold">TBD</p>
+              </div>
+            </div>
           </div>
-          <div class="border border-white/20 rounded-xl p-6">
-            <p class="text-3xl mb-2">💬</p>
-            <p class="font-semibold mb-2">Zalo</p>
-            <p class="opacity-90 text-sm">TBD</p>
+          <div class="border-t border-white/20 pt-6 mb-8">
+            <p class="text-white/60 text-sm">⏰ Check-in: 14:00 | Check-out: 12:00</p>
+            <p class="text-white/50 text-sm mt-1">Liên hệ trực tiếp cho các yêu cầu đặc biệt</p>
           </div>
-          <div class="border border-white/20 rounded-xl p-6">
-            <p class="text-3xl mb-2">📧</p>
-            <p class="font-semibold mb-2">Email</p>
-            <p class="opacity-90 text-sm">TBD</p>
+          <div class="flex gap-3">
+            <a
+              href="tel:TBD"
+              class="inline-flex items-center justify-center gap-2 border border-white text-white bg-transparent hover:bg-white/20 transition-all duration-200 hover:-translate-y-0.5 font-semibold rounded-lg px-5 py-2.5 text-sm"
+            >
+              Gọi Ngay
+            </a>
+            <a
+              href="https://zalo.me/TBD"
+              class="inline-flex items-center justify-center gap-2 bg-accent text-white shadow-sm hover:bg-accent-dark hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 font-semibold rounded-lg px-5 py-2.5 text-sm"
+            >
+              Nhắn Zalo
+            </a>
           </div>
         </div>
-
-        <div class="border-t border-white/20 pt-6 space-y-2 text-sm">
-          <p>⏰ Check-in: 14:00 | Check-out: 12:00</p>
-          <p class="opacity-75">Liên hệ trực tiếp cho các yêu cầu đặc biệt</p>
+        <!-- Right: map placeholder -->
+        <div class="bg-white/10 rounded-xl h-64 md:h-auto min-h-[280px] flex items-center justify-center">
+          <p class="text-white/40 text-sm">Google Map (cập nhật sau)</p>
         </div>
       </div>
     </Section>
