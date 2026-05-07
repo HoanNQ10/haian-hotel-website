@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import HeroCarousel from '../components/HeroCarousel.astro';
 import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
 import RoomCard from '../components/RoomCard.astro';
+import PropertyCard from '../components/PropertyCard.astro';
 import AmenityItem from '../components/AmenityItem.astro';
 import Footer from '../components/Footer.astro';
 import StickyContactBar from '../components/StickyContactBar.astro';
@@ -25,37 +27,81 @@ const amenities = [
 <Layout title="Hải An Villa Hotel - Khách Sạn Gia Đình Sạch Sẽ Tại [Địa Chỉ]">
   <Header />
 
+  <!-- Hero Image Carousel -->
+  <HeroCarousel />
+
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-b from-accent-soft to-bg-warm py-16 md:py-32">
+  <section class="bg-background">
     <Section maxWidth={true}>
       <div class="text-center">
-        <h1 class="text-3xl md:text-5xl font-bold text-primary mb-4">
+        <h1 class="text-4xl md:text-6xl font-heading font-bold text-primary mb-4">
           Chào Mừng Đến Hải An Hotel
         </h1>
-        <p class="text-lg text-text-muted mb-8 max-w-2xl mx-auto">
+        <p class="text-lg text-text-muted italic mb-10 max-w-2xl mx-auto leading-relaxed">
           Khách sạn gia đình nhỏ, sạch sẽ và ấm cúng với đội ngũ thân thiện
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="primary" size="lg">
-            📞 Gọi Ngay
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button variant="primary" size="lg" href="tel:TBD">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            Gọi Ngay
           </Button>
-          <Button variant="secondary" size="lg">
-            💬 Zalo
+          <Button variant="accent" size="lg" href="https://zalo.me/TBD">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+            Zalo
           </Button>
-          <Button variant="secondary" size="lg">
-            🗺️ Xem Bản Đồ
+          <Button variant="secondary" size="lg" href="https://maps.google.com">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            Xem Bản Đồ
           </Button>
         </div>
       </div>
     </Section>
   </section>
 
-  <!-- Introduction Section -->
-  <section id="gioi-thieu" class="bg-white">
+  <!-- Properties Section -->
+  <section id="co-so" class="bg-surface">
     <Section maxWidth={true}>
-      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
-        Về Hải An Hotel
-      </h2>
+      <div class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Cơ Sở Lưu Trú
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mt-3"></div>
+        <p class="text-text-muted text-sm mt-3">Hệ thống lưu trú của Hải An tại Đà Lạt và Bảo Lộc</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <PropertyCard
+          name="Haian Đà Lạt"
+          description="Khách sạn gia đình nhỏ tại Đà Lạt"
+          ctaText="Xem Phòng"
+          ctaHref="#phong-nghi"
+        />
+        <PropertyCard
+          name="Haian Bảo Lộc Hotel"
+          description="Khách sạn tại Bảo Lộc"
+          status="Sắp Cập Nhật"
+          ctaText="Liên Hệ"
+          ctaHref="#lien-he"
+        />
+        <PropertyCard
+          name="Haian Homestay Bảo Lộc"
+          description="Homestay tại Bảo Lộc"
+          status="Sắp Cập Nhật"
+          ctaText="Liên Hệ"
+          ctaHref="#lien-he"
+        />
+      </div>
+    </Section>
+  </section>
+
+  <!-- Introduction Section -->
+  <section id="gioi-thieu" class="bg-surface-warm">
+    <Section maxWidth={true}>
+      <div class="text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Về Hải An Hotel
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
+      </div>
       <div class="max-w-3xl mx-auto text-center">
         <p class="text-text-muted mb-4 leading-relaxed">
           Hải An Hotel là một khách sạn gia đình nhỏ với tôi yêu cầu cao về sạch sẽ và sự thân thiện.
@@ -70,11 +116,15 @@ const amenities = [
   </section>
 
   <!-- Room Types Section -->
-  <section id="phong-nghi" class="bg-bg-warm">
+  <section id="phong-nghi" class="bg-surface-warm">
     <Section maxWidth={true}>
-      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
-        Các Loại Phòng
-      </h2>
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Các Loại Phòng
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
+        <p class="text-text-muted text-sm mt-3">Liên hệ trực tiếp để được tư vấn và đặt phòng</p>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {rooms.map(room => (
           <RoomCard
@@ -93,12 +143,15 @@ const amenities = [
   </section>
 
   <!-- Amenities Section -->
-  <section id="tien-nghi" class="bg-white">
+  <section id="tien-nghi" class="bg-surface">
     <Section maxWidth={true}>
-      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
-        Tiện Nghi & Dịch Vụ
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Tiện Nghi & Dịch Vụ
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {amenities.map(amenity => (
           <AmenityItem
             icon={amenity.icon}
@@ -111,11 +164,14 @@ const amenities = [
   </section>
 
   <!-- Ăn Uống Section -->
-  <section id="an-uong" class="bg-white">
+  <section id="an-uong" class="bg-surface-warm">
     <Section maxWidth={true}>
-      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
-        Ăn Uống
-      </h2>
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Ăn Uống
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
+      </div>
       <div class="max-w-3xl mx-auto text-center">
         <p class="text-text-muted mb-4 leading-relaxed">
           TBD - Thông tin về dịch vụ ăn uống
@@ -125,19 +181,27 @@ const amenities = [
   </section>
 
   <!-- Gallery Section -->
-  <section id="hinh-anh" class="bg-bg-warm">
+  <section id="hinh-anh" class="bg-background">
     <Section maxWidth={true}>
-      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-12 text-center">
-        Thư Viện Ảnh
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[1, 2, 3, 4, 5, 6].map(i => (
-          <div class="bg-white rounded-lg overflow-hidden shadow-sm h-64">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Thư Viện Ảnh
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div class={`bg-surface rounded-xl overflow-hidden shadow-sm group relative ${i === 1 ? 'col-span-2' : ''}`}>
             <img
-              src={`https://via.placeholder.com/400x300?text=Ảnh+${i}`}
+              src={`https://via.placeholder.com/800x500?text=Ảnh+${i}`}
               alt={`Ảnh khách sạn ${i}`}
-              class="w-full h-full object-cover"
+              class="w-full h-48 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+              </svg>
+            </div>
           </div>
         ))}
       </div>
@@ -145,11 +209,14 @@ const amenities = [
   </section>
 
   <!-- Location Section -->
-  <section id="vi-tri" class="bg-white">
+  <section id="vi-tri" class="bg-surface">
     <Section maxWidth={true}>
-      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
-        Vị Trí
-      </h2>
+      <div class="text-center mb-10">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Vị Trí
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <h3 class="text-xl font-semibold text-primary mb-4">Địa Chỉ</h3>
@@ -179,26 +246,26 @@ const amenities = [
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div class="bg-white bg-opacity-10 rounded-lg p-6">
+          <div class="border border-white/20 rounded-xl p-6">
             <p class="text-3xl mb-2">📞</p>
             <p class="font-semibold mb-2">Gọi Điện</p>
-            <p class="opacity-90">TBD</p>
+            <p class="opacity-90 text-sm">TBD</p>
           </div>
-          <div class="bg-white bg-opacity-10 rounded-lg p-6">
+          <div class="border border-white/20 rounded-xl p-6">
             <p class="text-3xl mb-2">💬</p>
             <p class="font-semibold mb-2">Zalo</p>
-            <p class="opacity-90">TBD</p>
+            <p class="opacity-90 text-sm">TBD</p>
           </div>
-          <div class="bg-white bg-opacity-10 rounded-lg p-6">
+          <div class="border border-white/20 rounded-xl p-6">
             <p class="text-3xl mb-2">📧</p>
             <p class="font-semibold mb-2">Email</p>
-            <p class="opacity-90">TBD</p>
+            <p class="opacity-90 text-sm">TBD</p>
           </div>
         </div>
 
-        <div class="space-y-3 text-sm">
+        <div class="border-t border-white/20 pt-6 space-y-2 text-sm">
           <p>⏰ Check-in: 14:00 | Check-out: 12:00</p>
-          <p class="opacity-90">Liên hệ trực tiếp cho các yêu cầu đặc biệt</p>
+          <p class="opacity-75">Liên hệ trực tiếp cho các yêu cầu đặc biệt</p>
         </div>
       </div>
     </Section>
