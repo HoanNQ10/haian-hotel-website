@@ -30,11 +30,11 @@ const amenities = [
     <Section maxWidth={true}>
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
-          Chào Mừng Đến Hải An Villa Hotel
+          Chào Mừng Đến Hải An Hotel
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
         <p class="text-text-muted leading-relaxed mb-4">
-          Hải An Villa Hotel là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
+          Hải An Hotel là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
           Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
           lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
         </p>
@@ -59,46 +59,25 @@ const amenities = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <PropertyCard
           featured={true}
-          name="Haian Đà Lạt"
+          name="Hải An Villa Đà Lạt"
           description="Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý."
           ctaText="Xem Phòng"
           ctaHref="#phong-nghi"
         />
         <PropertyCard
           featured={true}
-          name="Haian Bảo Lộc Hotel"
+          name="Hải An Hotel Bảo Lộc"
           description="Khách sạn gia đình tại Bảo Lộc — không gian yên tĩnh, sạch sẽ, giá cả phải chăng."
           ctaText="Xem Phòng"
           ctaHref="#phong-nghi"
         />
         <PropertyCard
           featured={true}
-          name="Haian Homestay Bảo Lộc"
+          name="Hải An Homestay Bảo Lộc"
           description="Homestay ấm cúng tại Bảo Lộc — trải nghiệm gần gũi, không gian xanh mát."
           ctaText="Xem Phòng"
           ctaHref="#phong-nghi"
         />
-      </div>
-    </Section>
-  </section>
-
-  <!-- Amenities Section -->
-  <section id="tien-nghi" class="bg-surface-warm">
-    <Section maxWidth={true}>
-      <div class="text-center mb-10">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
-          Tiện Nghi & Dịch Vụ
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
-      </div>
-      <div class="flex flex-wrap justify-center gap-8 md:gap-12">
-        {amenities.map(amenity => (
-          <AmenityItem
-            strip={true}
-            icon={amenity.icon}
-            title={amenity.title}
-          />
-        ))}
       </div>
     </Section>
   </section>
@@ -127,6 +106,66 @@ const amenities = [
             </div>
           </div>
         ))}
+      </div>
+    </Section>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="bg-surface">
+    <Section maxWidth={true}>
+      <div class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Tin Tức & Cẩm Nang
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mt-3"></div>
+        <p class="text-text-muted text-sm mt-3">Khám phá Đà Lạt, Bảo Lộc và những mẹo du lịch hữu ích</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <article class="group cursor-pointer">
+          <div class="bg-gradient-to-br from-accent-soft to-border rounded-xl h-48 mb-4 overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-xl"></div>
+          </div>
+          <p class="text-xs text-slate uppercase tracking-wide mb-2">12 tháng 5, 2025</p>
+          <h3 class="font-heading font-bold text-primary text-lg mb-2 group-hover:text-accent transition-colors duration-200 leading-snug">
+            Top 5 điểm check-in đẹp nhất Đà Lạt 2025
+          </h3>
+          <p class="text-sm text-text-muted leading-relaxed mb-3 line-clamp-2">
+            Đà Lạt không chỉ nổi tiếng với những đồi thông mờ sương mà còn có vô số địa điểm sống ảo đang chờ bạn khám phá.
+          </p>
+          <a href="#" class="text-accent text-sm font-semibold hover:text-accent-dark transition-colors duration-200 inline-flex items-center gap-1">
+            Đọc Thêm <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
+          </a>
+        </article>
+        <article class="group cursor-pointer">
+          <div class="bg-gradient-to-br from-primary/10 to-primary/20 rounded-xl h-48 mb-4 overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-xl"></div>
+          </div>
+          <p class="text-xs text-slate uppercase tracking-wide mb-2">5 tháng 4, 2025</p>
+          <h3 class="font-heading font-bold text-primary text-lg mb-2 group-hover:text-accent transition-colors duration-200 leading-snug">
+            Kinh nghiệm du lịch Bảo Lộc cho người mới
+          </h3>
+          <p class="text-sm text-text-muted leading-relaxed mb-3 line-clamp-2">
+            Bảo Lộc — thành phố trà xanh bình yên giữa cao nguyên, điểm đến lý tưởng để thư giãn và tái tạo năng lượng.
+          </p>
+          <a href="#" class="text-accent text-sm font-semibold hover:text-accent-dark transition-colors duration-200 inline-flex items-center gap-1">
+            Đọc Thêm <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
+          </a>
+        </article>
+        <article class="group cursor-pointer">
+          <div class="bg-gradient-to-br from-accent/20 to-accent-soft rounded-xl h-48 mb-4 overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-xl"></div>
+          </div>
+          <p class="text-xs text-slate uppercase tracking-wide mb-2">20 tháng 3, 2025</p>
+          <h3 class="font-heading font-bold text-primary text-lg mb-2 group-hover:text-accent transition-colors duration-200 leading-snug">
+            Lịch trình 3 ngày 2 đêm Đà Lạt — Bảo Lộc
+          </h3>
+          <p class="text-sm text-text-muted leading-relaxed mb-3 line-clamp-2">
+            Hành trình khám phá trọn vẹn hai thành phố miền cao với chi phí tiết kiệm và những trải nghiệm đáng nhớ.
+          </p>
+          <a href="#" class="text-accent text-sm font-semibold hover:text-accent-dark transition-colors duration-200 inline-flex items-center gap-1">
+            Đọc Thêm <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
+          </a>
+        </article>
       </div>
     </Section>
   </section>
@@ -198,9 +237,27 @@ const amenities = [
             </a>
           </div>
         </div>
-        <!-- Right: map placeholder -->
-        <div class="bg-white/10 rounded-xl h-64 md:h-auto min-h-[280px] flex items-center justify-center">
-          <p class="text-white/40 text-sm">Google Map (cập nhật sau)</p>
+        <!-- Right: Vietnam map -->
+        <div class="flex items-center justify-center">
+          <div class="relative">
+            <svg viewBox="0 0 200 490" width="200" xmlns="http://www.w3.org/2000/svg">
+              <path d="M88,6 L110,16 L130,32 L155,52 L162,76 L162,100 L158,122 L150,140 L142,155 L136,166 L140,178 L150,192 L158,208 L165,230 L168,252 L172,275 L178,298 L185,320 L188,345 L185,368 L175,388 L162,412 L148,432 L128,448 L108,460 L85,468 L65,468 L48,458 L52,440 L62,422 L65,405 L60,388 L55,368 L54,350 L57,332 L60,314 L55,296 L50,278 L46,260 L44,242 L42,224 L44,206 L48,188 L44,170 L40,150 L38,130 L42,108 L48,86 L58,64 L70,44 L82,26 Z"
+                fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linejoin="round"/>
+
+              <!-- Đà Lạt -->
+              <circle cx="174" cy="373" r="10" fill="#C4A882" opacity="0.25"/>
+              <circle cx="174" cy="373" r="5" fill="#C4A882"/>
+              <text x="182" y="370" font-size="9" fill="white" font-family="sans-serif" font-weight="600">Đà Lạt</text>
+
+              <!-- Bảo Lộc -->
+              <circle cx="156" cy="387" r="10" fill="rgba(255,255,255,0.2)"/>
+              <circle cx="156" cy="387" r="5" fill="white" opacity="0.8"/>
+              <text x="164" y="384" font-size="9" fill="rgba(255,255,255,0.8)" font-family="sans-serif">Bảo Lộc</text>
+
+              <!-- Connector line between cities -->
+              <line x1="174" y1="373" x2="156" y2="387" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+            </svg>
+          </div>
         </div>
       </div>
     </Section>
