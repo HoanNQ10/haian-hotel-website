@@ -3,21 +3,29 @@ interface Props {
   icon?: string;
   title: string;
   description?: string;
+  strip?: boolean;
 }
 
-const { icon, title, description } = Astro.props;
+const { icon, title, description, strip = false } = Astro.props;
 ---
 
-<div class="flex items-start gap-4 group">
-  {icon && (
-    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-soft flex items-center justify-center text-2xl">
-      {icon}
-    </div>
-  )}
-  <div>
-    <h4 class="font-semibold text-primary text-sm uppercase tracking-wide mb-1">{title}</h4>
-    {description && (
-      <p class="text-sm text-text-muted leading-relaxed">{description}</p>
-    )}
+{strip ? (
+  <div class="flex flex-col items-center gap-2">
+    {icon && <span class="text-3xl">{icon}</span>}
+    <span class="text-xs font-semibold uppercase tracking-wide text-primary text-center">{title}</span>
   </div>
-</div>
+) : (
+  <div class="flex items-start gap-4 group">
+    {icon && (
+      <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-soft flex items-center justify-center text-2xl">
+        {icon}
+      </div>
+    )}
+    <div>
+      <h4 class="font-semibold text-primary text-sm uppercase tracking-wide mb-1">{title}</h4>
+      {description && (
+        <p class="text-sm text-text-muted leading-relaxed">{description}</p>
+      )}
+    </div>
+  </div>
+)}
