@@ -4,19 +4,8 @@ import Header from '../components/Header.astro';
 import HeroCarousel from '../components/HeroCarousel.astro';
 import Section from '../components/Section.astro';
 import PropertyCard from '../components/PropertyCard.astro';
-import AmenityItem from '../components/AmenityItem.astro';
 import Footer from '../components/Footer.astro';
 import StickyContactBar from '../components/StickyContactBar.astro';
-
-const amenities = [
-  { icon: '📶', title: 'Wi-Fi' },
-  { icon: '🏍️', title: 'Đỗ Xe Máy' },
-  { icon: '🚗', title: 'Đỗ Ô Tô' },
-  { icon: '🚿', title: 'Nước Nóng' },
-  { icon: '🛏️', title: 'Phòng Sạch' },
-  { icon: '👨‍👩‍👧‍👦', title: 'Thân Thiện GĐ' },
-  { icon: '💬', title: 'Zalo / Điện Thoại' }
-];
 ---
 
 <Layout title="Hải An Villa Hotel - Khách Sạn Gia Đình Sạch Sẽ Tại [Địa Chỉ]">
@@ -199,8 +188,8 @@ const amenities = [
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
       </div>
-      <div class="max-w-md mx-auto">
-        <!-- Contact info -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+        <!-- Left: contact info -->
         <div>
           <div class="space-y-5 mb-8">
             <a href="tel:TBD" class="flex items-center gap-3 text-white hover:text-accent transition-colors duration-200">
@@ -256,6 +245,10 @@ const amenities = [
               Nhắn Zalo
             </a>
           </div>
+        </div>
+        <!-- Right: map placeholder -->
+        <div class="bg-white/10 rounded-xl h-64 md:h-auto min-h-[280px] flex items-center justify-center">
+          <p class="text-white/40 text-sm">Google Map (cập nhật sau)</p>
         </div>
       </div>
     </Section>
