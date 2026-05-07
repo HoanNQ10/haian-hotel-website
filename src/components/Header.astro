@@ -1,51 +1,76 @@
 ---
-import Button from './Button.astro';
 ---
 
-<header class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="max-w-container mx-auto px-4 md:px-0 py-4 flex items-center justify-between">
+<header class="bg-surface sticky top-0 z-50 border-b border-border">
+  <div class="max-w-container mx-auto px-4 md:px-0 py-4 md:py-5 flex items-center justify-between">
     <!-- Logo -->
-    <div class="flex items-center">
-      <h1 class="text-xl font-bold text-primary">HẢI AN HOTEL</h1>
+    <div class="flex flex-col items-start leading-none">
+      <h1 class="font-heading font-bold text-primary tracking-[0.15em] uppercase text-xl md:text-2xl leading-none hover:text-accent transition-colors duration-200">Haian</h1>
+      <span class="font-body font-light text-slate tracking-[0.2em] uppercase text-[10px] mt-0.5">Hotel</span>
     </div>
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex gap-8 flex-1 justify-center">
-      <a href="#gioi-thieu" class="text-text-muted hover:text-primary text-sm">Giới Thiệu</a>
-      <a href="#phong-nghi" class="text-text-muted hover:text-primary text-sm">Phòng Nghỉ</a>
-      <a href="#tien-nghi" class="text-text-muted hover:text-primary text-sm">Tiện Nghi</a>
-      <a href="#an-uong" class="text-text-muted hover:text-primary text-sm">Ăn Uống</a>
-      <a href="#vi-tri" class="text-text-muted hover:text-primary text-sm">Vị Trí</a>
-      <a href="#lien-he" class="text-text-muted hover:text-primary text-sm">Liên Hệ</a>
+      <a href="#co-so" class="text-text-muted hover:text-primary text-sm font-medium transition-colors duration-200 relative group">
+        Cơ Sở
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+      </a>
+      <a href="#phong-nghi" class="text-text-muted hover:text-primary text-sm font-medium transition-colors duration-200 relative group">
+        Phòng Nghỉ
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+      </a>
+      <a href="#tien-nghi" class="text-text-muted hover:text-primary text-sm font-medium transition-colors duration-200 relative group">
+        Tiện Nghi
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+      </a>
+      <a href="#an-uong" class="text-text-muted hover:text-primary text-sm font-medium transition-colors duration-200 relative group">
+        Ăn Uống
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+      </a>
+      <a href="#vi-tri" class="text-text-muted hover:text-primary text-sm font-medium transition-colors duration-200 relative group">
+        Vị Trí
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+      </a>
+      <a href="#lien-he" class="text-text-muted hover:text-primary text-sm font-medium transition-colors duration-200 relative group">
+        Liên Hệ
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+      </a>
     </nav>
+
+    <!-- Desktop Right Side: Language + Phone -->
+    <div class="hidden md:flex items-center gap-6">
+      <div class="flex gap-3 text-sm border-l border-border pl-6">
+        <button class="text-primary font-semibold hover:text-accent transition-colors duration-200">VI</button>
+        <span class="text-border">/</span>
+        <button class="text-text-muted hover:text-primary transition-colors duration-200">EN</button>
+      </div>
+      <a href="tel:TBD" class="text-primary hover:text-accent text-sm font-semibold transition-colors duration-200 flex items-center gap-2">
+        ☎ TBD
+      </a>
+    </div>
 
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden text-primary text-2xl"
+      class="md:hidden text-primary text-2xl hover:text-accent transition-colors duration-200"
       aria-label="Toggle menu"
     >
       ☰
     </button>
-
-    <!-- Contact Button -->
-    <Button variant="accent" size="sm" class="hidden sm:inline-flex">
-      ☎ Gọi Ngay
-    </Button>
   </div>
 
   <!-- Mobile Navigation Menu -->
   <nav
     id="mobile-menu"
-    class="hidden md:hidden bg-white border-t border-border-warm"
+    class="hidden md:hidden bg-surface border-t border-border"
   >
-    <div class="max-w-container mx-auto px-4 py-4 space-y-3">
-      <a href="#gioi-thieu" class="block text-text-muted hover:text-primary text-sm py-2">Giới Thiệu</a>
-      <a href="#phong-nghi" class="block text-text-muted hover:text-primary text-sm py-2">Phòng Nghỉ</a>
-      <a href="#tien-nghi" class="block text-text-muted hover:text-primary text-sm py-2">Tiện Nghi</a>
-      <a href="#an-uong" class="block text-text-muted hover:text-primary text-sm py-2">Ăn Uống</a>
-      <a href="#vi-tri" class="block text-text-muted hover:text-primary text-sm py-2">Vị Trí</a>
-      <a href="#lien-he" class="block text-text-muted hover:text-primary text-sm py-2">Liên Hệ</a>
+    <div class="max-w-container mx-auto px-4 py-4 space-y-2">
+      <a href="#co-so" class="block text-text-muted hover:text-primary hover:bg-accent-soft text-sm py-3 px-3 rounded-lg transition-all duration-200 font-medium">Cơ Sở</a>
+      <a href="#phong-nghi" class="block text-text-muted hover:text-primary hover:bg-accent-soft text-sm py-3 px-3 rounded-lg transition-all duration-200 font-medium">Phòng Nghỉ</a>
+      <a href="#tien-nghi" class="block text-text-muted hover:text-primary hover:bg-accent-soft text-sm py-3 px-3 rounded-lg transition-all duration-200 font-medium">Tiện Nghi</a>
+      <a href="#an-uong" class="block text-text-muted hover:text-primary hover:bg-accent-soft text-sm py-3 px-3 rounded-lg transition-all duration-200 font-medium">Ăn Uống</a>
+      <a href="#vi-tri" class="block text-text-muted hover:text-primary hover:bg-accent-soft text-sm py-3 px-3 rounded-lg transition-all duration-200 font-medium">Vị Trí</a>
+      <a href="#lien-he" class="block text-text-muted hover:text-primary hover:bg-accent-soft text-sm py-3 px-3 rounded-lg transition-all duration-200 font-medium">Liên Hệ</a>
     </div>
   </nav>
 </header>
