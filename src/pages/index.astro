@@ -30,7 +30,7 @@ const amenities = [
     <Section maxWidth={true}>
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
-          Chào Mừng Đến Hải An Hotel
+          Chào Mừng Đến Hải An Villa Hotel
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
         <p class="text-text-muted leading-relaxed mb-4">
@@ -82,6 +82,27 @@ const amenities = [
     </Section>
   </section>
 
+  <!-- Amenities Section -->
+  <section id="tien-nghi" class="bg-surface-warm">
+    <Section maxWidth={true}>
+      <div class="text-center mb-10">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Tiện Nghi & Dịch Vụ
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+        {amenities.map(amenity => (
+          <AmenityItem
+            strip={true}
+            icon={amenity.icon}
+            title={amenity.title}
+          />
+        ))}
+      </div>
+    </Section>
+  </section>
+
   <!-- Gallery Section -->
   <section id="hinh-anh" class="bg-background">
     <Section maxWidth={true}>
@@ -91,84 +112,83 @@ const amenities = [
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <div class={`bg-surface rounded-xl overflow-hidden shadow-sm group relative ${i === 1 ? 'col-span-2' : ''}`}>
-            <img
-              src={`https://via.placeholder.com/800x500?text=Ảnh+${i}`}
-              alt={`Ảnh khách sạn ${i}`}
-              class="w-full h-48 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-xl flex items-center justify-center">
-              <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
-              </svg>
+      <div class="relative">
+        <!-- Prev button -->
+        <button
+          id="gallery-prev"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white shadow-md hover:shadow-lg text-primary p-3 rounded-full transition-all duration-200 hover:scale-110 active:scale-95 border border-border"
+          aria-label="Ảnh trước"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <!-- Scroll track -->
+        <div
+          id="gallery-track"
+          class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        >
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div class="snap-start flex-shrink-0 w-72 md:w-96 rounded-xl overflow-hidden shadow-sm group relative bg-surface">
+              <img
+                src={`https://via.placeholder.com/800x500?text=Ảnh+${i}`}
+                alt={`Ảnh khách sạn ${i}`}
+                class="w-full h-56 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+                draggable="false"
+              />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-xl"></div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <!-- Next button -->
+        <button
+          id="gallery-next"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white shadow-md hover:shadow-lg text-primary p-3 rounded-full transition-all duration-200 hover:scale-110 active:scale-95 border border-border"
+          aria-label="Ảnh tiếp theo"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
       </div>
     </Section>
   </section>
 
-  <!-- Blog Section -->
-  <section id="blog" class="bg-surface">
-    <Section maxWidth={true}>
-      <div class="mb-10">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
-          Tin Tức & Cẩm Nang
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mt-3"></div>
-        <p class="text-text-muted text-sm mt-3">Khám phá Đà Lạt, Bảo Lộc và những mẹo du lịch hữu ích</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <article class="group cursor-pointer">
-          <div class="bg-gradient-to-br from-accent-soft to-border rounded-xl h-48 mb-4 overflow-hidden relative">
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-xl"></div>
-          </div>
-          <p class="text-xs text-slate uppercase tracking-wide mb-2">12 tháng 5, 2025</p>
-          <h3 class="font-heading font-bold text-primary text-lg mb-2 group-hover:text-accent transition-colors duration-200 leading-snug">
-            Top 5 điểm check-in đẹp nhất Đà Lạt 2025
-          </h3>
-          <p class="text-sm text-text-muted leading-relaxed mb-3 line-clamp-2">
-            Đà Lạt không chỉ nổi tiếng với những đồi thông mờ sương mà còn có vô số địa điểm sống ảo đang chờ bạn khám phá.
-          </p>
-          <a href="#" class="text-accent text-sm font-semibold hover:text-accent-dark transition-colors duration-200 inline-flex items-center gap-1">
-            Đọc Thêm <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
-          </a>
-        </article>
-        <article class="group cursor-pointer">
-          <div class="bg-gradient-to-br from-primary/10 to-primary/20 rounded-xl h-48 mb-4 overflow-hidden relative">
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-xl"></div>
-          </div>
-          <p class="text-xs text-slate uppercase tracking-wide mb-2">5 tháng 4, 2025</p>
-          <h3 class="font-heading font-bold text-primary text-lg mb-2 group-hover:text-accent transition-colors duration-200 leading-snug">
-            Kinh nghiệm du lịch Bảo Lộc cho người mới
-          </h3>
-          <p class="text-sm text-text-muted leading-relaxed mb-3 line-clamp-2">
-            Bảo Lộc — thành phố trà xanh bình yên giữa cao nguyên, điểm đến lý tưởng để thư giãn và tái tạo năng lượng.
-          </p>
-          <a href="#" class="text-accent text-sm font-semibold hover:text-accent-dark transition-colors duration-200 inline-flex items-center gap-1">
-            Đọc Thêm <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
-          </a>
-        </article>
-        <article class="group cursor-pointer">
-          <div class="bg-gradient-to-br from-accent/20 to-accent-soft rounded-xl h-48 mb-4 overflow-hidden relative">
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-xl"></div>
-          </div>
-          <p class="text-xs text-slate uppercase tracking-wide mb-2">20 tháng 3, 2025</p>
-          <h3 class="font-heading font-bold text-primary text-lg mb-2 group-hover:text-accent transition-colors duration-200 leading-snug">
-            Lịch trình 3 ngày 2 đêm Đà Lạt — Bảo Lộc
-          </h3>
-          <p class="text-sm text-text-muted leading-relaxed mb-3 line-clamp-2">
-            Hành trình khám phá trọn vẹn hai thành phố miền cao với chi phí tiết kiệm và những trải nghiệm đáng nhớ.
-          </p>
-          <a href="#" class="text-accent text-sm font-semibold hover:text-accent-dark transition-colors duration-200 inline-flex items-center gap-1">
-            Đọc Thêm <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
-          </a>
-        </article>
-      </div>
-    </Section>
-  </section>
+  <script>
+    const track = document.getElementById('gallery-track');
+    const prevBtn = document.getElementById('gallery-prev');
+    const nextBtn = document.getElementById('gallery-next');
+
+    // Button scroll
+    const scrollAmount = 320;
+    prevBtn?.addEventListener('click', () => track?.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+    nextBtn?.addEventListener('click', () => track?.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+
+    // Drag to scroll
+    if (track) {
+      let isDragging = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      track.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+
+      track.addEventListener('mouseleave', () => { isDragging = false; });
+      track.addEventListener('mouseup', () => { isDragging = false; });
+
+      track.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        track.scrollLeft = scrollLeft - (x - startX);
+      });
+    }
+  </script>
 
   <!-- Vị Trí & Liên Hệ -->
   <section id="lien-he" class="bg-primary text-white">
@@ -179,8 +199,8 @@ const amenities = [
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-        <!-- Left: contact info -->
+      <div class="max-w-md mx-auto">
+        <!-- Contact info -->
         <div>
           <div class="space-y-5 mb-8">
             <a href="tel:TBD" class="flex items-center gap-3 text-white hover:text-accent transition-colors duration-200">
@@ -235,28 +255,6 @@ const amenities = [
             >
               Nhắn Zalo
             </a>
-          </div>
-        </div>
-        <!-- Right: Vietnam map -->
-        <div class="flex items-center justify-center">
-          <div class="relative">
-            <svg viewBox="0 0 200 490" width="200" xmlns="http://www.w3.org/2000/svg">
-              <path d="M88,6 L110,16 L130,32 L155,52 L162,76 L162,100 L158,122 L150,140 L142,155 L136,166 L140,178 L150,192 L158,208 L165,230 L168,252 L172,275 L178,298 L185,320 L188,345 L185,368 L175,388 L162,412 L148,432 L128,448 L108,460 L85,468 L65,468 L48,458 L52,440 L62,422 L65,405 L60,388 L55,368 L54,350 L57,332 L60,314 L55,296 L50,278 L46,260 L44,242 L42,224 L44,206 L48,188 L44,170 L40,150 L38,130 L42,108 L48,86 L58,64 L70,44 L82,26 Z"
-                fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linejoin="round"/>
-
-              <!-- Đà Lạt -->
-              <circle cx="174" cy="373" r="10" fill="#C4A882" opacity="0.25"/>
-              <circle cx="174" cy="373" r="5" fill="#C4A882"/>
-              <text x="182" y="370" font-size="9" fill="white" font-family="sans-serif" font-weight="600">Đà Lạt</text>
-
-              <!-- Bảo Lộc -->
-              <circle cx="156" cy="387" r="10" fill="rgba(255,255,255,0.2)"/>
-              <circle cx="156" cy="387" r="5" fill="white" opacity="0.8"/>
-              <text x="164" y="384" font-size="9" fill="rgba(255,255,255,0.8)" font-family="sans-serif">Bảo Lộc</text>
-
-              <!-- Connector line between cities -->
-              <line x1="174" y1="373" x2="156" y2="387" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
-            </svg>
           </div>
         </div>
       </div>
