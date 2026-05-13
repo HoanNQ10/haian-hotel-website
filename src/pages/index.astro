@@ -6,6 +6,33 @@ import Section from '../components/Section.astro';
 import PropertyCard from '../components/PropertyCard.astro';
 import Footer from '../components/Footer.astro';
 import StickyContactBar from '../components/StickyContactBar.astro';
+
+const rooms = [
+  {
+    name: "Phòng Đơn Có Ban Công",
+    description: "Phòng đơn thoáng mát với ban công riêng, view thành phố. Không gian yên tĩnh, phù hợp cho khách đi một mình hoặc công tác.",
+    tags: ["Đơn", "Có ban công"],
+    gradient: "bg-gradient-to-br from-accent-soft to-border"
+  },
+  {
+    name: "Phòng Đơn Không Ban Công",
+    description: "Phòng đơn ấm cúng, sạch sẽ, đầy đủ tiện nghi cơ bản. Lý tưởng cho lưu trú ngắn ngày với mức giá tiết kiệm.",
+    tags: ["Đơn"],
+    gradient: "bg-gradient-to-br from-primary/10 to-primary/20"
+  },
+  {
+    name: "Phòng Đôi Có Ban Công",
+    description: "Phòng đôi rộng rãi với ban công mở ra không gian xanh. Thích hợp cho cặp đôi hoặc bạn bè đi cùng.",
+    tags: ["Đôi", "Có ban công"],
+    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft"
+  },
+  {
+    name: "Phòng Đôi Không Ban Công",
+    description: "Phòng đôi tiêu chuẩn, đầy đủ tiện nghi, yên tĩnh. Phù hợp cho gia đình nhỏ hoặc hai người bạn đồng hành.",
+    tags: ["Đôi"],
+    gradient: "bg-gradient-to-br from-border to-accent-soft"
+  }
+];
 ---
 
 <Layout title="Hải An Villa Hotel - Khách Sạn Gia Đình Sạch Sẽ Tại [Địa Chỉ]">
@@ -71,6 +98,69 @@ import StickyContactBar from '../components/StickyContactBar.astro';
     </Section>
   </section>
 
+  <!-- Phòng Nghỉ Section -->
+  <section id="phong-nghi" class="bg-background">
+    <Section maxWidth={true}>
+      <div class="mb-10">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+          Phòng Nghỉ
+        </h2>
+        <div class="w-12 h-0.5 bg-accent mt-3"></div>
+        <p class="text-text-muted text-sm mt-3">Các loại phòng tại Hải An Villa Hotel</p>
+      </div>
+      <div class="relative">
+        <!-- Prev button -->
+        <button
+          id="rooms-prev"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white shadow-md hover:shadow-lg text-primary p-3 rounded-full transition-all duration-200 hover:scale-110 active:scale-95 border border-border"
+          aria-label="Phòng trước"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <!-- Scroll track -->
+        <div
+          id="rooms-track"
+          class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        >
+          {rooms.map((room) => (
+            <div class="snap-start flex-shrink-0 w-80 rounded-xl overflow-hidden shadow-sm bg-surface group">
+              <div class={`h-48 ${room.gradient}`}></div>
+              <div class="p-5">
+                <h3 class="font-heading font-bold text-primary text-lg mb-2">{room.name}</h3>
+                <p class="text-sm text-text-muted leading-relaxed mb-3 line-clamp-2">{room.description}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {room.tags.map((tag) => (
+                    <span class="text-xs bg-accent-soft text-primary px-2.5 py-1 rounded-full font-medium">{tag}</span>
+                  ))}
+                </div>
+                <a
+                  href="/phong-nghi"
+                  class="inline-flex items-center justify-center gap-2 bg-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-accent-dark transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 w-full"
+                >
+                  Xem Chi Tiết
+                  <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Next button -->
+        <button
+          id="rooms-next"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white shadow-md hover:shadow-lg text-primary p-3 rounded-full transition-all duration-200 hover:scale-110 active:scale-95 border border-border"
+          aria-label="Phòng tiếp theo"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </Section>
+  </section>
 
   <!-- Gallery Section -->
   <section id="hinh-anh" class="bg-background">
@@ -159,6 +249,38 @@ import StickyContactBar from '../components/StickyContactBar.astro';
     }
   </script>
 
+  <script>
+    const roomsTrack = document.getElementById('rooms-track');
+    const roomsPrev = document.getElementById('rooms-prev');
+    const roomsNext = document.getElementById('rooms-next');
+
+    const roomsScrollAmount = 336;
+    roomsPrev?.addEventListener('click', () => roomsTrack?.scrollBy({ left: -roomsScrollAmount, behavior: 'smooth' }));
+    roomsNext?.addEventListener('click', () => roomsTrack?.scrollBy({ left: roomsScrollAmount, behavior: 'smooth' }));
+
+    if (roomsTrack) {
+      let isDragging = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      roomsTrack.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - roomsTrack.offsetLeft;
+        scrollLeft = roomsTrack.scrollLeft;
+      });
+
+      roomsTrack.addEventListener('mouseleave', () => { isDragging = false; });
+      roomsTrack.addEventListener('mouseup', () => { isDragging = false; });
+
+      roomsTrack.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - roomsTrack.offsetLeft;
+        roomsTrack.scrollLeft = scrollLeft - (x - startX);
+      });
+    }
+  </script>
+
   <!-- Blog Section -->
   <section id="blog" class="bg-surface">
     <Section maxWidth={true}>
@@ -215,81 +337,6 @@ import StickyContactBar from '../components/StickyContactBar.astro';
             Đọc Thêm <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
           </a>
         </article>
-      </div>
-    </Section>
-  </section>
-
-  <!-- Vị Trí & Liên Hệ -->
-  <section id="lien-he" class="bg-primary text-white">
-    <Section maxWidth={true}>
-      <div class="text-center mb-10">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-white">
-          Vị Trí & Liên Hệ
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mt-3"></div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-        <!-- Left: contact info -->
-        <div>
-          <div class="space-y-5 mb-8">
-            <a href="tel:TBD" class="flex items-center gap-3 text-white hover:text-accent transition-colors duration-200">
-              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                </svg>
-              </div>
-              <div>
-                <p class="text-xs text-white/50 uppercase tracking-wide">Điện thoại</p>
-                <p class="font-semibold">TBD</p>
-              </div>
-            </a>
-            <a href="https://zalo.me/TBD" class="flex items-center gap-3 text-white hover:text-accent transition-colors duration-200">
-              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="text-xs text-white/50 uppercase tracking-wide">Zalo</p>
-                <p class="font-semibold">TBD</p>
-              </div>
-            </a>
-            <div class="flex items-center gap-3 text-white/80">
-              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-              </div>
-              <div>
-                <p class="text-xs text-white/50 uppercase tracking-wide">Địa chỉ</p>
-                <p class="font-semibold">TBD</p>
-              </div>
-            </div>
-          </div>
-          <div class="border-t border-white/20 pt-6 mb-8">
-            <p class="text-white/60 text-sm">⏰ Check-in: 14:00 | Check-out: 12:00</p>
-            <p class="text-white/50 text-sm mt-1">Liên hệ trực tiếp cho các yêu cầu đặc biệt</p>
-          </div>
-          <div class="flex gap-3">
-            <a
-              href="tel:TBD"
-              class="inline-flex items-center justify-center gap-2 border border-white text-white bg-transparent hover:bg-white/20 transition-all duration-200 hover:-translate-y-0.5 font-semibold rounded-lg px-5 py-2.5 text-sm"
-            >
-              Gọi Ngay
-            </a>
-            <a
-              href="https://zalo.me/TBD"
-              class="inline-flex items-center justify-center gap-2 bg-accent text-white shadow-sm hover:bg-accent-dark hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 font-semibold rounded-lg px-5 py-2.5 text-sm"
-            >
-              Nhắn Zalo
-            </a>
-          </div>
-        </div>
-        <!-- Right: map placeholder -->
-        <div class="bg-white/10 rounded-xl h-64 md:h-auto min-h-[280px] flex items-center justify-center">
-          <p class="text-white/40 text-sm">Google Map (cập nhật sau)</p>
-        </div>
       </div>
     </Section>
   </section>
