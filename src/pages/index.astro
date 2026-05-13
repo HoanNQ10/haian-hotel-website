@@ -238,7 +238,7 @@ const rooms = [
       });
 
       track.addEventListener('mouseleave', () => { isDragging = false; });
-      track.addEventListener('mouseup', () => { isDragging = false; });
+      document.addEventListener('mouseup', () => { isDragging = false; });
 
       track.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
@@ -270,7 +270,7 @@ const rooms = [
       });
 
       roomsTrack.addEventListener('mouseleave', () => { isDragging = false; });
-      roomsTrack.addEventListener('mouseup', () => { isDragging = false; });
+      document.addEventListener('mouseup', () => { isDragging = false; });
 
       roomsTrack.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
