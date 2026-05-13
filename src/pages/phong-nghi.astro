@@ -38,7 +38,7 @@ const rooms = [
   <section class="bg-surface border-b border-border">
     <div class="max-w-container mx-auto px-4 md:px-8 py-10">
       <a href="/" class="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary transition-colors duration-200 mb-4">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
         Trang Chủ
@@ -55,7 +55,7 @@ const rooms = [
       <div class="space-y-12">
         {rooms.map((room, index) => (
           <>
-            <div class={`flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center${index % 2 !== 0 ? ' [&>*:first-child]:md:order-2' : ''}`}>
+            <div class={`flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center${index % 2 !== 0 ? ' [&>*:first-child]:md:order-last' : ''}`}>
               <div class={`w-full aspect-video rounded-xl ${room.gradient}`}></div>
               <div>
                 <h2 class="text-2xl font-heading font-bold text-primary mb-3">{room.name}</h2>
