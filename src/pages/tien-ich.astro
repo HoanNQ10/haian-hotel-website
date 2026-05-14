@@ -7,17 +7,23 @@ const services = [
   {
     name: "Spa",
     description: "Thư giãn và phục hồi năng lượng với các liệu pháp spa chuyên nghiệp ngay tại khách sạn.",
-    gradient: "bg-gradient-to-br from-accent-soft to-border"
+    gradient: "bg-gradient-to-br from-accent-soft to-border",
+    ctaLabel: "Xem Menu",
+    ctaHref: "#"
   },
   {
     name: "Thuê Xe",
     description: "Thuê xe máy và ô tô linh hoạt theo ngày — khám phá Đà Lạt và Bảo Lộc theo cách của bạn.",
-    gradient: "bg-gradient-to-br from-primary/10 to-primary/20"
+    gradient: "bg-gradient-to-br from-primary/10 to-primary/20",
+    ctaLabel: "Liên Hệ →",
+    ctaHref: "/lien-he"
   },
   {
     name: "Đưa Đón",
     description: "Dịch vụ đưa đón sân bay và các điểm du lịch — đặt lịch trước, đúng giờ, an toàn.",
-    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft"
+    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft",
+    ctaLabel: "Liên Hệ →",
+    ctaHref: "/lien-he"
   }
 ];
 ---
@@ -40,31 +46,34 @@ const services = [
     </div>
   </section>
 
-  <!-- Service List -->
-  <section class="bg-background" aria-label="Danh sách dịch vụ">
-    <div class="max-w-container mx-auto px-4 md:px-8 py-14">
-      <div class="space-y-12">
-        {services.map((service, index) => (
-          <>
-            <div class={`flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center${index % 2 !== 0 ? ' [&>*:first-child]:md:order-last' : ''}`}>
-              <div class={`w-full aspect-video rounded-xl ${service.gradient}`} aria-hidden="true"></div>
-              <div>
-                <h2 class="text-2xl font-heading font-bold text-primary mb-3">{service.name}</h2>
-                <p class="text-text-muted leading-relaxed mb-6">{service.description}</p>
-                <a
-                  href="/lien-he"
-                  class="inline-flex items-center justify-center gap-2 bg-accent text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-accent-dark transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  Liên Hệ →
-                </a>
-              </div>
-            </div>
-            {index < services.length - 1 && <hr class="border-border" />}
-          </>
-        ))}
+  <!-- Service Sections -->
+  {services.map((service, index) => (
+    <section
+      class={`bg-surface${index < services.length - 1 ? ' border-b border-border' : ''}`}
+      aria-label={`Dịch vụ ${service.name}`}
+    >
+      <div class={`flex flex-col min-h-[480px]${index % 2 !== 0 ? ' md:flex-row-reverse' : ' md:flex-row'}`}>
+        <!-- Text column -->
+        <div class="flex-1 flex items-center px-8 md:px-16 lg:px-24 py-16">
+          <div class="max-w-md">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">{service.name}</h2>
+            <div class="w-10 h-0.5 bg-accent mb-6"></div>
+            <p class="text-text-muted leading-relaxed mb-8">{service.description}</p>
+            <a
+              href={service.ctaHref}
+              class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-accent-soft transition-all duration-200"
+            >
+              {service.ctaLabel}
+            </a>
+          </div>
+        </div>
+        <!-- Image column: fills 100% height, flush to edge, no padding -->
+        <div class="relative flex-1 min-h-[280px] md:min-h-0">
+          <div class={`absolute inset-0 ${service.gradient}`} aria-hidden="true"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  ))}
 
   <Footer />
 </Layout>
