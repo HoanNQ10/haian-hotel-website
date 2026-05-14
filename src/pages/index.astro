@@ -9,28 +9,18 @@ import StickyContactBar from '../components/StickyContactBar.astro';
 
 const rooms = [
   {
-    name: "Phòng Đơn Có Ban Công",
-    description: "Phòng đơn thoáng mát với ban công riêng, view thành phố. Không gian yên tĩnh, phù hợp cho khách đi một mình hoặc công tác.",
-    tags: ["Đơn", "Có ban công"],
-    gradient: "bg-gradient-to-br from-accent-soft to-border"
+    name: "Phòng Đơn",
+    description: "Phòng đơn gọn gàng, thoáng mát — phù hợp cho khách đi một mình hoặc công tác. Một số phòng có ban công riêng nhìn ra không gian xanh.",
+    tags: ["1 giường đơn", "1–2 người"],
+    gradient: "bg-gradient-to-br from-accent-soft to-border",
+    href: "/phong-don"
   },
   {
-    name: "Phòng Đơn Không Ban Công",
-    description: "Phòng đơn ấm cúng, sạch sẽ, đầy đủ tiện nghi cơ bản. Lý tưởng cho lưu trú ngắn ngày với mức giá tiết kiệm.",
-    tags: ["Đơn"],
-    gradient: "bg-gradient-to-br from-primary/10 to-primary/20"
-  },
-  {
-    name: "Phòng Đôi Có Ban Công",
-    description: "Phòng đôi rộng rãi với ban công mở ra không gian xanh. Thích hợp cho cặp đôi hoặc bạn bè đi cùng.",
-    tags: ["Đôi", "Có ban công"],
-    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft"
-  },
-  {
-    name: "Phòng Đôi Không Ban Công",
-    description: "Phòng đôi tiêu chuẩn, đầy đủ tiện nghi, yên tĩnh. Phù hợp cho gia đình nhỏ hoặc hai người bạn đồng hành.",
-    tags: ["Đôi"],
-    gradient: "bg-gradient-to-br from-border to-accent-soft"
+    name: "Phòng Đôi",
+    description: "Phòng rộng rãi với 2 giường đơn — lý tưởng cho gia đình nhỏ hoặc nhóm bạn. Một số phòng có ban công riêng, ánh sáng tự nhiên tràn vào thoáng mát.",
+    tags: ["2 giường đơn", "3–4 người"],
+    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft",
+    href: "/phong-doi"
   }
 ];
 ---
@@ -46,11 +36,11 @@ const rooms = [
     <Section maxWidth={true}>
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
-          Chào Mừng Đến Hải An Villa Hotel
+          Chào Mừng Đến Với Hải An
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
         <p class="text-text-muted leading-relaxed mb-4">
-          Hải An Hotel là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
+          Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
           Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
           lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
         </p>
@@ -137,7 +127,7 @@ const rooms = [
                   ))}
                 </div>
                 <a
-                  href="/phong-nghi"
+                  href={room.href}
                   class="inline-flex items-center justify-center gap-2 bg-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-accent-dark transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 w-full"
                 >
                   Xem Chi Tiết
