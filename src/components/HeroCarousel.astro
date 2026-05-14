@@ -18,7 +18,7 @@ const slides = [
 
 <div class="relative w-full overflow-hidden">
   <!-- Carousel Container -->
-  <div class="relative h-96 md:h-[500px] lg:h-[600px]">
+  <div class="relative min-h-[80vh]">
     <!-- Slides Wrapper -->
     <div id="slides-wrapper" class="relative w-full h-full overflow-hidden">
       {slides.map((slide, index) => (
@@ -36,6 +36,9 @@ const slides = [
         </div>
       ))}
     </div>
+
+    <!-- Dark gradient overlay — no text, purely visual depth -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent pointer-events-none z-10" aria-hidden="true"></div>
 
     <!-- Previous Button -->
     <button
