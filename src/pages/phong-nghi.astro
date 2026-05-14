@@ -31,11 +31,11 @@ const rooms = [
 ];
 ---
 
-<Layout title="Phòng Nghỉ — Hải An Villa Hotel">
+<Layout title="Phòng Nghỉ — Hải An Villa Hotel" description="Các loại phòng nghỉ tại Hải An Villa Hotel — phòng đơn, phòng đôi, có hoặc không có ban công.">
   <Header />
 
   <!-- Page Hero -->
-  <section class="bg-surface border-b border-border">
+  <section class="bg-surface border-b border-border" aria-label="Giới thiệu trang">
     <div class="max-w-container mx-auto px-4 md:px-8 py-10">
       <a href="/" class="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary transition-colors duration-200 mb-4">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -50,13 +50,13 @@ const rooms = [
   </section>
 
   <!-- Room List -->
-  <section class="bg-background">
+  <section class="bg-background" aria-label="Danh sách phòng">
     <div class="max-w-container mx-auto px-4 md:px-8 py-14">
       <div class="space-y-12">
         {rooms.map((room, index) => (
           <>
             <div class={`flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center${index % 2 !== 0 ? ' [&>*:first-child]:md:order-last' : ''}`}>
-              <div class={`w-full aspect-video rounded-xl ${room.gradient}`}></div>
+              <div class={`w-full aspect-video rounded-xl ${room.gradient}`} role="img" aria-label={`Ảnh minh họa ${room.name}`}></div>
               <div>
                 <h2 class="text-2xl font-heading font-bold text-primary mb-3">{room.name}</h2>
                 <p class="text-text-muted leading-relaxed mb-4">{room.description}</p>

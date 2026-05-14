@@ -22,11 +22,11 @@ const services = [
 ];
 ---
 
-<Layout title="Tiện Ích — Hải An Villa Hotel">
+<Layout title="Tiện Ích — Hải An Villa Hotel" description="Spa, thuê xe máy và ô tô, dịch vụ đưa đón tại Hải An Villa Hotel.">
   <Header />
 
   <!-- Page Hero -->
-  <section class="bg-surface border-b border-border">
+  <section class="bg-surface border-b border-border" aria-label="Giới thiệu trang">
     <div class="max-w-container mx-auto px-4 md:px-8 py-10">
       <a href="/" class="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary transition-colors duration-200 mb-4">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -41,13 +41,13 @@ const services = [
   </section>
 
   <!-- Service List -->
-  <section class="bg-background">
+  <section class="bg-background" aria-label="Danh sách dịch vụ">
     <div class="max-w-container mx-auto px-4 md:px-8 py-14">
       <div class="space-y-12">
         {services.map((service, index) => (
           <>
             <div class={`flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center${index % 2 !== 0 ? ' [&>*:first-child]:md:order-last' : ''}`}>
-              <div class={`w-full aspect-video rounded-xl ${service.gradient}`}></div>
+              <div class={`w-full aspect-video rounded-xl ${service.gradient}`} role="img" aria-label={`Ảnh minh họa dịch vụ ${service.name}`}></div>
               <div>
                 <h2 class="text-2xl font-heading font-bold text-primary mb-3">{service.name}</h2>
                 <p class="text-text-muted leading-relaxed mb-6">{service.description}</p>
