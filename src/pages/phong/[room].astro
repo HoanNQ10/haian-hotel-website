@@ -22,13 +22,13 @@ const { room } = Astro.props;
 
   <!-- Gallery + Details (side by side) -->
   <section class="bg-surface border-b border-border" aria-label="Ảnh và chi tiết phòng">
-    <div class="px-4 md:px-10 lg:px-20 py-10">
-      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+    <div class="max-w-container mx-auto px-4 md:px-8 py-10">
+      <div class="grid md:grid-cols-[3fr_2fr] gap-8 md:gap-12 items-start">
 
         <!-- Left: Gallery -->
         <div>
           <!-- Main image -->
-          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-border mb-3">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-border mb-3">
             {room.slides.map((slide, i) => (
               <div class={`gallery-slide absolute inset-0${i !== 0 ? ' hidden' : ''}`} data-index={i}>
                 {slide.type === 'gradient'
@@ -58,7 +58,7 @@ const { room } = Astro.props;
           </div>
 
           <!-- Thumbnails -->
-          <div class="grid grid-cols-5 gap-2">
+          <div class="grid grid-cols-5 gap-1.5">
             {room.slides.map((slide, i) => (
               <button
                 class={`gallery-thumb rounded-lg overflow-hidden aspect-[4/3] ring-offset-1 transition-all duration-200${i === 0 ? ' ring-2 ring-accent' : ' ring-1 ring-border hover:ring-accent/50'}`}
@@ -75,16 +75,46 @@ const { room } = Astro.props;
         </div>
 
         <!-- Right: Details -->
-        <div>
-          <p class="text-text-muted leading-relaxed mb-6">{room.description}</p>
-          <dl class="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 text-sm">
-            <dt class="text-text-muted">Loại giường</dt>
-            <dd class="text-primary font-medium">{room.bedType}</dd>
-            <dt class="text-text-muted">Sức chứa</dt>
-            <dd class="text-primary font-medium">{room.capacity}</dd>
-            <dt class="text-text-muted">Tầng</dt>
-            <dd class="text-primary font-medium">{room.floor}</dd>
-          </dl>
+        <div class="pt-1">
+          <h1 class="text-2xl font-heading font-bold text-primary mb-2">Phòng {room.number}</h1>
+          <p class="text-sm text-text-muted mb-1">{room.typeName}</p>
+          <div class="w-8 h-0.5 bg-accent mb-5"></div>
+          <p class="text-text-muted text-sm leading-relaxed mb-6">{room.description}</p>
+
+          <!-- Detail rows with dividers -->
+          <div class="divide-y divide-border text-sm">
+            <div class="flex items-center gap-4 py-3">
+              <svg class="w-5 h-5 flex-shrink-0 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 7v10h18V7M3 11h18"/>
+              </svg>
+              <span class="text-text-muted w-24 flex-shrink-0">Loại giường</span>
+              <span class="text-primary font-medium">{room.bedType}</span>
+            </div>
+            <div class="flex items-center gap-4 py-3">
+              <svg class="w-5 h-5 flex-shrink-0 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zm14 10v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+              <span class="text-text-muted w-24 flex-shrink-0">Sức chứa</span>
+              <span class="text-primary font-medium">{room.capacity}</span>
+            </div>
+            <div class="flex items-center gap-4 py-3">
+              <svg class="w-5 h-5 flex-shrink-0 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3M9 7h1m-1 4h1m4-4h1m-1 4h1"/>
+              </svg>
+              <span class="text-text-muted w-24 flex-shrink-0">Tầng</span>
+              <span class="text-primary font-medium">{room.floor}</span>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-8">
+            <a
+              href="/lien-he"
+              class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-200"
+            >
+              Liên Hệ Đặt Phòng
+            </a>
+          </div>
         </div>
 
       </div>
@@ -136,18 +166,6 @@ const { room } = Astro.props;
           </li>
         )}
       </ul>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="bg-surface" aria-label="Đặt phòng">
-    <div class="max-w-container mx-auto px-4 md:px-8 py-10">
-      <a
-        href="/lien-he"
-        class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-200"
-      >
-        Liên Hệ Đặt Phòng
-      </a>
     </div>
   </section>
 
