@@ -20,27 +20,30 @@ const { room } = Astro.props;
 >
   <Header />
 
-  <!-- Carousel + Details (side by side) -->
+  <!-- Gallery + Details (side by side) -->
   <section class="bg-surface border-b border-border" aria-label="Ảnh và chi tiết phòng">
     <div class="max-w-container mx-auto px-4 md:px-8 py-10">
       <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
 
-        <!-- Left: Carousel -->
+        <!-- Left: Gallery -->
         <div>
-          <div class="relative overflow-hidden rounded-2xl aspect-[4/3]">
-            <div id="carousel-track" class="flex h-full transition-transform duration-300 ease-in-out">
-              {room.slides.map((slide) => (
-                <div class="flex-shrink-0 w-full h-full">
-                  {slide.type === 'gradient'
-                    ? <div class={`w-full h-full ${slide.value}`}></div>
-                    : <img src={slide.src} alt={slide.alt} class="w-full h-full object-cover" />
-                  }
-                </div>
-              ))}
-            </div>
+          <!-- Main image -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-border mb-3">
+            {room.slides.map((slide, i) => (
+              <div class={`gallery-slide absolute inset-0${i !== 0 ? ' hidden' : ''}`} data-index={i}>
+                {slide.type === 'gradient'
+                  ? <div class={`w-full h-full ${slide.value}`}></div>
+                  : <img src={slide.src} alt={slide.alt} class="w-full h-full object-cover" />
+                }
+              </div>
+            ))}
+          </div>
+
+          <!-- Prev / Next arrows -->
+          <div class="flex justify-center gap-3 mb-3">
             <button
-              id="carousel-prev"
-              class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary rounded-full w-9 h-9 flex items-center justify-center shadow transition-all duration-200"
+              id="gallery-prev"
+              class="bg-white border border-border text-primary rounded-full w-9 h-9 flex items-center justify-center hover:border-primary hover:shadow transition-all duration-200"
               aria-label="Ảnh trước"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -48,17 +51,30 @@ const { room } = Astro.props;
               </svg>
             </button>
             <button
-              id="carousel-next"
-              class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary rounded-full w-9 h-9 flex items-center justify-center shadow transition-all duration-200"
+              id="gallery-next"
+              class="bg-white border border-border text-primary rounded-full w-9 h-9 flex items-center justify-center hover:border-primary hover:shadow transition-all duration-200"
               aria-label="Ảnh tiếp"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
-            <span id="carousel-counter" class="absolute bottom-3 right-4 bg-black/40 text-white text-xs px-2 py-1 rounded-full">
-              1 / {room.slides.length}
-            </span>
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="grid grid-cols-5 gap-2">
+            {room.slides.map((slide, i) => (
+              <button
+                class={`gallery-thumb rounded-lg overflow-hidden aspect-[4/3] ring-offset-1 transition-all duration-200${i === 0 ? ' ring-2 ring-accent' : ' ring-1 ring-border hover:ring-accent/50'}`}
+                data-index={i}
+                aria-label={`Xem ảnh ${i + 1}`}
+              >
+                {slide.type === 'gradient'
+                  ? <div class={`w-full h-full ${slide.value}`}></div>
+                  : <img src={slide.src} alt={`Ảnh ${i + 1}`} class="w-full h-full object-cover" />
+                }
+              </button>
+            ))}
           </div>
         </div>
 
@@ -143,20 +159,30 @@ const { room } = Astro.props;
 </Layout>
 
 <script>
-  const track = document.getElementById('carousel-track') as HTMLElement | null;
-  const counter = document.getElementById('carousel-counter') as HTMLElement | null;
+  const slides = document.querySelectorAll<HTMLElement>('.gallery-slide');
+  const thumbs = document.querySelectorAll<HTMLElement>('.gallery-thumb');
 
-  if (track && counter) {
-    const total = track.children.length;
+  if (slides.length > 0 && thumbs.length > 0) {
     let current = 0;
+    const total = slides.length;
 
     function goTo(n: number) {
+      slides[current].classList.add('hidden');
+      thumbs[current].classList.remove('ring-2', 'ring-accent');
+      thumbs[current].classList.add('ring-1', 'ring-border');
+
       current = (n + total) % total;
-      track!.style.transform = `translateX(-${current * 100}%)`;
-      counter!.textContent = `${current + 1} / ${total}`;
+
+      slides[current].classList.remove('hidden');
+      thumbs[current].classList.remove('ring-1', 'ring-border');
+      thumbs[current].classList.add('ring-2', 'ring-accent');
     }
 
-    document.getElementById('carousel-prev')?.addEventListener('click', () => goTo(current - 1));
-    document.getElementById('carousel-next')?.addEventListener('click', () => goTo(current + 1));
+    thumbs.forEach((thumb, i) => {
+      thumb.addEventListener('click', () => goTo(i));
+    });
+
+    document.getElementById('gallery-prev')?.addEventListener('click', () => goTo(current - 1));
+    document.getElementById('gallery-next')?.addEventListener('click', () => goTo(current + 1));
   }
 </script>
