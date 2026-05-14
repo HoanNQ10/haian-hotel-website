@@ -1,0 +1,121 @@
+# Tiện ích Spa Hero Layout Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Redesign the 3 service cards on `/tien-ich` from contained aspect-video cards to full-width hero sections (text left, image right, flush to edge), and change the Spa CTA button to "Xem Menu".
+
+**Architecture:** Replace the `<section class="bg-background">` service list block in `src/pages/tien-ich.astro` with 3 individual full-width sections rendered via `.map()`. Each section uses `flex flex-col md:flex-row` (or `flex-row-reverse` for odd index) with `min-h-[480px]`. The image column uses `absolute inset-0` to fill 100% height flush to the viewport edge. Add `ctaLabel` and `ctaHref` fields to the services data array.
+
+**Tech Stack:** Astro 4, Tailwind CSS 3
+
+---
+
+## File Map
+
+- **Modify:** `src/pages/tien-ich.astro` — update services data + replace service list section
+
+---
+
+### Task 1: Rewrite `src/pages/tien-ich.astro` with hero layout
+
+**Files:**
+- Modify: `src/pages/tien-ich.astro`
+
+- [ ] **Step 1: Replace the file content**
+
+Replace the entire content of `src/pages/tien-ich.astro` with:
+
+```astro
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    name: "Spa",
+    description: "Thư giãn và phục hồi năng lượng với các liệu pháp spa chuyên nghiệp ngay tại khách sạn.",
+    gradient: "bg-gradient-to-br from-accent-soft to-border",
+    ctaLabel: "Xem Menu",
+    ctaHref: "#"
+  },
+  {
+    name: "Thuê Xe",
+    description: "Thuê xe máy và ô tô linh hoạt theo ngày — khám phá Đà Lạt và Bảo Lộc theo cách của bạn.",
+    gradient: "bg-gradient-to-br from-primary/10 to-primary/20",
+    ctaLabel: "Liên Hệ →",
+    ctaHref: "/lien-he"
+  },
+  {
+    name: "Đưa Đón",
+    description: "Dịch vụ đưa đón sân bay và các điểm du lịch — đặt lịch trước, đúng giờ, an toàn.",
+    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft",
+    ctaLabel: "Liên Hệ →",
+    ctaHref: "/lien-he"
+  }
+];
+---
+
+<Layout title="Tiện ích — Hải An Villa Hotel" description="Spa, thuê xe máy và ô tô, dịch vụ đưa đón tại Hải An Villa Hotel.">
+  <Header />
+
+  <!-- Page Hero -->
+  <section class="bg-surface border-b border-border" aria-label="Giới thiệu trang">
+    <div class="max-w-container mx-auto px-4 md:px-8 py-10">
+      <a href="/" class="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary transition-colors duration-200 mb-4">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Trang Chủ
+      </a>
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-3">Tiện ích</h1>
+      <div class="w-12 h-0.5 bg-accent mb-4"></div>
+      <p class="text-text-muted max-w-xl">Các dịch vụ và tiện ích tại Hải An Villa Hotel.</p>
+    </div>
+  </section>
+
+  <!-- Service Sections -->
+  {services.map((service, index) => (
+    <section
+      class={`bg-surface${index < services.length - 1 ? ' border-b border-border' : ''}`}
+      aria-label={`Dịch vụ ${service.name}`}
+    >
+      <div class={`flex flex-col min-h-[480px]${index % 2 !== 0 ? ' md:flex-row-reverse' : ' md:flex-row'}`}>
+        <!-- Text column -->
+        <div class="flex-1 flex items-center px-8 md:px-16 lg:px-24 py-16">
+          <div class="max-w-md">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">{service.name}</h2>
+            <div class="w-10 h-0.5 bg-accent mb-6"></div>
+            <p class="text-text-muted leading-relaxed mb-8">{service.description}</p>
+            <a
+              href={service.ctaHref}
+              class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-accent-soft transition-all duration-200"
+            >
+              {service.ctaLabel}
+            </a>
+          </div>
+        </div>
+        <!-- Image column: fills 100% height, flush to edge, no padding -->
+        <div class="relative flex-1 min-h-[280px] md:min-h-0">
+          <div class={`absolute inset-0 ${service.gradient}`} aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <Footer />
+</Layout>
+```
+
+- [ ] **Step 2: Verify build passes**
+
+Run: `npm run build`
+
+Expected: build completes with no errors, `dist/tien-ich/index.html` generated alongside the other 3 pages.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add src/pages/tien-ich.astro
+git commit -m "feat: redesign tien-ich service cards to full-width hero layout with Xem Menu CTA for Spa"
+```
