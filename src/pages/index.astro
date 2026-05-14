@@ -17,15 +17,15 @@ import StickyContactBar from '../components/StickyContactBar.astro';
   <!-- Giới Thiệu -->
   <section id="gioi-thieu" class="bg-white">
     <Section maxWidth={true}>
-      <div class="grid md:grid-cols-[2fr_3fr] gap-12 md:gap-16 items-center">
+      <div class="grid md:grid-cols-[2fr_3fr] gap-12 md:gap-20 items-center">
 
-        <!-- Left: Text + arrows -->
+        <!-- Left: Text -->
         <div>
-          <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4 leading-tight">
             Chào Mừng Đến Với Hải An
           </h2>
-          <div class="w-12 h-0.5 bg-accent mb-6"></div>
-          <p class="text-text-muted text-lg leading-relaxed mb-4">
+          <div class="w-12 h-0.5 bg-accent mb-8"></div>
+          <p class="text-text-muted text-lg leading-relaxed mb-5">
             Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
             Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
             lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
@@ -36,18 +36,115 @@ import StickyContactBar from '../components/StickyContactBar.astro';
           </p>
         </div>
 
-        <!-- Right: single image -->
-        <div class="rounded-2xl overflow-hidden h-[420px] md:h-[500px]">
-          <img
-            src="/images/gioi-thieu/IMG_9742.JPG"
-            alt="Hải An Villa Hotel"
-            class="w-full h-full object-cover"
-          />
+        <!-- Right: editorial peek gallery -->
+        <div id="intro-gallery" class="relative overflow-hidden h-[440px] md:h-[520px]">
+          <div class="absolute rounded-xl overflow-hidden" data-intro-slide="0" style="opacity:0;z-index:1;">
+            <img src="/images/gioi-thieu/IMG_975.jpg" alt="Hải An Villa Hotel" class="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div class="absolute rounded-xl overflow-hidden" data-intro-slide="1" style="opacity:0;z-index:1;">
+            <img src="/images/gioi-thieu/IMG_999.jpg" alt="Hải An Villa Hotel" class="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div class="absolute rounded-xl overflow-hidden" data-intro-slide="2" style="opacity:0;z-index:1;">
+            <img src="/images/gioi-thieu/IMG_9993.JPG" alt="Hải An Villa Hotel" class="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/25 to-transparent pointer-events-none z-10" aria-hidden="true"></div>
+          <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+            <button data-intro-dot="0" class="h-1.5 rounded-full transition-all duration-300" aria-label="Ảnh 1"></button>
+            <button data-intro-dot="1" class="h-1.5 rounded-full transition-all duration-300" aria-label="Ảnh 2"></button>
+            <button data-intro-dot="2" class="h-1.5 rounded-full transition-all duration-300" aria-label="Ảnh 3"></button>
+          </div>
         </div>
 
       </div>
     </Section>
   </section>
+
+  <script>
+    (function () {
+      const gallery = document.getElementById('intro-gallery');
+      if (!gallery) return;
+
+      const slideEls = Array.from(gallery.querySelectorAll<HTMLElement>('[data-intro-slide]'));
+      const dotEls   = Array.from(gallery.querySelectorAll<HTMLElement>('[data-intro-dot]'));
+
+      const TOTAL = slideEls.length;
+      const SIDE  = 0.13;
+      const TRANS = 'left 650ms ease-in-out, width 650ms ease-in-out, height 650ms ease-in-out, top 650ms ease-in-out, opacity 650ms ease-in-out';
+
+      let current = 0;
+      let timer: ReturnType<typeof setInterval>;
+
+      function applyLayout(animated: boolean) {
+        const W     = gallery.offsetWidth;
+        const isMob = window.innerWidth < 768;
+        const sideW = isMob ? 0 : Math.round(W * SIDE);
+        const mainW = W - sideW * 2;
+
+        slideEls.forEach((el, i) => {
+          el.style.transition = animated ? TRANS : 'none';
+          const off = ((i - current) + TOTAL) % TOTAL;
+
+          if (isMob) {
+            Object.assign(el.style, {
+              left: '0', top: '0', width: '100%', height: '100%',
+              opacity: off === 0 ? '1' : '0',
+              zIndex: off === 0 ? '8' : '1',
+              boxShadow: 'none',
+            });
+          } else if (off === 0) {
+            Object.assign(el.style, {
+              left: sideW + 'px', top: '0',
+              width: mainW + 'px', height: '100%',
+              opacity: '1', zIndex: '8',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.22)',
+            });
+          } else if (off === 1) {
+            Object.assign(el.style, {
+              left: (sideW + mainW) + 'px', top: '7%',
+              width: sideW + 'px', height: '86%',
+              opacity: '0.6', zIndex: '5',
+              boxShadow: 'none',
+            });
+          } else if (off === TOTAL - 1) {
+            Object.assign(el.style, {
+              left: '0', top: '7%',
+              width: sideW + 'px', height: '86%',
+              opacity: '0.6', zIndex: '5',
+              boxShadow: 'none',
+            });
+          } else {
+            const enterRight = off < Math.ceil(TOTAL / 2);
+            Object.assign(el.style, {
+              left: enterRight ? (W + sideW) + 'px' : (-sideW * 2) + 'px', top: '7%',
+              width: sideW + 'px', height: '86%',
+              opacity: '0', zIndex: '1',
+              boxShadow: 'none',
+            });
+          }
+        });
+
+        dotEls.forEach((d, i) => {
+          d.className = i === current
+            ? 'h-1.5 rounded-full transition-all duration-300 w-6 bg-white'
+            : 'h-1.5 rounded-full transition-all duration-300 w-3 bg-white/60 hover:bg-white/90';
+        });
+      }
+
+      function goTo(idx: number) {
+        current = ((idx % TOTAL) + TOTAL) % TOTAL;
+        applyLayout(true);
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 4000);
+      }
+
+      dotEls.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+      window.addEventListener('resize', () => applyLayout(false));
+
+      applyLayout(false);
+      requestAnimationFrame(() => requestAnimationFrame(() => applyLayout(true)));
+      timer = setInterval(() => goTo(current + 1), 4000);
+    })();
+  </script>
 
   <!-- Properties Section -->
   <section id="co-so" class="bg-surface">
