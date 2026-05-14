@@ -1,24 +1,15 @@
 ---
 // HeroCarousel.astro
 const slides = [
-  {
-    image: '/images/hero/hero-01.jpg',
-    alt: 'Hải An Villa Hotel'
-  },
-  {
-    image: '/images/hero/hero-02.jpg',
-    alt: 'Hải An Villa Hotel'
-  },
-  {
-    image: '/images/hero/hero-03.jpg',
-    alt: 'Hải An Villa Hotel'
-  }
+  { image: '/images/hero/hero-1.jpg', alt: 'Hải An Villa Hotel' },
+  { image: '/images/hero/hero-2.jpg', alt: 'Hải An Villa Hotel' },
+  { image: '/images/hero/hero-5.jpg', alt: 'Hải An Villa Hotel' },
 ];
 ---
 
 <div class="relative w-full overflow-hidden">
   <!-- Carousel Container -->
-  <div class="relative h-[80vh]">
+  <div class="relative h-screen">
     <!-- Slides Wrapper -->
     <div id="slides-wrapper" class="relative w-full h-full overflow-hidden">
       {slides.map((slide, index) => (
@@ -37,8 +28,18 @@ const slides = [
       ))}
     </div>
 
-    <!-- Dark gradient overlay — no text, purely visual depth -->
+    <!-- Dark gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent pointer-events-none z-10" aria-hidden="true"></div>
+
+    <!-- Center text -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none">
+      <h1 class="text-white text-center font-heading font-bold tracking-[0.25em] leading-tight drop-shadow-lg" style="font-size: clamp(32px, 5vw, 72px);">
+        HẢI AN
+      </h1>
+      <p class="text-white text-center font-heading tracking-[0.5em] drop-shadow-lg" style="font-size: clamp(12px, 1.5vw, 24px); margin-top: 0.2em;">
+        HOTEL
+      </p>
+    </div>
 
     <!-- Previous Button -->
     <button
