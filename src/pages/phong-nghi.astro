@@ -30,6 +30,23 @@ const roomTypes = [
 <Layout title="Phòng Nghỉ — Hải An Villa Hotel" description="Các loại phòng nghỉ tại Hải An Villa Đà Lạt — phòng đơn, phòng đôi, có hoặc không có ban công.">
   <Header />
 
+  <!-- Hero -->
+  <section class="relative overflow-hidden min-h-[400px] md:min-h-[480px] flex items-center justify-center" aria-label="Phòng nghỉ">
+    <!-- Background gradient placeholder — replace src with real image -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-accent/40" aria-hidden="true"></div>
+    <!-- Dark overlay for text contrast -->
+    <div class="absolute inset-0 bg-primary/40" aria-hidden="true"></div>
+    <!-- Content -->
+    <div class="relative text-center px-4 md:px-8">
+      <p class="text-white/70 text-sm uppercase tracking-widest mb-3">Hải An Villa Đà Lạt</p>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Phòng Nghỉ</h1>
+      <div class="w-12 h-0.5 bg-accent mx-auto mb-5"></div>
+      <p class="text-white/75 text-base md:text-lg max-w-lg mx-auto leading-relaxed">
+        Sạch sẽ, ấm cúng, đầy đủ tiện nghi — không gian nghỉ ngơi lý tưởng giữa lòng Đà Lạt.
+      </p>
+    </div>
+  </section>
+
   {roomTypes.map((room, index) => (
     <section
       class={`${index % 2 === 0 ? 'bg-surface' : 'bg-background'}${index < roomTypes.length - 1 ? ' border-b border-border' : ''}`}
