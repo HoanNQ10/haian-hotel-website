@@ -1,0 +1,193 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const slides = [
+  { type: 'gradient' as const, value: 'bg-gradient-to-br from-accent/20 to-accent-soft' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-br from-accent-soft to-accent/30' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-br from-accent/10 to-border' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-tl from-accent/25 to-accent-soft' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-tr from-accent-soft to-accent/20' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-bl from-accent/30 to-border' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-r from-accent/15 to-accent-soft' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-l from-accent-soft to-accent/25' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-b from-accent/20 to-accent/10' },
+  { type: 'gradient' as const, value: 'bg-gradient-to-t from-border to-accent-soft' },
+];
+
+const rooms = ["101", "102", "202", "204", "B101", "B201", "B202"];
+---
+
+<Layout title="Phòng Đôi — Hải An Villa Hotel" description="Phòng đôi rộng rãi tại Hải An Villa Đà Lạt — 2 giường đơn, phù hợp cho 3–4 người.">
+  <Header />
+
+  <!-- Gallery + Details -->
+  <section class="bg-surface border-b border-border" aria-label="Ảnh và chi tiết phòng">
+    <div class="max-w-container mx-auto px-4 md:px-8 py-10">
+      <div class="grid md:grid-cols-[3fr_2fr] gap-8 md:gap-28 items-start">
+
+        <!-- Left: Gallery -->
+        <div>
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-border mb-3">
+            {slides.map((slide, i) => (
+              <div class={`gallery-slide absolute inset-0${i !== 0 ? ' hidden' : ''}`} data-index={i}>
+                <div class={`w-full h-full ${slide.value}`}></div>
+              </div>
+            ))}
+            <button
+              id="gallery-prev"
+              class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary rounded-full w-9 h-9 flex items-center justify-center shadow transition-all duration-200"
+              aria-label="Ảnh trước"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <button
+              id="gallery-next"
+              class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary rounded-full w-9 h-9 flex items-center justify-center shadow transition-all duration-200"
+              aria-label="Ảnh tiếp"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-5 gap-1.5">
+            {slides.map((slide, i) => (
+              <button
+                class={`gallery-thumb rounded-lg overflow-hidden aspect-[4/3] ring-offset-1 transition-all duration-200${i === 0 ? ' ring-2 ring-accent' : ' ring-1 ring-border hover:ring-accent/50'}`}
+                data-index={i}
+                aria-label={`Xem ảnh ${i + 1}`}
+              >
+                <div class={`w-full h-full ${slide.value}`}></div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: Details -->
+        <div class="pt-1">
+          <h1 class="text-2xl font-heading font-bold text-primary mb-2">Phòng Đôi</h1>
+          <div class="w-8 h-0.5 bg-accent mb-5"></div>
+          <p class="text-text-muted text-sm leading-relaxed mb-6">
+            Phòng rộng rãi với 2 giường đơn — lý tưởng cho gia đình nhỏ hoặc nhóm bạn. Một số phòng có ban công riêng, ánh sáng tự nhiên tràn vào thoáng mát.
+          </p>
+
+          <div class="divide-y divide-border text-sm">
+            <div class="flex items-center gap-4 py-3">
+              <svg class="w-5 h-5 flex-shrink-0 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 7v10h18V7M3 11h18"/>
+              </svg>
+              <span class="text-text-muted w-24 flex-shrink-0">Loại giường</span>
+              <span class="text-primary font-medium">2 giường đơn</span>
+            </div>
+            <div class="flex items-center gap-4 py-3">
+              <svg class="w-5 h-5 flex-shrink-0 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zm14 10v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+              <span class="text-text-muted w-24 flex-shrink-0">Sức chứa</span>
+              <span class="text-primary font-medium">3–4 người</span>
+            </div>
+            <div class="flex items-center gap-4 py-3">
+              <svg class="w-5 h-5 flex-shrink-0 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3M9 7h1m-1 4h1m4-4h1m-1 4h1"/>
+              </svg>
+              <span class="text-text-muted w-24 flex-shrink-0">Tầng</span>
+              <span class="text-primary font-medium">Tầng trệt, Tầng 1, Tầng hầm 1, Tầng hầm 2</span>
+            </div>
+          </div>
+
+          <!-- Room badges -->
+          <div class="flex flex-wrap gap-2 mt-6 mb-8">
+            {rooms.map((num) => (
+              <span class="text-xs bg-accent-soft text-primary px-3 py-1 font-medium">{num}</span>
+            ))}
+          </div>
+
+          <a
+            href="/lien-he"
+            class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-200"
+          >
+            Liên Hệ Đặt Phòng
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <section class="bg-background" aria-label="Tiện nghi và cơ sở vật chất">
+    <div class="max-w-container mx-auto px-4 md:px-8 py-10">
+      <h2 class="text-lg font-heading font-semibold text-primary mb-2">Tiện nghi & Cơ sở vật chất</h2>
+      <div class="w-8 h-0.5 bg-accent mb-6"></div>
+      <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+        <li class="flex items-center gap-3 text-sm text-text-muted">
+          <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+          </svg>
+          WiFi miễn phí
+        </li>
+        <li class="flex items-center gap-3 text-sm text-text-muted">
+          <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/>
+          </svg>
+          Điều hòa
+        </li>
+        <li class="flex items-center gap-3 text-sm text-text-muted">
+          <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Nước nóng
+        </li>
+        <li class="flex items-center gap-3 text-sm text-text-muted">
+          <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          TV
+        </li>
+        <li class="flex items-center gap-3 text-sm text-text-muted">
+          <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 10V6a1 1 0 011-1h16a1 1 0 011 1v4M3 10l2 10h14l2-10"/>
+          </svg>
+          WC riêng
+        </li>
+        <li class="flex items-center gap-3 text-sm text-text-muted">
+          <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 12V8h18v4M3 12v4h18v-4M7 12v4M12 12v4M17 12v4"/>
+          </svg>
+          Ban công (một số phòng)
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>('.gallery-slide');
+  const thumbs = document.querySelectorAll<HTMLElement>('.gallery-thumb');
+
+  if (slides.length > 0 && thumbs.length > 0) {
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(n: number) {
+      slides[current].classList.add('hidden');
+      thumbs[current].classList.remove('ring-2', 'ring-accent');
+      thumbs[current].classList.add('ring-1', 'ring-border');
+      current = (n + total) % total;
+      slides[current].classList.remove('hidden');
+      thumbs[current].classList.remove('ring-1', 'ring-border');
+      thumbs[current].classList.add('ring-2', 'ring-accent');
+    }
+
+    thumbs.forEach((thumb, i) => thumb.addEventListener('click', () => goTo(i)));
+    document.getElementById('gallery-prev')?.addEventListener('click', () => goTo(current - 1));
+    document.getElementById('gallery-next')?.addEventListener('click', () => goTo(current + 1));
+  }
+</script>

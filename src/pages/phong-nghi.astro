@@ -11,6 +11,7 @@ const roomTypes = [
     capacity: "1–2 người",
     floors: "Tầng 1, Tầng 2, Tầng hầm 1",
     rooms: ["201", "203", "301", "302", "303", "304", "B102"],
+    detailHref: "/phong-don",
     gradient: "bg-gradient-to-br from-accent-soft to-border"
   },
   {
@@ -20,6 +21,7 @@ const roomTypes = [
     capacity: "3–4 người",
     floors: "Tầng trệt, Tầng 1, Tầng hầm 1, Tầng hầm 2",
     rooms: ["101", "102", "202", "204", "B101", "B201", "B202"],
+    detailHref: "/phong-doi",
     gradient: "bg-gradient-to-br from-accent/20 to-accent-soft"
   }
 ];
@@ -101,22 +103,25 @@ const roomTypes = [
             <!-- Room number badges -->
             <div class="flex flex-wrap gap-2 mb-7">
               {room.rooms.map((num) => (
-                <a
-                  href={`/phong/${num}`}
-                  class="text-xs bg-accent-soft text-primary px-3 py-1 font-medium hover:bg-accent hover:text-white transition-colors duration-200"
-                >
-                  {num}
-                </a>
+                <span class="text-xs bg-accent-soft text-primary px-3 py-1 font-medium">{num}</span>
               ))}
             </div>
 
             <!-- CTA -->
-            <a
-              href="/lien-he"
-              class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-200"
-            >
-              Liên Hệ Đặt Phòng
-            </a>
+            <div class="flex gap-3 flex-wrap">
+              <a
+                href={room.detailHref}
+                class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-200"
+              >
+                Xem Chi Tiết
+              </a>
+              <a
+                href="/lien-he"
+                class="inline-flex items-center justify-center border border-border text-text-muted bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:border-primary hover:text-primary transition-all duration-200"
+              >
+                Liên Hệ Đặt Phòng
+              </a>
+            </div>
           </div>
 
         </div>
