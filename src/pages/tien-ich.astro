@@ -47,7 +47,7 @@ const services = [
         {services.map((service, index) => (
           <>
             <div class={`flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center${index % 2 !== 0 ? ' [&>*:first-child]:md:order-last' : ''}`}>
-              <div class={`w-full aspect-video rounded-xl ${service.gradient}`} role="img" aria-label={`Ảnh minh họa dịch vụ ${service.name}`}></div>
+              <div class={`w-full aspect-video rounded-xl ${service.gradient}`} aria-hidden="true"></div>
               <div>
                 <h2 class="text-2xl font-heading font-bold text-primary mb-3">{service.name}</h2>
                 <p class="text-text-muted leading-relaxed mb-6">{service.description}</p>
