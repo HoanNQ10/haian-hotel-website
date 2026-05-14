@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    name: "Spa",
+    description: "Thư giãn và phục hồi năng lượng với các liệu pháp spa chuyên nghiệp ngay tại khách sạn.",
+    gradient: "bg-gradient-to-br from-accent-soft to-border"
+  },
+  {
+    name: "Thuê Xe",
+    description: "Thuê xe máy và ô tô linh hoạt theo ngày — khám phá Đà Lạt và Bảo Lộc theo cách của bạn.",
+    gradient: "bg-gradient-to-br from-primary/10 to-primary/20"
+  },
+  {
+    name: "Đưa Đón",
+    description: "Dịch vụ đưa đón sân bay và các điểm du lịch — đặt lịch trước, đúng giờ, an toàn.",
+    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft"
+  }
+];
+---
+
+<Layout title="Tiện Ích — Hải An Villa Hotel">
+  <Header />
+
+  <!-- Page Hero -->
+  <section class="bg-surface border-b border-border">
+    <div class="max-w-container mx-auto px-4 md:px-8 py-10">
+      <a href="/" class="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary transition-colors duration-200 mb-4">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Trang Chủ
+      </a>
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-3">Tiện Ích</h1>
+      <div class="w-12 h-0.5 bg-accent mb-4"></div>
+      <p class="text-text-muted max-w-xl">Các dịch vụ và tiện ích tại Hải An Villa Hotel.</p>
+    </div>
+  </section>
+
+  <!-- Service List -->
+  <section class="bg-background">
+    <div class="max-w-container mx-auto px-4 md:px-8 py-14">
+      <div class="space-y-12">
+        {services.map((service, index) => (
+          <>
+            <div class={`flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center${index % 2 !== 0 ? ' [&>*:first-child]:md:order-last' : ''}`}>
+              <div class={`w-full aspect-video rounded-xl ${service.gradient}`}></div>
+              <div>
+                <h2 class="text-2xl font-heading font-bold text-primary mb-3">{service.name}</h2>
+                <p class="text-text-muted leading-relaxed mb-6">{service.description}</p>
+                <a
+                  href="/lien-he"
+                  class="inline-flex items-center justify-center gap-2 bg-accent text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-accent-dark transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  Liên Hệ →
+                </a>
+              </div>
+            </div>
+            {index < services.length - 1 && <hr class="border-border" />}
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
