@@ -1,0 +1,125 @@
+---
+const images = [
+  { src: '/images/gioi-thieu/IMG_975.jpg',  alt: 'Hải An Villa Hotel' },
+  { src: '/images/gioi-thieu/IMG_999.jpg',  alt: 'Hải An Villa Hotel' },
+  { src: '/images/gioi-thieu/IMG_9993.JPG', alt: 'Hải An Villa Hotel' },
+];
+---
+
+<div id="intro-rail" class="absolute inset-0 overflow-hidden">
+  {images.map((img, i) => (
+    <div
+      class="absolute overflow-hidden"
+      data-rail-slide={i}
+      style="opacity:0;z-index:1;"
+    >
+      <img
+        src={img.src}
+        alt={img.alt}
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+  ))}
+</div>
+
+<script>
+  (function () {
+    const rail    = document.getElementById('intro-rail');
+    const prevBtn = document.getElementById('intro-prev-btn');
+    const nextBtn = document.getElementById('intro-next-btn');
+    if (!rail) return;
+
+    const slideEls = Array.from(rail.querySelectorAll<HTMLElement>('[data-rail-slide]'));
+    const TOTAL    = slideEls.length;
+
+    // Each side slide occupies SIDE_R of rail width, but only VIS_R is visible.
+    // The rest (SIDE_R - VIS_R) is outside the overflow-hidden boundary → cropped.
+    const SIDE_R = 0.18;
+    const VIS_R  = 0.13;
+
+    const TRANS = [
+      'left 700ms ease-in-out',
+      'width 700ms ease-in-out',
+      'height 700ms ease-in-out',
+      'top 700ms ease-in-out',
+      'opacity 700ms ease-in-out',
+    ].join(', ');
+
+    let cur   = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    function applyLayout(animated: boolean) {
+      const W     = rail.offsetWidth;
+      const isMob = window.innerWidth < 768;
+
+      const sideW = Math.round(W * SIDE_R);
+      const visW  = Math.round(W * VIS_R);
+      const hidW  = sideW - visW;          // portion clipped outside container
+      const mainW = W - visW * 2;          // center image width
+
+      slideEls.forEach((el, i) => {
+        el.style.transition = animated ? TRANS : 'none';
+        const off = ((i - cur) + TOTAL) % TOTAL;
+
+        if (isMob) {
+          // Mobile: simple crossfade, single image
+          Object.assign(el.style, {
+            left: '0', top: '0', width: '100%', height: '100%',
+            opacity: off === 0 ? '1' : '0',
+            zIndex:  off === 0 ? '8' : '1',
+            boxShadow: 'none',
+          });
+        } else if (off === 0) {
+          // Center — active
+          Object.assign(el.style, {
+            left: visW + 'px', top: '0',
+            width: mainW + 'px', height: '100%',
+            opacity: '1', zIndex: '8',
+            boxShadow: '0 32px 80px rgba(0,0,0,0.28)',
+          });
+        } else if (off === 1) {
+          // Right peek — right portion extends outside → clipped
+          Object.assign(el.style, {
+            left: (visW + mainW) + 'px', top: '6%',
+            width: sideW + 'px', height: '88%',
+            opacity: '0.85', zIndex: '5',
+            boxShadow: 'none',
+          });
+        } else if (off === TOTAL - 1) {
+          // Left peek — left portion extends outside → clipped
+          Object.assign(el.style, {
+            left: (-hidW) + 'px', top: '6%',
+            width: sideW + 'px', height: '88%',
+            opacity: '0.85', zIndex: '5',
+            boxShadow: 'none',
+          });
+        } else {
+          // Hidden — parked off-screen in entry direction
+          const enterRight = off < Math.ceil(TOTAL / 2);
+          Object.assign(el.style, {
+            left: enterRight ? (W + sideW) + 'px' : -(sideW + hidW) + 'px', top: '6%',
+            width: sideW + 'px', height: '88%',
+            opacity: '0', zIndex: '1',
+            boxShadow: 'none',
+          });
+        }
+      });
+    }
+
+    function goTo(idx: number) {
+      cur = ((idx % TOTAL) + TOTAL) % TOTAL;
+      applyLayout(true);
+      clearInterval(timer);
+      timer = setInterval(() => goTo(cur + 1), 4000);
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(cur - 1));
+    nextBtn?.addEventListener('click', () => goTo(cur + 1));
+    window.addEventListener('resize', () => applyLayout(false));
+
+    applyLayout(false);
+    requestAnimationFrame(() => requestAnimationFrame(() => applyLayout(true)));
+    timer = setInterval(() => goTo(cur + 1), 4000);
+  })();
+</script>
