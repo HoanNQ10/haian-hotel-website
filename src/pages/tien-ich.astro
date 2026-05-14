@@ -9,20 +9,20 @@ const services = [
     description: "Thư giãn và phục hồi năng lượng với các liệu pháp spa chuyên nghiệp ngay tại khách sạn.",
     gradient: "bg-gradient-to-br from-accent-soft to-border",
     ctaLabel: "Xem Menu",
-    ctaHref: "#"
+    ctaHref: "/lien-he"
   },
   {
     name: "Thuê Xe",
     description: "Thuê xe máy và ô tô linh hoạt theo ngày — khám phá Đà Lạt và Bảo Lộc theo cách của bạn.",
     gradient: "bg-gradient-to-br from-primary/10 to-primary/20",
-    ctaLabel: "Liên Hệ →",
+    ctaLabel: "Liên Hệ",
     ctaHref: "/lien-he"
   },
   {
     name: "Đưa Đón",
     description: "Dịch vụ đưa đón sân bay và các điểm du lịch — đặt lịch trước, đúng giờ, an toàn.",
     gradient: "bg-gradient-to-br from-accent/20 to-accent-soft",
-    ctaLabel: "Liên Hệ →",
+    ctaLabel: "Liên Hệ",
     ctaHref: "/lien-he"
   }
 ];
@@ -54,14 +54,14 @@ const services = [
     >
       <div class={`flex flex-col min-h-[480px]${index % 2 !== 0 ? ' md:flex-row-reverse' : ' md:flex-row'}`}>
         <!-- Text column -->
-        <div class="flex-1 flex items-center px-8 md:px-16 lg:px-24 py-16">
+        <div class="flex-1 flex items-center px-4 md:px-16 lg:px-24 py-16">
           <div class="max-w-md">
             <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">{service.name}</h2>
             <div class="w-10 h-0.5 bg-accent mb-6"></div>
             <p class="text-text-muted leading-relaxed mb-8">{service.description}</p>
             <a
               href={service.ctaHref}
-              class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-accent-soft transition-all duration-200"
+              class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-200"
             >
               {service.ctaLabel}
             </a>
