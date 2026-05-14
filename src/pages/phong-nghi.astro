@@ -125,7 +125,12 @@ const roomTypes = [
             <!-- Room number badges -->
             <div class="flex flex-wrap gap-2 mb-7">
               {room.rooms.map((num) => (
-                <span class="text-xs bg-accent-soft text-primary px-3 py-1 font-medium">{num}</span>
+                <a
+                  href={`/phong/${num}`}
+                  class="text-xs bg-accent-soft text-primary px-3 py-1 font-medium hover:bg-accent hover:text-white transition-colors duration-200"
+                >
+                  {num}
+                </a>
               ))}
             </div>
 
