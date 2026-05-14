@@ -47,49 +47,23 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         <p class="text-text-muted text-sm mt-3">Hệ thống lưu trú của Hải An tại Đà Lạt và Bảo Lộc</p>
       </div>
 
-      <!-- Featured first property: full-width horizontal card -->
-      <div class="rounded-2xl overflow-hidden border border-border mb-8 group hover:shadow-lg transition-shadow duration-300">
-        <div class="grid md:grid-cols-[2fr_3fr]">
-          <div class="bg-gradient-to-br from-accent-soft to-border min-h-[240px] md:min-h-[340px] relative flex items-center justify-center">
-            <div class="w-20 h-20 rounded-2xl bg-white/60 backdrop-blur-sm flex items-center justify-center shadow-sm">
-              <svg class="w-10 h-10 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-              </svg>
-            </div>
-            <div class="absolute top-4 left-4">
-              <span class="text-xs font-semibold text-white bg-accent px-3 py-1.5 rounded-full">Đang Hoạt Động</span>
-            </div>
-          </div>
-          <div class="p-8 md:p-12 bg-surface flex flex-col justify-center">
-            <h3 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-200">
-              Hải An Villa Đà Lạt
-            </h3>
-            <p class="text-text-muted leading-relaxed mb-8">
-              Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý.
-            </p>
-            <div>
-              <a
-                href="/phong-nghi"
-                class="inline-flex items-center justify-center gap-2 bg-accent text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-accent-dark transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
-              >
-                Xem Phòng →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Other two properties: 2-col grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <PropertyCard
-          featured={false}
+          featured={true}
+          name="Hải An Villa Đà Lạt"
+          description="Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý."
+          ctaText="Xem Phòng"
+          ctaHref="/phong-nghi"
+        />
+        <PropertyCard
+          featured={true}
           name="Hải An Hotel Bảo Lộc"
           description="Khách sạn gia đình tại Bảo Lộc — không gian yên tĩnh, sạch sẽ, giá cả phải chăng."
           ctaText="Liên Hệ"
           ctaHref="/lien-he"
         />
         <PropertyCard
-          featured={false}
+          featured={true}
           name="Hải An Homestay Bảo Lộc"
           description="Homestay ấm cúng tại Bảo Lộc — trải nghiệm gần gũi, không gian xanh mát."
           ctaText="Liên Hệ"
