@@ -47,7 +47,7 @@ const roomTypes = [
 ];
 ---
 
-<Layout title="Phòng Nghỉ — Hải An Villa Hotel" description="Tất cả 14 phòng nghỉ tại Hải An Villa Đà Lạt — phòng đơn, phòng đôi, có hoặc không có ban công.">
+<Layout title="Phòng Nghỉ — Hải An Villa Hotel" description="Các loại phòng nghỉ tại Hải An Villa Đà Lạt — phòng đơn, phòng đôi, có hoặc không có ban công.">
   <Header />
 
   <!-- Page Hero -->
@@ -60,8 +60,7 @@ const roomTypes = [
         Trang Chủ
       </a>
       <h1 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-3">Phòng Nghỉ</h1>
-      <div class="w-12 h-0.5 bg-accent mb-4"></div>
-      <p class="text-text-muted max-w-xl">Tất cả 14 phòng thuộc Hải An Villa Đà Lạt — sạch sẽ, ấm cúng, đầy đủ tiện nghi.</p>
+      <div class="w-12 h-0.5 bg-accent"></div>
     </div>
   </section>
 
@@ -71,32 +70,26 @@ const roomTypes = [
       class={`bg-surface${index < roomTypes.length - 1 ? ' border-b border-border' : ''}`}
       aria-label={room.name}
     >
-      <div class={`flex flex-col min-h-[520px]${index % 2 !== 0 ? ' md:flex-row-reverse' : ' md:flex-row'}`}>
+      <div class={`flex flex-col md:flex-row md:min-h-[440px]${index % 2 !== 0 ? ' md:flex-row-reverse' : ''}`}>
         <!-- Text column -->
-        <div class="flex-1 flex items-center px-4 md:px-16 lg:px-24 py-16">
-          <div class="max-w-md w-full">
-            <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">{room.name}</h2>
-            <div class="w-10 h-0.5 bg-accent mb-6"></div>
+        <div class="flex-1 px-6 md:px-10 lg:px-16 py-12">
+          <div class="max-w-xl">
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">{room.name}</h2>
+            <div class="w-10 h-0.5 bg-accent mb-5"></div>
             <p class="text-text-muted leading-relaxed mb-6">{room.description}</p>
 
             <!-- Detail grid -->
-            <dl class="grid grid-cols-1 gap-2 mb-6">
-              <div class="flex items-center gap-3 text-sm">
-                <dt class="text-text-muted w-28 flex-shrink-0">Loại giường</dt>
-                <dd class="text-primary font-medium">{room.bedType}</dd>
-              </div>
-              <div class="flex items-center gap-3 text-sm">
-                <dt class="text-text-muted w-28 flex-shrink-0">Sức chứa</dt>
-                <dd class="text-primary font-medium">{room.capacity}</dd>
-              </div>
-              <div class="flex items-center gap-3 text-sm">
-                <dt class="text-text-muted w-28 flex-shrink-0">Vị trí</dt>
-                <dd class="text-primary font-medium">{room.floors}</dd>
-              </div>
+            <dl class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm mb-6">
+              <dt class="text-text-muted">Loại giường</dt>
+              <dd class="text-primary font-medium">{room.bedType}</dd>
+              <dt class="text-text-muted">Sức chứa</dt>
+              <dd class="text-primary font-medium">{room.capacity}</dd>
+              <dt class="text-text-muted">Vị trí</dt>
+              <dd class="text-primary font-medium">{room.floors}</dd>
             </dl>
 
             <!-- Amenity list: 2 columns with SVG icons -->
-            <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mb-8">
+            <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mb-6">
               <li class="flex items-center gap-2 text-sm text-text-muted">
                 <svg class="w-4 h-4 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
@@ -138,7 +131,7 @@ const roomTypes = [
             </ul>
 
             <!-- Room number badges -->
-            <div class="flex flex-wrap gap-2 mb-8">
+            <div class="flex flex-wrap gap-2 mb-7">
               {room.rooms.map((num) => (
                 <span class="text-xs bg-accent-soft text-primary px-3 py-1 font-medium">Phòng {num}</span>
               ))}
@@ -153,8 +146,8 @@ const roomTypes = [
             </a>
           </div>
         </div>
-        <!-- Image column: fills 100% height, flush to edge -->
-        <div class="relative flex-1 min-h-[280px] md:min-h-0">
+        <!-- Image column: fills height flush to edge -->
+        <div class="relative flex-1 min-h-[240px] md:min-h-0">
           <div class={`absolute inset-0 ${room.gradient}`} aria-hidden="true"></div>
         </div>
       </div>
