@@ -17,24 +17,88 @@ import StickyContactBar from '../components/StickyContactBar.astro';
   <!-- Giới Thiệu -->
   <section id="gioi-thieu" class="bg-background">
     <Section maxWidth={true}>
-      <div class="max-w-3xl mx-auto text-center relative">
-        <div class="absolute -top-8 left-1/2 -translate-x-1/2 font-heading text-[120px] leading-none text-accent/15 select-none pointer-events-none" aria-hidden="true">"</div>
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
-          Chào Mừng Đến Với Hải An
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
-        <p class="text-text-muted text-lg leading-relaxed mb-4">
-          Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
-          Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
-          lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
-        </p>
-        <p class="text-text-muted text-lg leading-relaxed">
-          Với đội ngũ nhân viên nhiệt tình, chúng tôi luôn sẵn sàng hỗ trợ để mỗi kỳ nghỉ của bạn
-          trở thành những kỷ niệm đáng nhớ.
-        </p>
+      <div class="grid md:grid-cols-[2fr_3fr] gap-12 md:gap-16 items-center">
+
+        <!-- Left: Text + arrows -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
+            Chào Mừng Đến Với Hải An
+          </h2>
+          <div class="w-12 h-0.5 bg-accent mb-6"></div>
+          <p class="text-text-muted text-lg leading-relaxed mb-4">
+            Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
+            Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
+            lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
+          </p>
+          <p class="text-text-muted text-lg leading-relaxed mb-10">
+            Với đội ngũ nhân viên nhiệt tình, chúng tôi luôn sẵn sàng hỗ trợ để mỗi kỳ nghỉ của bạn
+            trở thành những kỷ niệm đáng nhớ.
+          </p>
+          <div class="flex gap-3">
+            <button
+              id="intro-prev"
+              class="w-11 h-11 rounded-full border border-border flex items-center justify-center text-text-muted hover:border-primary hover:text-primary transition-all duration-200"
+              aria-label="Ảnh trước"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <button
+              id="intro-next"
+              class="w-11 h-11 rounded-full border border-border flex items-center justify-center text-text-muted hover:border-primary hover:text-primary transition-all duration-200"
+              aria-label="Ảnh tiếp"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: 3-pane peek gallery -->
+        <div class="grid grid-cols-[1fr_3fr_1fr] gap-2 md:gap-3 items-stretch">
+          <div id="intro-pane-prev" class="rounded-xl overflow-hidden aspect-[3/4] opacity-50 transition-all duration-500"></div>
+          <div id="intro-pane-center" class="rounded-2xl overflow-hidden aspect-[3/4] shadow-xl ring-4 ring-white transition-all duration-500"></div>
+          <div id="intro-pane-next" class="rounded-xl overflow-hidden aspect-[3/4] opacity-50 transition-all duration-500"></div>
+        </div>
+
       </div>
     </Section>
   </section>
+
+  <script>
+    const introSlides = [
+      'linear-gradient(135deg, #F0EAE0, #DDD8CE)',
+      'linear-gradient(135deg, rgba(77,77,94,0.12), rgba(77,77,94,0.22))',
+      'linear-gradient(135deg, rgba(196,168,130,0.25), #F0EAE0)',
+      'linear-gradient(135deg, #DDD8CE, #F0EAE0)',
+    ];
+    const prevPane = document.getElementById('intro-pane-prev');
+    const centerPane = document.getElementById('intro-pane-center');
+    const nextPane = document.getElementById('intro-pane-next');
+    let introCurrent = 0;
+    const introTotal = introSlides.length;
+
+    function introUpdate() {
+      const p = (introCurrent - 1 + introTotal) % introTotal;
+      const n = (introCurrent + 1) % introTotal;
+      if (prevPane) prevPane.style.background = introSlides[p];
+      if (centerPane) centerPane.style.background = introSlides[introCurrent];
+      if (nextPane) nextPane.style.background = introSlides[n];
+    }
+
+    document.getElementById('intro-prev')?.addEventListener('click', () => {
+      introCurrent = (introCurrent - 1 + introTotal) % introTotal;
+      introUpdate();
+    });
+    document.getElementById('intro-next')?.addEventListener('click', () => {
+      introCurrent = (introCurrent + 1) % introTotal;
+      introUpdate();
+    });
+
+    introUpdate();
+  </script>
 
   <!-- Properties Section -->
   <section id="co-so" class="bg-surface">
