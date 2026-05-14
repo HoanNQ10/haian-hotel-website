@@ -17,17 +17,18 @@ import StickyContactBar from '../components/StickyContactBar.astro';
   <!-- Giới Thiệu -->
   <section id="gioi-thieu" class="bg-background">
     <Section maxWidth={true}>
-      <div class="max-w-3xl mx-auto text-center">
+      <div class="max-w-3xl mx-auto text-center relative">
+        <div class="absolute -top-8 left-1/2 -translate-x-1/2 font-heading text-[120px] leading-none text-accent/15 select-none pointer-events-none" aria-hidden="true">"</div>
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
           Chào Mừng Đến Với Hải An
         </h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
-        <p class="text-text-muted leading-relaxed mb-4">
+        <p class="text-text-muted text-lg leading-relaxed mb-4">
           Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
           Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
           lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
         </p>
-        <p class="text-text-muted leading-relaxed">
+        <p class="text-text-muted text-lg leading-relaxed">
           Với đội ngũ nhân viên nhiệt tình, chúng tôi luôn sẵn sàng hỗ trợ để mỗi kỳ nghỉ của bạn
           trở thành những kỷ niệm đáng nhớ.
         </p>
