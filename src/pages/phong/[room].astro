@@ -146,17 +146,20 @@ const { room } = Astro.props;
 </Layout>
 
 <script>
-  const track = document.getElementById('carousel-track') as HTMLElement;
-  const counter = document.getElementById('carousel-counter') as HTMLElement;
-  const total = track.children.length;
-  let current = 0;
+  const track = document.getElementById('carousel-track') as HTMLElement | null;
+  const counter = document.getElementById('carousel-counter') as HTMLElement | null;
 
-  function goTo(n: number) {
-    current = (n + total) % total;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    counter.textContent = `${current + 1} / ${total}`;
+  if (track && counter) {
+    const total = track.children.length;
+    let current = 0;
+
+    function goTo(n: number) {
+      current = (n + total) % total;
+      track!.style.transform = `translateX(-${current * 100}%)`;
+      counter!.textContent = `${current + 1} / ${total}`;
+    }
+
+    document.getElementById('carousel-prev')?.addEventListener('click', () => goTo(current - 1));
+    document.getElementById('carousel-next')?.addEventListener('click', () => goTo(current + 1));
   }
-
-  document.getElementById('carousel-prev')?.addEventListener('click', () => goTo(current - 1));
-  document.getElementById('carousel-next')?.addEventListener('click', () => goTo(current + 1));
 </script>
