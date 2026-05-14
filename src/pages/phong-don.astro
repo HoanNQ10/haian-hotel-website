@@ -12,7 +12,7 @@ const singleRooms = rooms.filter((r) => r.typeName.includes('Đơn'));
 
   {singleRooms.map((room, index) => (
     <section
-      class={`${index % 2 === 0 ? 'bg-surface' : 'bg-background'}${index < singleRooms.length - 1 ? ' border-b border-border' : ''}`}
+      class={`bg-surface${index < singleRooms.length - 1 ? ' border-b border-border' : ''}`}
       aria-label={`Phòng ${room.number}`}
     >
       <div class="max-w-container mx-auto px-4 md:px-8 py-10">
