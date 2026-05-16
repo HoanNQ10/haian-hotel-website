@@ -111,7 +111,6 @@ a {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  transition-delay: inherit;
 }
 
 .fade-item.visible {
@@ -120,6 +119,9 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .fade-item {
     opacity: 1;
     transform: none;
