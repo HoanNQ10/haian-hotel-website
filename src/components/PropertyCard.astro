@@ -1,19 +1,20 @@
 ---
 interface Props {
   name: string;
+  location?: string;
   description: string;
   ctaText: string;
   ctaHref?: string;
   image?: string;
 }
 
-const { name, description, ctaText, ctaHref = '#', image } = Astro.props;
+const { name, location, description, ctaText, ctaHref = '#', image } = Astro.props;
 ---
 
-<div class="bg-white flex flex-col">
+<div class="flex flex-col h-full">
 
   <!-- Image -->
-  <div class="overflow-hidden h-[380px] group">
+  <div class="overflow-hidden group" style="height: 440px; flex-shrink: 0;">
     {image ? (
       <img
         src={image}
@@ -29,21 +30,37 @@ const { name, description, ctaText, ctaHref = '#', image } = Astro.props;
     )}
   </div>
 
-  <!-- Content -->
-  <div class="pt-6 pb-5 px-4 flex flex-col flex-1 items-center border-t border-border text-center">
-    <h3 class="text-xl font-heading font-bold text-primary mb-3 leading-snug">
+  <!-- Detail -->
+  <div class="bg-white flex flex-col flex-1 pt-4 pr-5 pb-5 pl-0 text-left">
+
+    <!-- Title -->
+    <h3 class="font-bold text-primary leading-snug mb-1" style="font-size: 1.5rem;">
       {name}
     </h3>
-    <p class="text-text-muted text-sm leading-relaxed flex-1 mb-5">
+
+    <!-- Location -->
+    {location && (
+      <p class="text-xs tracking-[0.12em] uppercase text-accent font-medium mb-3">{location}</p>
+    )}
+
+    <!-- Description -->
+    <p class="text-text-muted leading-relaxed flex-1 mb-5 text-sm">
       {description}
     </p>
-    <a
-      href={ctaHref}
-      class="group/cta inline-flex items-center gap-1.5 text-accent hover:text-white border border-accent hover:bg-accent text-sm font-semibold tracking-wider uppercase transition-all duration-300 py-2.5 px-7 whitespace-nowrap"
-    >
-      {ctaText}
-      <span class="transition-transform duration-200 group-hover/cta:translate-x-1">→</span>
-    </a>
+
+    <!-- Bottom: CTA right-aligned -->
+    <div class="flex justify-end">
+      <a
+        href={ctaHref}
+        class="group/cta inline-flex items-center gap-2 bg-primary hover:bg-primary/85 text-white text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 whitespace-nowrap"
+      >
+        {ctaText}
+        <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover/cta:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
   </div>
 
 </div>

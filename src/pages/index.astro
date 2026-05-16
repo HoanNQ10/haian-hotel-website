@@ -16,74 +16,83 @@ import StickyContactBar from '../components/StickyContactBar.astro';
   <HeroCarousel />
 
   <!-- Giới Thiệu -->
-  <section id="gioi-thieu" class="bg-[#FDFAF7] overflow-hidden" style="padding: clamp(24px, 3vh, 48px) 0;">
-    <div class="flex flex-col md:flex-row mx-auto w-full" style="max-width:1440px; height: clamp(640px, 82vh, 920px);">
+  <section id="gioi-thieu" class="overflow-hidden bg-[#f5f0e8]">
+    <div class="flex flex-col md:flex-row w-full" style="height: 760px;">
 
-      <!-- Left: text (40%) — vertically centered -->
-      <div class="md:w-[40%] flex items-center py-10 md:py-0" style="padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(16px, 2vw, 40px);">
-        <div style="max-width: clamp(360px, 30vw, 540px);">
-          <h2 class="font-heading font-bold text-primary mb-4 leading-tight" style="font-size: clamp(20px, 1.8vw, 30px); margin-top: 8em;">
-            Chào Mừng Đến Với Hải An
+      <!-- Left: text panel -->
+      <div class="md:w-[45%] lg:w-[42%] flex flex-col justify-center py-14 md:py-0" style="padding-left: 100px; padding-right: 48px;">
+
+        <!-- Heading -->
+        <div class="mb-6 fade-item" style="transition-delay: 80ms;">
+          <p class="font-heading font-bold text-primary/60 leading-none mb-3" style="font-size: 22px; letter-spacing: 0.18em;">WELCOME TO</p>
+          <h2 class="font-heading font-bold text-primary leading-none whitespace-nowrap" style="font-size: 64px;">
+            HẢI AN HOTEL
           </h2>
-          <div class="w-12 h-0.5 bg-accent mb-6"></div>
-          <p class="text-text-muted leading-relaxed mb-4" style="font-size: clamp(14px, 1.05vw, 17px);">
-            Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
-            Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
-            lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
-          </p>
-          <p class="text-text-muted leading-relaxed mb-10" style="font-size: clamp(14px, 1.05vw, 17px);">
-            Với đội ngũ nhân viên nhiệt tình, chúng tôi luôn sẵn sàng hỗ trợ để mỗi kỳ nghỉ của bạn
-            trở thành những kỷ niệm đáng nhớ.
-          </p>
-          <!-- Arrow navigation -->
-          <div class="flex gap-3">
-            <button
-              id="intro-prev-btn"
-              class="w-11 h-11 rounded-full border border-border flex items-center justify-center text-text-muted hover:border-primary hover:text-primary transition-colors duration-200"
-              aria-label="Ảnh trước"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-              </svg>
-            </button>
-            <button
-              id="intro-next-btn"
-              class="w-11 h-11 rounded-full border border-border flex items-center justify-center text-text-muted hover:border-primary hover:text-primary transition-colors duration-200"
-              aria-label="Ảnh tiếp"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </button>
-          </div>
         </div>
+
+        <!-- Description -->
+        <p class="text-text-muted leading-relaxed mb-6 fade-item" style="font-size: 14px; max-width: 400px; transition-delay: 160ms;">
+          Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
+          Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
+          lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
+        </p>
+
+        <!-- CTA -->
+        <a
+          href="#co-so"
+          class="self-start inline-flex items-center gap-2 bg-primary hover:bg-primary/85 text-white text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 fade-item"
+          style="transition-delay: 240ms;"
+        >
+          Khám Phá
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+
       </div>
 
-      <!-- Right: editorial peek carousel (60%) -->
-      <div class="md:flex-1 flex items-center overflow-hidden" style="min-height: clamp(260px, 55vw, 820px);">
+      <!-- Right: IntroImageRail -->
+      <div class="md:flex-1 flex items-center overflow-hidden" style="padding-right: 100px;">
         <IntroImageRail />
       </div>
 
     </div>
   </section>
 
-  <!-- Properties Section -->
-  <section id="co-so" class="bg-[#f8f5f0]">
-    <div class="py-16 md:py-24 mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
-      <div class="mb-12 text-center fade-item">
-        <p class="text-xs tracking-[0.22em] uppercase text-accent font-medium mb-3">Hải An</p>
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
-          Cơ Sở Lưu Trú
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mt-3 mx-auto"></div>
-        <p class="text-text-muted text-sm mt-3">Hệ thống lưu trú của Hải An tại Đà Lạt và Bảo Lộc</p>
+  <!-- Quote Divider -->
+  <div class="relative overflow-hidden bg-white py-14 md:py-20">
+    <div class="relative mx-auto flex items-center justify-center" style="max-width: 1100px; padding: 0 clamp(24px, 5vw, 80px); min-height: 200px;">
+      <!-- Triangle -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <svg width="360" height="260" viewBox="0 0 360 260" aria-hidden="true">
+          <polygon points="255,12 352,248 8,248" fill="#C4A882"/>
+        </svg>
       </div>
 
+      <!-- Quote -->
+      <p class="relative z-10 font-heading italic text-center text-primary/75 leading-relaxed fade-item" style="font-size: clamp(18px, 2.2vw, 28px); white-space: nowrap;">
+        "Hải An — nơi mỗi chuyến nghỉ dưỡng trở thành kỷ niệm ấm áp,<br>và mỗi căn phòng là không gian bạn muốn quay lại."
+      </p>
+    </div>
+  </div>
+
+  <!-- Properties Section -->
+  <section id="co-so" class="relative overflow-hidden bg-[#f5f0e8]">
+    <div class="absolute left-0 right-0 bottom-0 bg-white" style="top: 410px;"></div>
+    <div class="relative py-16 md:py-24 mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
+
+      <!-- Heading -->
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-primary leading-none fade-item" style="font-size: clamp(34px, 3.6vw, 52px);">Cơ Sở</h2>
+      </div>
+
+      <!-- 3 cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="fade-item" style="transition-delay: 0ms;">
           <PropertyCard
             name="Hải An Villa Đà Lạt"
-            description="Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý."
+            location="Đà Lạt, Lâm Đồng"
+            description="Toạ lạc tại trung tâm thành phố, Hải An Villa Đà Lạt mang đến không gian lưu trú ấm cúng với phòng ngủ sạch sẽ, thiết kế gần gũi và đội ngũ phục vụ tận tình. Lý tưởng cho gia đình và cặp đôi muốn khám phá Đà Lạt theo nhịp riêng."
             ctaText="Xem Phòng"
             ctaHref="/phong-nghi"
             image="/images/co-so/coso-1.jpg"
@@ -92,7 +101,8 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         <div class="fade-item" style="transition-delay: 120ms;">
           <PropertyCard
             name="Hải An Hotel Bảo Lộc"
-            description="Khách sạn gia đình tại Bảo Lộc — không gian yên tĩnh, sạch sẽ, giá cả phải chăng."
+            location="Bảo Lộc, Lâm Đồng"
+            description="Nằm giữa lòng Bảo Lộc yên bình, khách sạn có không gian thoáng đãng, phòng nghỉ sạch sẽ và bầu không khí trong lành. Thích hợp cho những ai muốn tạm rời nhịp sống hối hả và tìm về sự yên tĩnh."
             ctaText="Liên Hệ"
             ctaHref="/lien-he"
             image="/images/co-so/coso-2.jpg"
@@ -101,53 +111,61 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         <div class="fade-item" style="transition-delay: 240ms;">
           <PropertyCard
             name="Hải An Homestay Bảo Lộc"
-            description="Homestay ấm cúng tại Bảo Lộc — trải nghiệm gần gũi, không gian xanh mát."
+            location="Bảo Lộc, Lâm Đồng"
+            description="Trải nghiệm lưu trú gần gũi với thiên nhiên — vườn xanh mát, không khí trong lành và phong cách homestay ấm áp. Nơi lý tưởng để nghỉ ngơi, thư giãn và tận hưởng cuộc sống chậm giữa lòng Bảo Lộc."
             ctaText="Liên Hệ"
             ctaHref="/lien-he"
             image="/images/co-so/coso-3.jpg"
           />
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Editorial Hub Section -->
-  <section id="kham-pha" class="bg-[#FDFAF7] py-20 md:py-28">
-    <div class="mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
-
-      <!-- Section label -->
-      <div class="mb-12 text-center fade-item">
-        <p class="text-xs tracking-[0.22em] uppercase text-accent font-medium mb-3">Hải An</p>
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
-          Khám Phá Thêm Tại Hải An
-        </h2>
-        <div class="w-12 h-0.5 bg-accent mt-3 mx-auto"></div>
-        <p class="text-text-muted text-sm mt-3">Dịch vụ, ẩm thực và cẩm nang du lịch dành cho bạn</p>
+  <!-- Square Divider -->
+  <div class="relative overflow-hidden bg-[#f5f0e8] py-14 md:py-20">
+    <div class="relative mx-auto flex items-center justify-center" style="max-width: 1100px; padding: 0 clamp(24px, 5vw, 80px); min-height: 200px;">
+      <!-- Square -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <svg width="300" height="300" viewBox="0 0 300 300" aria-hidden="true">
+          <rect x="50" y="50" width="200" height="200" fill="#C4A882" transform="rotate(45 150 150)"/>
+        </svg>
       </div>
+      <!-- Quote -->
+      <p class="relative z-10 font-heading italic text-center text-primary/75 leading-relaxed fade-item" style="font-size: clamp(18px, 2.2vw, 28px); white-space: nowrap;">
+        "Mỗi tiện ích tại Hải An được chăm chút tận tâm,<br>để kỳ nghỉ của bạn trọn vẹn từng khoảnh khắc."
+      </p>
+    </div>
+  </div>
+
+  <!-- Editorial Hub Section -->
+  <section id="kham-pha" class="relative overflow-hidden bg-[#FDFAF7] py-20 md:py-28">
+    <div class="mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
 
       <!-- Row 1: Text block left + Image block right -->
       <div class="flex flex-col lg:flex-row gap-5 mb-5 fade-item">
 
         <!-- Left: Dịch vụ & Tiện ích — text block (~42%) -->
-        <div class="lg:w-[42%] bg-[#ede8df] flex flex-col justify-between p-10 md:p-14" style="min-height:420px;">
-          <div>
-            <h3 class="font-heading font-bold text-primary text-2xl md:text-3xl leading-snug mb-5">
-              Dịch vụ
-            </h3>
-            <p class="text-text-muted text-sm leading-relaxed">
-              Spa, thuê xe, đưa đón và các hỗ trợ khác giúp kỳ nghỉ của bạn thuận tiện và trọn vẹn hơn.
-            </p>
-          </div>
-          <a href="/tien-ich" class="group/cta inline-flex items-center gap-2 text-primary hover:text-accent text-sm font-semibold tracking-[0.12em] uppercase border-b border-primary/40 hover:border-accent transition-all duration-300 pb-0.5 self-start mt-10">
+        <div class="lg:w-[42%] flex flex-col py-12 pr-10 pl-0" style="min-height:420px;">
+          <h3 class="font-heading font-bold text-primary text-2xl md:text-3xl leading-snug mb-5">
+            Dịch vụ
+          </h3>
+          <p class="text-text-muted text-sm leading-relaxed mb-5">
+            Từ dịch vụ spa thư giãn, thuê xe khám phá thành phố đến đưa đón sân bay — đội ngũ Hải An sẵn sàng hỗ trợ mọi nhu cầu trong suốt chuyến đi của bạn. Chúng tôi tin rằng một kỳ nghỉ trọn vẹn bắt đầu từ những tiện ích chu đáo.
+          </p>
+          <a href="/tien-ich" class="group/cta self-start inline-flex items-center gap-2 bg-primary hover:bg-primary/85 text-white text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 mt-5">
             Khám phá dịch vụ
-            <span class="transition-transform duration-200 group-hover/cta:translate-x-1">→</span>
+            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover/cta:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
           </a>
         </div>
 
         <!-- Right: Ăn uống / BBQ — image block (~58%) -->
         <a href="/tien-ich#an-uong" class="group lg:flex-1 relative overflow-hidden block" style="min-height:420px;">
           <div class="absolute inset-0 bg-[#c9bfb2]">
-            <img src="/images/co-so/coso-1.jpg" alt="Ăn uống & BBQ tại Hải An"
+            <img src="/images/editorial/dich-vu.jpg" alt="Dịch vụ tại Hải An"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               onerror="this.style.display='none'"
             />
@@ -163,7 +181,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         <div class="lg:flex-1 grid grid-cols-2 gap-5">
           <div class="group overflow-hidden relative" style="min-height:300px;">
             <div class="absolute inset-0 bg-[#d4ccc4]">
-              <img src="/images/gioi-thieu/IMG_975.jpg" alt="Hải An Hotel"
+              <img src="/images/editorial/an-uong-1.jpg" alt="Ăn uống tại Hải An"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onerror="this.style.display='none'"
               />
@@ -171,7 +189,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
           </div>
           <div class="group overflow-hidden relative" style="min-height:300px;">
             <div class="absolute inset-0 bg-[#c8c0b8]">
-              <img src="/images/gioi-thieu/IMG_999.jpg" alt="Hải An Hotel"
+              <img src="/images/editorial/an-uong-2.jpg" alt="Ăn uống tại Hải An"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onerror="this.style.display='none'"
               />
@@ -180,18 +198,20 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         </div>
 
         <!-- Right: Ăn uống — text block (~42%) -->
-        <div class="lg:w-[42%] bg-[#ede8df] flex flex-col justify-between p-10 md:p-14" style="min-height:300px;">
+        <div class="lg:w-[42%] flex flex-col justify-between py-12 pl-10 pr-10" style="min-height:300px;">
           <div>
             <h3 class="font-heading font-bold text-primary text-2xl md:text-3xl leading-snug mb-5">
               Ăn uống
             </h3>
             <p class="text-text-muted text-sm leading-relaxed">
-              Khám phá Đà Lạt, Bảo Lộc và những mẹo du lịch hữu ích từ đội ngũ Hải An.
+              Khám phá những quán cà phê view đẹp, nhà hàng địa phương và đặc sản vùng cao mà đội ngũ Hải An yêu thích. Chúng tôi chia sẻ những địa điểm ăn uống chân thực — không phải quảng cáo, chỉ là trải nghiệm thật.
             </p>
           </div>
-          <a href="/blog" class="group/cta inline-flex items-center gap-2 text-primary hover:text-accent text-sm font-semibold tracking-[0.12em] uppercase border-b border-primary/40 hover:border-accent transition-all duration-300 pb-0.5 self-start mt-10">
+          <a href="/blog" class="group/cta self-start inline-flex items-center gap-2 bg-primary hover:bg-primary/85 text-white text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 mt-5">
             Đọc thêm
-            <span class="transition-transform duration-200 group-hover/cta:translate-x-1">→</span>
+            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover/cta:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
           </a>
         </div>
 
@@ -201,25 +221,25 @@ import StickyContactBar from '../components/StickyContactBar.astro';
       <div class="flex flex-col lg:flex-row gap-5 mt-5 fade-item">
 
         <!-- Left: text block (~42%) -->
-        <div class="lg:w-[42%] bg-[#ede8df] flex flex-col justify-between p-10 md:p-14" style="min-height:380px;">
-          <div>
-            <h3 class="font-heading font-bold text-primary text-2xl md:text-3xl leading-snug mb-5">
-              Blog
-            </h3>
-            <p class="text-text-muted text-sm leading-relaxed">
-              Khám phá Đà Lạt, Bảo Lộc và những mẹo du lịch hữu ích từ đội ngũ Hải An.
-            </p>
-          </div>
-          <a href="/blog" class="group/cta inline-flex items-center gap-2 text-primary hover:text-accent text-sm font-semibold tracking-[0.12em] uppercase border-b border-primary/40 hover:border-accent transition-all duration-300 pb-0.5 self-start mt-10">
+        <div class="lg:w-[42%] flex flex-col py-12 pr-10 pl-0" style="min-height:380px;">
+          <h3 class="font-heading font-bold text-primary text-2xl md:text-3xl leading-snug mb-5">
+            Blog
+          </h3>
+          <p class="text-text-muted text-sm leading-relaxed mb-5">
+            Cẩm nang du lịch Đà Lạt và Bảo Lộc từ góc nhìn người địa phương — những con đường ít người biết, mùa hoa đẹp nhất trong năm và mẹo di chuyển tiết kiệm. Hải An chia sẻ để chuyến đi của bạn thêm ý nghĩa.
+          </p>
+          <a href="/blog" class="group/cta self-start inline-flex items-center gap-2 bg-primary hover:bg-primary/85 text-white text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 mt-5">
             Đọc thêm
-            <span class="transition-transform duration-200 group-hover/cta:translate-x-1">→</span>
+            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover/cta:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
           </a>
         </div>
 
         <!-- Right: image block (~58%) -->
         <a href="/blog" class="group lg:flex-1 relative overflow-hidden block" style="min-height:380px;">
           <div class="absolute inset-0 bg-[#c4bcb4]">
-            <img src="/images/gioi-thieu/IMG_9993.JPG" alt="Blog & Cẩm nang"
+            <img src="/images/editorial/blog.jpg" alt="Blog & Cẩm nang"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               onerror="this.style.display='none'"
             />
@@ -236,13 +256,13 @@ import StickyContactBar from '../components/StickyContactBar.astro';
     <div class="mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
 
       <!-- Heading -->
-      <div class="mb-10 fade-item">
-        <p class="text-xs tracking-[0.22em] uppercase text-accent font-medium mb-3">Hải An</p>
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
+      <div class="mb-10">
+        <p class="text-xs tracking-[0.22em] uppercase text-accent font-medium mb-3 fade-item" style="transition-delay: 0ms;">Hải An</p>
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary fade-item" style="transition-delay: 100ms;">
           Khoảnh Khắc Tại Hải An
         </h2>
-        <div class="w-12 h-0.5 bg-accent mt-3"></div>
-        <p class="text-text-muted text-sm mt-3">Những kỷ niệm đáng nhớ của khách hàng</p>
+        <div class="w-12 h-0.5 bg-accent mt-3 fade-item" style="transition-delay: 160ms;"></div>
+        <p class="text-text-muted text-sm mt-3 fade-item" style="transition-delay: 220ms;">Những kỷ niệm đáng nhớ của khách hàng</p>
       </div>
 
       <!-- Masonry carousel track -->
@@ -302,6 +322,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
   </section>
 
   <script>
+    // Gallery carousel
     (function () {
       const track = document.getElementById('gallery-track') as HTMLElement | null;
       const prevBtn = document.getElementById('gallery-prev');
@@ -326,21 +347,29 @@ import StickyContactBar from '../components/StickyContactBar.astro';
       });
     })();
 
+  </script>
+
+  <script is:inline>
     (function () {
-      const items = document.querySelectorAll<HTMLElement>('.fade-item');
-      if (!items.length) return;
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
+      function initObserver() {
+        var items = document.querySelectorAll('.fade-item');
+        if (!items.length) return;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
+            } else {
+              entry.target.classList.remove('visible');
             }
           });
-        },
-        { threshold: 0.12 }
-      );
-      items.forEach((el) => observer.observe(el));
+        }, { threshold: 0.1 });
+        items.forEach(function (el) { observer.observe(el); });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initObserver);
+      } else {
+        initObserver();
+      }
     })();
   </script>
 
@@ -357,10 +386,10 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         <a
           href="#"
           aria-disabled="true"
-          class="inline-flex items-center gap-2 bg-accent text-white text-xs font-semibold tracking-[0.15em] uppercase px-8 py-4 transition-colors duration-300 cursor-not-allowed opacity-75"
+          class="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-primary text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 cursor-not-allowed opacity-75"
           onclick="return false;"
         >
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-3.5 h-3.5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
           </svg>
           Gọi Ngay
@@ -368,7 +397,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         <a
           href="#"
           aria-disabled="true"
-          class="inline-flex items-center gap-2 border border-white/30 text-white text-xs font-semibold tracking-[0.15em] uppercase px-8 py-4 transition-colors duration-300 cursor-not-allowed opacity-75"
+          class="inline-flex items-center gap-2 border border-white/50 hover:border-white/80 text-white text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 cursor-not-allowed opacity-75"
           onclick="return false;"
         >
           Nhắn Zalo
