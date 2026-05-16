@@ -325,6 +325,23 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         track.style.transform = `translateX(-${offset}px)`;
       });
     })();
+
+    (function () {
+      const items = document.querySelectorAll<HTMLElement>('.fade-item');
+      if (!items.length) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      items.forEach((el) => observer.observe(el));
+    })();
   </script>
 
   <!-- Dark Contact Section -->
