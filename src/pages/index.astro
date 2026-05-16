@@ -70,7 +70,8 @@ import StickyContactBar from '../components/StickyContactBar.astro';
   <!-- Properties Section -->
   <section id="co-so" class="bg-[#f8f5f0]">
     <div class="py-16 md:py-24 mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
-      <div class="mb-12 text-center">
+      <div class="mb-12 text-center fade-item">
+        <p class="text-xs tracking-[0.22em] uppercase text-accent font-medium mb-3">Hải An</p>
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
           Cơ Sở Lưu Trú
         </h2>
@@ -79,27 +80,33 @@ import StickyContactBar from '../components/StickyContactBar.astro';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <PropertyCard
-          name="Hải An Villa Đà Lạt"
-          description="Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý."
-          ctaText="Xem Phòng"
-          ctaHref="/phong-nghi"
-          image="/images/co-so/coso-1.jpg"
-        />
-        <PropertyCard
-          name="Hải An Hotel Bảo Lộc"
-          description="Khách sạn gia đình tại Bảo Lộc — không gian yên tĩnh, sạch sẽ, giá cả phải chăng."
-          ctaText="Liên Hệ"
-          ctaHref="/lien-he"
-          image="/images/co-so/coso-2.jpg"
-        />
-        <PropertyCard
-          name="Hải An Homestay Bảo Lộc"
-          description="Homestay ấm cúng tại Bảo Lộc — trải nghiệm gần gũi, không gian xanh mát."
-          ctaText="Liên Hệ"
-          ctaHref="/lien-he"
-          image="/images/co-so/coso-3.jpg"
-        />
+        <div class="fade-item" style="transition-delay: 0ms;">
+          <PropertyCard
+            name="Hải An Villa Đà Lạt"
+            description="Khách sạn gia đình tại trung tâm Đà Lạt — phòng sạch sẽ, đội ngũ thân thiện, giá hợp lý."
+            ctaText="Xem Phòng"
+            ctaHref="/phong-nghi"
+            image="/images/co-so/coso-1.jpg"
+          />
+        </div>
+        <div class="fade-item" style="transition-delay: 120ms;">
+          <PropertyCard
+            name="Hải An Hotel Bảo Lộc"
+            description="Khách sạn gia đình tại Bảo Lộc — không gian yên tĩnh, sạch sẽ, giá cả phải chăng."
+            ctaText="Liên Hệ"
+            ctaHref="/lien-he"
+            image="/images/co-so/coso-2.jpg"
+          />
+        </div>
+        <div class="fade-item" style="transition-delay: 240ms;">
+          <PropertyCard
+            name="Hải An Homestay Bảo Lộc"
+            description="Homestay ấm cúng tại Bảo Lộc — trải nghiệm gần gũi, không gian xanh mát."
+            ctaText="Liên Hệ"
+            ctaHref="/lien-he"
+            image="/images/co-so/coso-3.jpg"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -109,7 +116,8 @@ import StickyContactBar from '../components/StickyContactBar.astro';
     <div class="mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
 
       <!-- Section label -->
-      <div class="mb-12 text-center">
+      <div class="mb-12 text-center fade-item">
+        <p class="text-xs tracking-[0.22em] uppercase text-accent font-medium mb-3">Hải An</p>
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
           Khám Phá Thêm Tại Hải An
         </h2>
@@ -118,7 +126,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
       </div>
 
       <!-- Row 1: Text block left + Image block right -->
-      <div class="flex flex-col lg:flex-row gap-5 mb-5">
+      <div class="flex flex-col lg:flex-row gap-5 mb-5 fade-item">
 
         <!-- Left: Dịch vụ & Tiện ích — text block (~42%) -->
         <div class="lg:w-[42%] bg-[#ede8df] flex flex-col justify-between p-10 md:p-14" style="min-height:420px;">
@@ -149,7 +157,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
       </div>
 
       <!-- Row 2: Two image blocks left + Text block right -->
-      <div class="flex flex-col lg:flex-row gap-5">
+      <div class="flex flex-col lg:flex-row gap-5 fade-item">
 
         <!-- Left: 2 stacked/grid image blocks (~58%) -->
         <div class="lg:flex-1 grid grid-cols-2 gap-5">
@@ -190,7 +198,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
       </div>
 
       <!-- Row 3: Blog — text left + image right -->
-      <div class="flex flex-col lg:flex-row gap-5 mt-5">
+      <div class="flex flex-col lg:flex-row gap-5 mt-5 fade-item">
 
         <!-- Left: text block (~42%) -->
         <div class="lg:w-[42%] bg-[#ede8df] flex flex-col justify-between p-10 md:p-14" style="min-height:380px;">
@@ -228,7 +236,8 @@ import StickyContactBar from '../components/StickyContactBar.astro';
     <div class="mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
 
       <!-- Heading -->
-      <div class="mb-10">
+      <div class="mb-10 fade-item">
+        <p class="text-xs tracking-[0.22em] uppercase text-accent font-medium mb-3">Hải An</p>
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary">
           Khoảnh Khắc Tại Hải An
         </h2>
