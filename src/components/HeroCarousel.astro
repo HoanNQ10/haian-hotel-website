@@ -32,13 +32,22 @@ const slides = [
     <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent pointer-events-none z-10" aria-hidden="true"></div>
 
     <!-- Center text -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none">
-      <h1 class="text-white text-center font-heading font-bold tracking-[0.25em] leading-tight drop-shadow-lg" style="font-size: clamp(32px, 5vw, 72px);">
+    <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+      <h1 class="text-white text-center font-heading font-bold tracking-[0.25em] leading-tight drop-shadow-lg pointer-events-none" style="font-size: clamp(32px, 5vw, 72px);">
         HẢI AN
       </h1>
-      <p class="text-white text-center font-heading tracking-[0.5em] drop-shadow-lg" style="font-size: clamp(12px, 1.5vw, 24px); margin-top: 0.2em;">
+      <p class="text-white text-center font-heading tracking-[0.5em] drop-shadow-lg pointer-events-none" style="font-size: clamp(12px, 1.5vw, 24px); margin-top: 0.2em;">
         HOTEL
       </p>
+      <a
+        href="#co-so"
+        class="mt-8 inline-flex items-center gap-2 border border-white/60 text-white text-xs font-semibold tracking-[0.2em] uppercase px-8 py-3 hover:bg-white/15 transition-all duration-300"
+      >
+        Khám Phá
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </a>
     </div>
 
     <!-- Previous Button -->
