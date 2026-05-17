@@ -5,38 +5,86 @@ import Footer from '../components/Footer.astro';
 
 const roomTypes = [
   {
-    name: "Phòng Đơn",
-    description: "Phòng đơn gọn gàng, thoáng mát — phù hợp cho khách đi một mình hoặc công tác. Một số phòng có ban công riêng nhìn ra không gian xanh.",
-    bedType: "1 giường đơn",
+    name: "Phòng Tiêu Chuẩn – 1 Giường Đôi",
+    description: "Phòng tiêu chuẩn ấm cúng với 1 giường đôi, đầy đủ tiện nghi cơ bản. Thích hợp cho cặp đôi hoặc khách đi một mình muốn không gian riêng tư thoải mái giữa lòng Đà Lạt.",
+    bedType: "1 giường đôi",
     capacity: "1–2 người",
-    floors: "Tầng 1, Tầng 2, Tầng hầm 1",
-    rooms: ["201", "203", "301", "302", "303", "304", "B102"],
-    detailHref: "/phong-don",
-    gradient: "bg-gradient-to-br from-accent-soft to-border"
+    amenities: ["WiFi miễn phí", "Điều hòa", "Nước nóng", "TV", "WC riêng"],
+    images: [
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.JPG",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/3.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/4.jpg",
+    ]
   },
   {
-    name: "Phòng Đôi",
-    description: "Phòng rộng rãi với 2 giường đơn — lý tưởng cho gia đình nhỏ hoặc nhóm bạn. Một số phòng có ban công riêng, ánh sáng tự nhiên tràn vào thoáng mát.",
-    bedType: "2 giường đơn",
-    capacity: "3–4 người",
-    floors: "Tầng trệt, Tầng 1, Tầng hầm 1, Tầng hầm 2",
-    rooms: ["101", "102", "202", "204", "B101", "B201", "B202"],
-    detailHref: "/phong-doi",
-    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft"
+    name: "Phòng Tiêu Chuẩn – 2 Giường Đôi",
+    description: "Phòng rộng rãi với 2 giường đôi, phù hợp cho gia đình hoặc nhóm bạn. Không gian thoáng đãng, đủ chỗ nghỉ ngơi thoải mái cho cả nhóm.",
+    bedType: "2 giường đôi",
+    capacity: "2–4 người",
+    amenities: ["WiFi miễn phí", "Điều hòa", "Nước nóng", "TV", "WC riêng"],
+    images: [
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/3.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/4.jpg",
+    ]
+  },
+  {
+    name: "Phòng Tiêu Chuẩn Có Ban Công – 1 Giường Đôi",
+    description: "Phòng tiêu chuẩn với ban công riêng — thêm không gian để thưởng thức không khí trong lành buổi sáng. 1 giường đôi, lý tưởng cho cặp đôi muốn không gian riêng tư và thoáng đãng.",
+    bedType: "1 giường đôi",
+    capacity: "1–2 người",
+    amenities: ["WiFi miễn phí", "Điều hòa", "Nước nóng", "TV", "WC riêng", "Ban công riêng"],
+    images: [
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.JPG",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/3.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/4.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/5.jpg",
+    ]
+  },
+  {
+    name: "Phòng Tiêu Chuẩn Có Ban Công – 2 Giường Đôi",
+    description: "Rộng rãi với 2 giường đôi và ban công riêng thoáng mát. Lựa chọn lý tưởng cho gia đình muốn có thêm không gian thư giãn ngoài trời ngay tại phòng.",
+    bedType: "2 giường đôi",
+    capacity: "2–4 người",
+    amenities: ["WiFi miễn phí", "Điều hòa", "Nước nóng", "TV", "WC riêng", "Ban công riêng"],
+    images: [
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/3.JPG",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/4.JPG",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/5.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/6.jpg",
+      "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/7.JPG",
+    ]
+  },
+  {
+    name: "Phòng Sân BBQ Riêng – 2 Giường Đôi",
+    description: "Phòng đặc biệt với sân BBQ riêng tư — trải nghiệm độc đáo chỉ có tại Hải An. Thưởng thức buổi tối nướng BBQ cùng gia đình hoặc bạn bè trong không gian riêng ấm cúng và đáng nhớ.",
+    bedType: "2 giường đôi",
+    capacity: "2–4 người",
+    amenities: ["WiFi miễn phí", "Điều hòa", "Nước nóng", "TV", "WC riêng", "Sân BBQ riêng"],
+    images: [
+      "/images/rooms/Ph%C3%B2ng%20S%C3%A2n%20BBQ%20Ri%C3%AAng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.jpg",
+      "/images/rooms/Ph%C3%B2ng%20S%C3%A2n%20BBQ%20Ri%C3%AAng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
+      "/images/rooms/Ph%C3%B2ng%20S%C3%A2n%20BBQ%20Ri%C3%AAng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/3.JPG",
+      "/images/rooms/Ph%C3%B2ng%20S%C3%A2n%20BBQ%20Ri%C3%AAng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/4.JPG",
+      "/images/rooms/Ph%C3%B2ng%20S%C3%A2n%20BBQ%20Ri%C3%AAng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/5.jpg",
+      "/images/rooms/Ph%C3%B2ng%20S%C3%A2n%20BBQ%20Ri%C3%AAng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/6.jpg",
+    ]
   }
 ];
 ---
 
-<Layout title="Phòng Nghỉ — Hải An Villa Hotel" description="Các loại phòng nghỉ tại Hải An Villa Đà Lạt — phòng đơn, phòng đôi, có hoặc không có ban công.">
+<Layout title="Phòng Nghỉ — Hải An Villa Hotel" description="Các loại phòng nghỉ tại Hải An Villa Đà Lạt — phòng tiêu chuẩn, có ban công, sân BBQ riêng.">
   <Header />
 
   <!-- Hero -->
   <section class="relative overflow-hidden min-h-[400px] md:min-h-[480px] flex items-center justify-center" aria-label="Phòng nghỉ">
-    <!-- Background gradient placeholder — replace src with real image -->
     <div class="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-accent/40" aria-hidden="true"></div>
-    <!-- Dark overlay for text contrast -->
     <div class="absolute inset-0 bg-primary/40" aria-hidden="true"></div>
-    <!-- Content -->
     <div class="relative text-center px-4 md:px-8">
       <p class="text-white/70 text-sm uppercase tracking-widest mb-3">Hải An Villa Đà Lạt</p>
       <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Phòng Nghỉ</h1>
@@ -56,10 +104,14 @@ const roomTypes = [
         <div class="grid md:grid-cols-2 gap-8 md:gap-28 items-center">
 
           <!-- Image -->
-          <div
-            class={`rounded-2xl aspect-[4/3] ${room.gradient}${index % 2 !== 0 ? ' md:order-2' : ''}`}
-            aria-hidden="true"
-          ></div>
+          <div class={`rounded-2xl overflow-hidden aspect-[4/3]${index % 2 !== 0 ? ' md:order-2' : ''}`}>
+            <img
+              src={room.image}
+              alt={room.name}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
 
           <!-- Content -->
           <div class={index % 2 !== 0 ? 'md:order-1' : ''}>
@@ -67,7 +119,7 @@ const roomTypes = [
             <div class="w-10 h-0.5 bg-accent mb-5"></div>
             <p class="text-text-muted leading-relaxed mb-7">{room.description}</p>
 
-            <!-- Specs with divider rows -->
+            <!-- Specs -->
             <div class="divide-y divide-border text-sm mb-7">
               <div class="flex items-center gap-4 py-3">
                 <svg class="w-5 h-5 flex-shrink-0 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -83,38 +135,22 @@ const roomTypes = [
                 <span class="text-text-muted w-24 flex-shrink-0">Sức chứa</span>
                 <span class="text-primary font-medium">{room.capacity}</span>
               </div>
-              <div class="flex items-center gap-4 py-3">
-                <svg class="w-5 h-5 flex-shrink-0 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3M9 7h1m-1 4h1m4-4h1m-1 4h1"/>
-                </svg>
-                <span class="text-text-muted w-24 flex-shrink-0">Vị trí</span>
-                <span class="text-primary font-medium">{room.floors}</span>
-              </div>
             </div>
 
             <!-- Amenity pills -->
             <div class="flex flex-wrap gap-2 mb-8">
-              <span class="text-xs bg-accent-soft text-primary px-3 py-1.5 rounded-full font-medium">WiFi miễn phí</span>
-              <span class="text-xs bg-accent-soft text-primary px-3 py-1.5 rounded-full font-medium">Điều hòa</span>
-              <span class="text-xs bg-accent-soft text-primary px-3 py-1.5 rounded-full font-medium">Nước nóng</span>
-              <span class="text-xs bg-accent-soft text-primary px-3 py-1.5 rounded-full font-medium">TV</span>
-              <span class="text-xs bg-accent-soft text-primary px-3 py-1.5 rounded-full font-medium">WC riêng</span>
-              <span class="text-xs bg-accent-soft text-primary px-3 py-1.5 rounded-full font-medium">Ban công*</span>
+              {room.amenities.map(a => (
+                <span class="text-xs bg-accent-soft text-primary px-3 py-1.5 rounded-full font-medium">{a}</span>
+              ))}
             </div>
 
             <!-- CTA -->
             <div class="flex gap-3 flex-wrap">
               <a
-                href={room.detailHref}
+                href="/lien-he"
                 class="inline-flex items-center justify-center bg-primary text-white px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary/90 transition-all duration-200"
               >
-                Xem Chi Tiết
-              </a>
-              <a
-                href="/lien-he"
-                class="inline-flex items-center justify-center border border-border text-text-muted bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:border-primary hover:text-primary transition-all duration-200"
-              >
-                Liên Hệ
+                Liên Hệ Đặt Phòng
               </a>
             </div>
           </div>
