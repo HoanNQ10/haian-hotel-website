@@ -222,8 +222,10 @@ const roomTypes = [
         dots[current].classList.add('opacity-100', 'w-2', 'h-2');
       }
 
-      slideshow.querySelector('.prev-btn')!.addEventListener('click', () => goTo(current - 1));
-      slideshow.querySelector('.next-btn')!.addEventListener('click', () => goTo(current + 1));
+      const prevBtn = slideshow.querySelector('.prev-btn');
+      const nextBtn = slideshow.querySelector('.next-btn');
+      if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
     });
   </script>
 </Layout>
