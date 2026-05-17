@@ -1,0 +1,46 @@
+<h2>Hướng nâng cấp homepage</h2>
+<p class="subtitle">Chọn 1 hoặc nhiều hướng bạn muốn theo đuổi</p>
+
+<div class="options" data-multiselect>
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Scroll Animations + Hero CTA</h3>
+      <p>Thêm hiệu ứng fade/slide khi cuộn trang — các section xuất hiện mượt mà thay vì hiện ngay. Thêm tagline và nút "Đặt Phòng / Liên Hệ" vào Hero. Ít code, tác động lớn nhất đến cảm giác "sống động".</p>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>Được</h4><ul><li>Trang cảm giác có nhịp điệu</li><li>Hero có hành động rõ ràng</li><li>Không thêm thư viện ngoài</li></ul></div>
+        <div class="cons"><h4>Hạn chế</h4><ul><li>Màu sắc / font chưa thay đổi</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Typography + Màu sắc nâng cấp</h3>
+      <p>Dùng Playfair Display cho heading (đang là system font). Dùng accent gold nhiều hơn ở các section. Thêm 1 section tối (dark) trước Footer để tạo điểm nhấn cuối trang và chứa CTA liên hệ.</p>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>Được</h4><ul><li>Visual identity mạnh hơn</li><li>Tạo nhịp sáng/tối cho trang</li><li>Section liên hệ rõ ràng</li></ul></div>
+        <div class="cons"><h4>Hạn chế</h4><ul><li>Cần load thêm Google Fonts</li><li>Trang vẫn tĩnh nếu không kết hợp A</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Redesign Section Cơ Sở & Gallery</h3>
+      <p>Cards cơ sở có ảnh lớn hơn, hover effect mạnh hơn. Gallery chuyển sang dạng fullwidth lightbox-style. Tạo cảm giác "premium" hơn cho 2 section quan trọng nhất.</p>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>Được</h4><ul><li>Các section chủ lực đẹp hơn rõ rệt</li><li>Ảnh được trưng bày ấn tượng hơn</li></ul></div>
+        <div class="cons"><h4>Hạn chế</h4><ul><li>Nhiều thay đổi code hơn</li><li>Cần ảnh chất lượng tốt</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:24px; padding:16px; background:#f5f0e8; border-radius:8px; font-size:14px; color:#666;">
+  💡 <strong>Gợi ý:</strong> A + B là combo hiệu quả nhất — trang trở nên sống động (A) và đẹp hơn về visual (B) mà không cần rebuild lớn. C có thể làm sau khi có ảnh thật chất lượng cao.
+</div>
