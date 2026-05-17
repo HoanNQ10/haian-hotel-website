@@ -16,6 +16,17 @@ const services = [
     ctaHref: "/lien-he",
   },
   {
+    name: "Giặt Ủi",
+    description: "Dịch vụ giặt ủi chuyên nghiệp ngay tại khách sạn — quần áo được giặt sạch, sấy khô và ủi phẳng cẩn thận. Tiện lợi cho những chuyến đi dài ngày, giúp bạn luôn gọn gàng mà không cần lo lắng.",
+    facts: [
+      { label: "Thời gian", value: "Trong ngày" },
+      { label: "Nhận đồ", value: "Trước 22:00" },
+    ],
+    gradient: "bg-gradient-to-br from-slate/40 to-primary/60",
+    menuHref: null,
+    ctaHref: "/lien-he",
+  },
+  {
     name: "Thuê Xe",
     description: "Thuê xe máy và ô tô linh hoạt theo ngày — khám phá Đà Lạt và Bảo Lộc theo cách của bạn. Xe được bảo dưỡng định kỳ, sạch sẽ và an toàn. Giao xe tận nơi theo yêu cầu.",
     facts: [
@@ -30,7 +41,7 @@ const services = [
     name: "Đưa Đón",
     description: "Dịch vụ đưa đón sân bay và các điểm du lịch — đặt lịch trước, đúng giờ, an toàn. Phục vụ tuyến Đà Lạt – Bảo Lộc và các tuyến theo yêu cầu với tài xế kinh nghiệm, am hiểu địa phương.",
     facts: [
-      { label: "Tuyến", value: "Đà Lạt – Bảo Lộc" },
+      { label: "Tuyến", value: "Sân Bay – Đà Lạt – Bảo Lộc" },
       { label: "Đặt trước", value: "1 ngày" },
     ],
     gradient: "bg-gradient-to-br from-primary/50 to-accent/40",
@@ -41,6 +52,7 @@ const services = [
 
 const icons = [
   `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>`,
+  `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 7h18M3 7l2 13h14l2-13M3 7l2-4h14l2 4M10 12a2 2 0 104 0"/>`,
   `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 16H6l-2-5h14l-2 5zM5 11l1.5-4h7L15 11"/>`,
   `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`,
 ];
@@ -63,31 +75,31 @@ const icons = [
 
   <!-- Services -->
   <section class="bg-[#EFEFED]" aria-label="Danh sách dịch vụ">
-    <div class="max-w-container mx-auto px-4 md:px-8 py-16 md:py-24">
-      <div class="divide-y divide-border">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-16 md:py-24">
+      <div class="flex flex-col gap-10 md:gap-14">
         {services.map((service, index) => (
           <article
-            class={`grid md:grid-cols-2 items-stretch overflow-hidden${index === 0 ? ' rounded-t-xl' : ''}${index === services.length - 1 ? ' rounded-b-xl' : ''}`}
+            class="grid md:grid-cols-2 items-stretch overflow-hidden"
             aria-label={service.name}
           >
 
             <!-- Image panel -->
             <div
-              class={`relative flex items-center justify-center min-h-[280px] md:min-h-[420px] ${service.gradient}${index % 2 !== 0 ? ' md:order-2' : ''}`}
+              class={`relative flex items-center justify-center min-h-[320px] md:min-h-[520px] ${service.gradient}${index % 2 !== 0 ? ' md:order-2' : ''}`}
               aria-hidden="true"
             >
-              <svg class="w-24 h-24 text-white/25" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[index]} />
+              <svg class="w-28 h-28 text-white/25" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[index]} />
             </div>
 
             <!-- Content panel -->
-            <div class={`flex flex-col justify-center p-8 md:p-12 lg:p-16 bg-white${index % 2 !== 0 ? ' md:order-1' : ''}`}>
+            <div class={`flex flex-col justify-center p-10 md:p-14 lg:p-20${index % 2 !== 0 ? ' md:order-1' : ''}`}>
               <div class="w-full">
 
-                <h2 class="font-heading font-bold text-2xl lg:text-3xl text-primary mb-5">
+                <h2 class="font-heading font-bold text-3xl lg:text-4xl text-primary mb-6">
                   {service.name}
                 </h2>
 
-                <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm mb-7">
+                <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm mb-8">
                   {service.facts.map(fact => (
                     <div>
                       <span class="text-text-muted">{fact.label}: </span>
@@ -96,11 +108,11 @@ const icons = [
                   ))}
                 </div>
 
-                <p class="text-sm md:text-base text-text-muted leading-relaxed mb-7">
+                <p class="text-base md:text-lg text-text-muted leading-relaxed mb-8">
                   {service.description}
                 </p>
 
-                <div class="h-px bg-border mb-7"></div>
+                <div class="h-px bg-border mb-8"></div>
 
                 <div class="flex flex-wrap gap-3">
                   {service.menuHref && (

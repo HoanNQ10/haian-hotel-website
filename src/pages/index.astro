@@ -16,68 +16,72 @@ import StickyContactBar from '../components/StickyContactBar.astro';
   <HeroCarousel />
 
   <!-- Giới Thiệu -->
-  <section id="gioi-thieu" class="overflow-hidden bg-[#f5f0e8]">
-    <div class="flex flex-col md:flex-row w-full" style="height: 760px;">
+  <section id="gioi-thieu" class="overflow-hidden bg-[#EFEFED]">
+    <div class="mx-auto w-full" style="max-width: 1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
+      <div class="flex flex-col lg:flex-row lg:gap-12" style="min-height: clamp(500px, 52vw, 760px);">
 
-      <!-- Left: text panel -->
-      <div class="md:w-[45%] lg:w-[42%] flex flex-col justify-center py-14 md:py-0" style="padding-left: 100px; padding-right: 48px;">
+        <!-- Left: text panel -->
+        <div class="lg:w-[42%] flex flex-col justify-center py-14 lg:py-0">
 
-        <!-- Heading -->
-        <div class="mb-6 fade-item" style="transition-delay: 80ms;">
-          <p class="font-heading font-bold text-primary/60 leading-none mb-3" style="font-size: 22px; letter-spacing: 0.18em;">WELCOME TO</p>
-          <h2 class="font-heading font-bold text-primary leading-none whitespace-nowrap" style="font-size: 64px;">
-            HẢI AN HOTEL
-          </h2>
+          <!-- Heading -->
+          <div class="mb-6 fade-item" style="transition-delay: 80ms;">
+            <p class="font-heading font-bold text-primary/60 leading-none mb-3" style="font-size: 15px; letter-spacing: 0.18em;">WELCOME TO</p>
+            <h2 class="font-heading font-bold text-primary leading-none" style="font-size: clamp(40px, 4.5vw, 64px);">
+              HẢI AN HOTEL
+            </h2>
+          </div>
+
+          <!-- Description -->
+          <p class="text-text-muted leading-relaxed mb-6 fade-item" style="font-size: 14px; max-width: 400px; transition-delay: 160ms;">
+            Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
+            Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
+            lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
+          </p>
+
+          <!-- CTA -->
+          <a
+            href="#co-so"
+            class="self-start inline-flex items-center gap-2 bg-primary hover:bg-primary/85 text-white text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 fade-item"
+            style="transition-delay: 240ms;"
+          >
+            Khám Phá
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+
         </div>
 
-        <!-- Description -->
-        <p class="text-text-muted leading-relaxed mb-6 fade-item" style="font-size: 14px; max-width: 400px; transition-delay: 160ms;">
-          Hải An là hệ thống khách sạn gia đình với tiêu chí sạch sẽ, ấm cúng và thân thiện.
-          Chúng tôi mang đến không gian lưu trú thoải mái, dịch vụ chân thành và giá cả hợp lý —
-          lý tưởng cho những chuyến nghỉ dưỡng tại Đà Lạt và Bảo Lộc.
-        </p>
-
-        <!-- CTA -->
-        <a
-          href="#co-so"
-          class="self-start inline-flex items-center gap-2 bg-primary hover:bg-primary/85 text-white text-xs font-semibold tracking-[0.15em] uppercase px-5 py-3 transition-colors duration-300 fade-item"
-          style="transition-delay: 240ms;"
-        >
-          Khám Phá
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </a>
+        <!-- Right: IntroImageRail -->
+        <div class="lg:flex-1 flex items-center overflow-hidden">
+          <IntroImageRail />
+        </div>
 
       </div>
-
-      <!-- Right: IntroImageRail -->
-      <div class="md:flex-1 flex items-center overflow-hidden" style="padding-right: 100px;">
-        <IntroImageRail />
-      </div>
-
     </div>
   </section>
 
   <!-- Quote Divider -->
-  <div class="relative overflow-hidden bg-white py-14 md:py-20">
-    <div class="relative mx-auto flex items-center justify-center" style="max-width: 1100px; padding: 0 clamp(24px, 5vw, 80px); min-height: 200px;">
-      <!-- Triangle -->
-      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <svg width="360" height="260" viewBox="0 0 360 260" aria-hidden="true">
-          <polygon points="255,12 352,248 8,248" fill="#C4A882"/>
-        </svg>
+  <div class="bg-white py-14 md:py-20">
+    <div class="mx-auto text-center" style="max-width: 800px; padding: 0 clamp(24px, 5vw, 80px);">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="flex-1 h-px bg-accent"></div>
+        <div class="w-1.5 h-1.5 bg-accent rotate-45 flex-shrink-0"></div>
+        <div class="flex-1 h-px bg-accent"></div>
       </div>
-
-      <!-- Quote -->
-      <p class="relative z-10 font-heading italic text-center text-primary/75 leading-relaxed fade-item" style="font-size: clamp(18px, 2.2vw, 28px); white-space: nowrap;">
+      <p class="font-heading italic text-primary/75 leading-relaxed fade-item" style="font-size: clamp(17px, 1.8vw, 26px);">
         "Hải An — nơi mỗi chuyến nghỉ dưỡng trở thành kỷ niệm ấm áp,<br>và mỗi căn phòng là không gian bạn muốn quay lại."
       </p>
+      <div class="flex items-center gap-4 mt-8">
+        <div class="flex-1 h-px bg-accent"></div>
+        <div class="w-1.5 h-1.5 bg-accent rotate-45 flex-shrink-0"></div>
+        <div class="flex-1 h-px bg-accent"></div>
+      </div>
     </div>
   </div>
 
   <!-- Properties Section -->
-  <section id="co-so" class="relative overflow-hidden bg-[#f5f0e8]">
+  <section id="co-so" class="relative overflow-hidden bg-[#EFEFED]">
     <div class="absolute left-0 right-0 bottom-0 bg-white" style="top: 410px;"></div>
     <div class="relative py-16 md:py-24 mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
 
@@ -123,24 +127,27 @@ import StickyContactBar from '../components/StickyContactBar.astro';
     </div>
   </section>
 
-  <!-- Square Divider -->
-  <div class="relative overflow-hidden bg-[#f5f0e8] py-14 md:py-20">
-    <div class="relative mx-auto flex items-center justify-center" style="max-width: 1100px; padding: 0 clamp(24px, 5vw, 80px); min-height: 200px;">
-      <!-- Square -->
-      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <svg width="300" height="300" viewBox="0 0 300 300" aria-hidden="true">
-          <rect x="50" y="50" width="200" height="200" fill="#C4A882" transform="rotate(45 150 150)"/>
-        </svg>
+  <!-- Quote Divider 2 -->
+  <div class="bg-[#EFEFED] py-14 md:py-20">
+    <div class="mx-auto text-center" style="max-width: 800px; padding: 0 clamp(24px, 5vw, 80px);">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="flex-1 h-px bg-accent"></div>
+        <div class="w-1.5 h-1.5 bg-accent rotate-45 flex-shrink-0"></div>
+        <div class="flex-1 h-px bg-accent"></div>
       </div>
-      <!-- Quote -->
-      <p class="relative z-10 font-heading italic text-center text-primary/75 leading-relaxed fade-item" style="font-size: clamp(18px, 2.2vw, 28px); white-space: nowrap;">
+      <p class="font-heading italic text-primary/75 leading-relaxed fade-item" style="font-size: clamp(17px, 1.8vw, 26px);">
         "Mỗi tiện ích tại Hải An được chăm chút tận tâm,<br>để kỳ nghỉ của bạn trọn vẹn từng khoảnh khắc."
       </p>
+      <div class="flex items-center gap-4 mt-8">
+        <div class="flex-1 h-px bg-accent"></div>
+        <div class="w-1.5 h-1.5 bg-accent rotate-45 flex-shrink-0"></div>
+        <div class="flex-1 h-px bg-accent"></div>
+      </div>
     </div>
   </div>
 
   <!-- Editorial Hub Section -->
-  <section id="kham-pha" class="relative overflow-hidden bg-[#FDFAF7] py-20 md:py-28">
+  <section id="kham-pha" class="relative overflow-hidden bg-white py-20 md:py-28">
     <div class="mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
 
       <!-- Row 1: Text block left + Image block right -->
@@ -164,8 +171,8 @@ import StickyContactBar from '../components/StickyContactBar.astro';
 
         <!-- Right: Ăn uống / BBQ — image block (~58%) -->
         <a href="/tien-ich#an-uong" class="group lg:flex-1 relative overflow-hidden block" style="min-height:420px;">
-          <div class="absolute inset-0 bg-[#c9bfb2]">
-            <img src="/images/editorial/dich-vu.jpg" alt="Dịch vụ tại Hải An"
+          <div class="absolute inset-0 bg-[#C8C0A8]">
+            <img src="/images/editorial/Spa.jpg" alt="Dịch vụ tại Hải An"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               onerror="this.style.display='none'"
             />
@@ -180,7 +187,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
         <!-- Left: 2 stacked/grid image blocks (~58%) -->
         <div class="lg:flex-1 grid grid-cols-2 gap-5">
           <div class="group overflow-hidden relative" style="min-height:300px;">
-            <div class="absolute inset-0 bg-[#d4ccc4]">
+            <div class="absolute inset-0 bg-[#C4BCA8]">
               <img src="/images/editorial/an-uong-1.jpg" alt="Ăn uống tại Hải An"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onerror="this.style.display='none'"
@@ -188,7 +195,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
             </div>
           </div>
           <div class="group overflow-hidden relative" style="min-height:300px;">
-            <div class="absolute inset-0 bg-[#c8c0b8]">
+            <div class="absolute inset-0 bg-[#C0B8A4]">
               <img src="/images/editorial/an-uong-2.jpg" alt="Ăn uống tại Hải An"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onerror="this.style.display='none'"
@@ -238,7 +245,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
 
         <!-- Right: image block (~58%) -->
         <a href="/blog" class="group lg:flex-1 relative overflow-hidden block" style="min-height:380px;">
-          <div class="absolute inset-0 bg-[#c4bcb4]">
+          <div class="absolute inset-0 bg-[#BCB4A0]">
             <img src="/images/editorial/blog.jpg" alt="Blog & Cẩm nang"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               onerror="this.style.display='none'"
@@ -252,7 +259,7 @@ import StickyContactBar from '../components/StickyContactBar.astro';
   </section>
 
   <!-- Gallery Section -->
-  <section id="hinh-anh" class="bg-[#FDFAF7] py-16 md:py-24">
+  <section id="hinh-anh" class="bg-white py-16 md:py-24">
     <div class="mx-auto w-full" style="max-width:1440px; padding-left: clamp(12px, 2vw, 32px); padding-right: clamp(12px, 2vw, 32px);">
 
       <!-- Heading -->

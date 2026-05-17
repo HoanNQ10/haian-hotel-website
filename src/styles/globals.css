@@ -5,12 +5,14 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Global typography */
 body {
   @apply font-body text-text-main bg-background;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* Heading styles */
