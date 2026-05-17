@@ -251,12 +251,9 @@ const roomTypes = [
       aria-modal="true"
       aria-hidden="true"
     >
-      <div class="flex items-center justify-between px-6 py-5 border-b border-border flex-shrink-0">
-        <div>
-          <p class="text-xs text-text-muted uppercase tracking-widest mb-0.5">Tiện nghi</p>
-          <h3 class="font-heading font-semibold text-primary text-base leading-snug">{room.name}</h3>
-        </div>
-        <button type="button" class="drawer-close w-8 h-8 flex items-center justify-center text-text-muted hover:text-primary transition-colors" aria-label="Đóng">
+      <div class="relative flex items-center justify-center px-6 py-5 border-b border-border flex-shrink-0">
+        <h3 class="font-heading font-bold text-primary text-xl tracking-wide">Tiện Nghi</h3>
+        <button type="button" class="drawer-close absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-text-muted hover:text-primary transition-colors" aria-label="Đóng">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
