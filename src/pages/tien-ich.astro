@@ -67,7 +67,7 @@ const icons = [
       <div class="divide-y divide-border">
         {services.map((service, index) => (
           <div
-            class={`grid md:grid-cols-2 overflow-hidden${index === 0 ? ' rounded-t-xl' : ''}${index === services.length - 1 ? ' rounded-b-xl' : ''}`}
+            class={`grid md:grid-cols-2 items-stretch overflow-hidden${index === 0 ? ' rounded-t-xl' : ''}${index === services.length - 1 ? ' rounded-b-xl' : ''}`}
             aria-label={service.name}
           >
 
