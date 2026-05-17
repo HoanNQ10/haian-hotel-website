@@ -201,4 +201,29 @@ const roomTypes = [
   </section>
 
   <Footer />
+
+  <script>
+    document.querySelectorAll('.room-slideshow').forEach(slideshow => {
+      const imgs = Array.from(slideshow.querySelectorAll('img'));
+      const dots = Array.from(slideshow.querySelectorAll('.slide-dot'));
+      let current = 0;
+
+      function goTo(index: number) {
+        imgs[current].classList.remove('opacity-100');
+        imgs[current].classList.add('opacity-0');
+        dots[current].classList.remove('opacity-100', 'w-2', 'h-2');
+        dots[current].classList.add('opacity-50', 'w-1.5', 'h-1.5');
+
+        current = (index + imgs.length) % imgs.length;
+
+        imgs[current].classList.remove('opacity-0');
+        imgs[current].classList.add('opacity-100');
+        dots[current].classList.remove('opacity-50', 'w-1.5', 'h-1.5');
+        dots[current].classList.add('opacity-100', 'w-2', 'h-2');
+      }
+
+      slideshow.querySelector('.prev-btn')!.addEventListener('click', () => goTo(current - 1));
+      slideshow.querySelector('.next-btn')!.addEventListener('click', () => goTo(current + 1));
+    });
+  </script>
 </Layout>
