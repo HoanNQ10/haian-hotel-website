@@ -302,5 +302,48 @@ const roomTypes = [
       if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
       if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
     });
+
+    const overlay = document.getElementById('drawer-overlay')!;
+    let activeDrawer: HTMLElement | null = null;
+
+    function openDrawer(id: string) {
+      const drawer = document.getElementById(id) as HTMLElement;
+      if (!drawer) return;
+      activeDrawer = drawer;
+      drawer.setAttribute('aria-hidden', 'false');
+      overlay.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        overlay.classList.remove('opacity-0');
+        drawer.classList.remove('translate-x-full');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      if (!activeDrawer) return;
+      activeDrawer.classList.add('translate-x-full');
+      overlay.classList.add('opacity-0');
+      const closing = activeDrawer;
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        closing.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        activeDrawer = null;
+      }, 300);
+    }
+
+    document.querySelectorAll<HTMLElement>('.amenities-open').forEach(btn => {
+      btn.addEventListener('click', () => openDrawer(btn.dataset.drawer!));
+    });
+
+    document.querySelectorAll('.drawer-close').forEach(btn => {
+      btn.addEventListener('click', closeDrawer);
+    });
+
+    overlay.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDrawer();
+    });
   </script>
 </Layout>
