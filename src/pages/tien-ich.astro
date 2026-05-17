@@ -66,7 +66,7 @@ const icons = [
     <div class="max-w-container mx-auto px-4 md:px-8 py-16 md:py-24">
       <div class="divide-y divide-border">
         {services.map((service, index) => (
-          <div
+          <article
             class={`grid md:grid-cols-2 items-stretch overflow-hidden${index === 0 ? ' rounded-t-xl' : ''}${index === services.length - 1 ? ' rounded-b-xl' : ''}`}
             aria-label={service.name}
           >
@@ -124,7 +124,7 @@ const icons = [
               </div>
             </div>
 
-          </div>
+          </article>
         ))}
       </div>
     </div>
