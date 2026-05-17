@@ -205,14 +205,23 @@ const roomTypes = [
 
               <!-- Amenities -->
               <h3 class="font-heading text-xl text-primary mb-4">Tiện nghi</h3>
-              <div class="grid grid-cols-2 gap-x-8 gap-y-2.5 mb-8">
-                {room.amenities.map(a => (
+              <div class="grid grid-cols-2 gap-x-8 gap-y-2.5 mb-4">
+                {room.amenities.slice(0, 12).map(a => (
                   <div class="flex items-center gap-2 text-sm text-text-muted">
                     <span class="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" aria-hidden="true"></span>
                     {a}
                   </div>
                 ))}
               </div>
+              {room.amenities.length > 12 && (
+                <button
+                  type="button"
+                  class="amenities-open text-xs text-accent font-semibold hover:underline underline-offset-2 mb-8 transition-colors text-left"
+                  data-drawer={`drawer-${index}`}
+                >
+                  Xem tất cả {room.amenities.length} tiện nghi →
+                </button>
+              )}
 
               <!-- CTA -->
               <a
