@@ -305,8 +305,10 @@ const roomTypes = [
 
     const overlay = document.getElementById('drawer-overlay')!;
     let activeDrawer: HTMLElement | null = null;
+    let closeTimer: ReturnType<typeof setTimeout> | null = null;
 
     function openDrawer(id: string) {
+      if (closeTimer !== null) { clearTimeout(closeTimer); closeTimer = null; }
       const drawer = document.getElementById(id) as HTMLElement;
       if (!drawer) return;
       activeDrawer = drawer;
@@ -324,11 +326,12 @@ const roomTypes = [
       activeDrawer.classList.add('translate-x-full');
       overlay.classList.add('opacity-0');
       const closing = activeDrawer;
-      setTimeout(() => {
+      activeDrawer = null;
+      closeTimer = setTimeout(() => {
+        closeTimer = null;
         overlay.classList.add('hidden');
         closing.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        activeDrawer = null;
       }, 300);
     }
 
