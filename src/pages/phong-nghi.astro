@@ -101,10 +101,10 @@ const roomTypes = [
       <div class="flex flex-col gap-10">
         {roomTypes.map((room, index) => (
           <div class="rounded-2xl overflow-hidden bg-white shadow-sm" aria-label={room.name}>
-            <div class={`grid md:grid-cols-[55%_45%]`}>
+            <div class="grid md:grid-cols-[55%_45%]">
 
               <!-- Slideshow -->
-              <div class={`relative room-slideshow min-h-[260px] md:min-h-[420px]${index % 2 !== 0 ? ' md:order-2' : ''}`}>
+              <div class={`relative room-slideshow h-full min-h-[260px] md:min-h-[420px]${index % 2 !== 0 ? ' md:order-2' : ''}`}>
                 {room.images.map((src, i) => (
                   <img
                     src={src}
@@ -116,6 +116,7 @@ const roomTypes = [
 
                 <!-- Prev button -->
                 <button
+                  type="button"
                   class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-sm transition-colors"
                   aria-label="Ảnh trước"
                 >
@@ -126,6 +127,7 @@ const roomTypes = [
 
                 <!-- Next button -->
                 <button
+                  type="button"
                   class="next-btn absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-sm transition-colors"
                   aria-label="Ảnh tiếp theo"
                 >
@@ -135,7 +137,7 @@ const roomTypes = [
                 </button>
 
                 <!-- Dot indicators -->
-                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5">
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5" aria-hidden="true">
                   {room.images.map((_, i) => (
                     <span class={`slide-dot rounded-full bg-white transition-all duration-300${i === 0 ? ' w-2 h-2 opacity-100' : ' w-1.5 h-1.5 opacity-50'}`}></span>
                   ))}
