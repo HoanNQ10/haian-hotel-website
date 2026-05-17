@@ -96,107 +96,129 @@ const roomTypes = [
   </section>
 
   <!-- Rooms -->
-  <section class="bg-[#EFEFED]" aria-label="Danh sách phòng nghỉ">
-    <div class="max-w-container mx-auto px-4 md:px-8 py-16 md:py-24">
-      <div class="flex flex-col gap-10">
-        {roomTypes.map((room, index) => (
-          <div class="rounded-2xl overflow-hidden bg-white shadow-sm" aria-label={room.name}>
-            <div class="grid md:grid-cols-[55%_45%]">
+  <section aria-label="Danh sách phòng nghỉ" class="bg-[#EFEFED]">
+    <div class="w-full max-w-[1920px] mx-auto">
+      {roomTypes.map((room, index) => (
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 w-full border-b border-border/60 last:border-b-0"
+          aria-label={room.name}
+        >
 
-              <!-- Slideshow -->
-              <div class={`relative room-slideshow h-full min-h-[260px] md:min-h-[420px]${index % 2 !== 0 ? ' md:order-2' : ''}`}>
-                {room.images.map((src, i) => (
-                  <img
-                    src={src}
-                    alt={`${room.name} — ảnh ${i + 1}`}
-                    class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300${i === 0 ? ' opacity-100' : ' opacity-0'}`}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                  />
-                ))}
+          <!-- Slideshow -->
+          <div
+            class={`relative room-slideshow h-[320px] md:h-[460px] lg:h-[720px] 2xl:h-[780px] w-full ${
+              index % 2 !== 0 ? 'lg:order-2' : ''
+            }`}
+          >
+            {room.images.map((src, i) => (
+              <img
+                src={src}
+                alt={`${room.name} — ảnh ${i + 1}`}
+                class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                  i === 0 ? 'opacity-100' : 'opacity-0'
+                }`}
+                loading={i === 0 ? 'eager' : 'lazy'}
+              />
+            ))}
 
-                <!-- Prev button -->
-                <button
-                  type="button"
-                  class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-sm transition-colors"
-                  aria-label="Ảnh trước"
-                >
-                  <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                  </svg>
-                </button>
+            <!-- Prev button -->
+            <button
+              type="button"
+              class="prev-btn absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/85 hover:bg-white rounded-full flex items-center justify-center shadow-sm transition-colors"
+              aria-label="Ảnh trước"
+            >
+              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
 
-                <!-- Next button -->
-                <button
-                  type="button"
-                  class="next-btn absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-sm transition-colors"
-                  aria-label="Ảnh tiếp theo"
-                >
-                  <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </button>
+            <!-- Next button -->
+            <button
+              type="button"
+              class="next-btn absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/85 hover:bg-white rounded-full flex items-center justify-center shadow-sm transition-colors"
+              aria-label="Ảnh tiếp theo"
+            >
+              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
 
-                <!-- Dot indicators -->
-                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5" aria-hidden="true">
-                  {room.images.map((_, i) => (
-                    <span class={`slide-dot rounded-full bg-white transition-all duration-300${i === 0 ? ' w-2 h-2 opacity-100' : ' w-1.5 h-1.5 opacity-50'}`}></span>
-                  ))}
-                </div>
-              </div>
-
-              <!-- Content -->
-              <div class={`p-8 md:p-10 flex flex-col justify-center${index % 2 !== 0 ? ' md:order-1' : ''}`}>
-
-                <!-- Name + CTA -->
-                <div class="flex justify-between items-start gap-4 mb-3">
-                  <h2 class="font-heading font-bold text-xl md:text-2xl text-primary leading-snug">{room.name}</h2>
-                  <a
-                    href="/lien-he"
-                    class="flex-shrink-0 bg-accent text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded hover:bg-accent-dark transition-colors"
-                  >
-                    Liên Hệ
-                  </a>
-                </div>
-
-                <!-- Specs -->
-                <div class="flex flex-wrap gap-5 text-sm text-text-muted mb-5">
-                  <span class="flex items-center gap-1.5">
-                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 7v10h18V7M3 11h18"/>
-                    </svg>
-                    {room.bedType}
-                  </span>
-                  <span class="flex items-center gap-1.5">
-                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zm14 10v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-                    </svg>
-                    {room.capacity}
-                  </span>
-                </div>
-
-                <div class="h-px bg-border mb-5"></div>
-
-                <!-- Description -->
-                <p class="text-sm text-text-muted leading-relaxed">{room.description}</p>
-
-                <div class="h-px bg-border my-5"></div>
-
-                <!-- Amenities -->
-                <p class="text-xs uppercase tracking-widest text-primary font-semibold mb-3">Tiện nghi</p>
-                <div class="grid grid-cols-2 gap-x-4 gap-y-1.5">
-                  {room.amenities.map(a => (
-                    <div class="flex items-center gap-2 text-sm text-text-muted">
-                      <span class="w-1 h-1 bg-accent rounded-full flex-shrink-0" aria-hidden="true"></span>
-                      {a}
-                    </div>
-                  ))}
-                </div>
-
-              </div>
+            <!-- Dot indicators -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-1.5" aria-hidden="true">
+              {room.images.map((_, i) => (
+                <span class={`slide-dot rounded-full bg-white transition-all duration-300 ${
+                  i === 0 ? 'w-2 h-2 opacity-100' : 'w-1.5 h-1.5 opacity-50'
+                }`}></span>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
+
+          <!-- Content -->
+          <div
+            class={`flex flex-col justify-center px-10 py-10 lg:px-16 2xl:px-24 ${
+              index % 2 !== 0
+                ? 'lg:order-1 lg:items-end'
+                : 'lg:items-start'
+            }`}
+          >
+            <div class="max-w-[620px] w-full">
+
+              <!-- Name + CTA -->
+              <div class="flex justify-between items-start gap-4 mb-4">
+                <h2 class="font-heading font-bold text-2xl md:text-3xl text-primary leading-snug">
+                  {room.name}
+                </h2>
+                <a
+                  href="/lien-he"
+                  class="flex-shrink-0 border border-accent text-accent text-xs font-semibold uppercase tracking-wider px-5 py-2.5 rounded hover:bg-accent hover:text-white transition-colors"
+                >
+                  Liên Hệ
+                </a>
+              </div>
+
+              <!-- Specs -->
+              <div class="flex flex-wrap gap-5 text-sm text-text-muted mb-6">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 7v10h18V7M3 11h18"/>
+                  </svg>
+                  {room.bedType}
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zm14 10v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                  </svg>
+                  {room.capacity}
+                </span>
+              </div>
+
+              <div class="h-px bg-border mb-6"></div>
+
+              <!-- Description -->
+              <p class="text-sm md:text-base text-text-muted leading-relaxed">
+                {room.description}
+              </p>
+
+              <div class="h-px bg-border my-6"></div>
+
+              <!-- Amenities -->
+              <p class="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
+                Tiện nghi
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                {room.amenities.map(a => (
+                  <div class="flex items-center gap-2 text-sm text-text-muted">
+                    <span class="w-1 h-1 bg-accent rounded-full flex-shrink-0" aria-hidden="true"></span>
+                    {a}
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      ))}
     </div>
   </section>
 
