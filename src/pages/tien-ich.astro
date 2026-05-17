@@ -6,62 +6,129 @@ import Footer from '../components/Footer.astro';
 const services = [
   {
     name: "Spa",
-    description: "Thư giãn và phục hồi năng lượng với các liệu pháp spa chuyên nghiệp ngay tại khách sạn.",
-    gradient: "bg-gradient-to-br from-accent-soft to-border",
-    ctaLabel: "Xem Menu",
-    ctaHref: "/lien-he"
+    description: "Thư giãn và phục hồi năng lượng với các liệu pháp spa chuyên nghiệp ngay tại khách sạn. Đội ngũ kỹ thuật viên được đào tạo bài bản, sử dụng nguyên liệu thiên nhiên cao cấp mang lại trải nghiệm thư giãn toàn diện cho cơ thể và tâm hồn.",
+    facts: [
+      { label: "Giờ mở cửa", value: "8:00 – 22:00" },
+      { label: "Đặt trước", value: "Khuyến nghị" },
+    ],
+    gradient: "bg-gradient-to-br from-accent/60 to-accent-dark/80",
+    menuHref: "/files/spa-menu.pdf",
+    ctaHref: "/lien-he",
   },
   {
     name: "Thuê Xe",
-    description: "Thuê xe máy và ô tô linh hoạt theo ngày — khám phá Đà Lạt và Bảo Lộc theo cách của bạn.",
-    gradient: "bg-gradient-to-br from-primary/10 to-primary/20",
-    ctaLabel: "Liên Hệ",
-    ctaHref: "/lien-he"
+    description: "Thuê xe máy và ô tô linh hoạt theo ngày — khám phá Đà Lạt và Bảo Lộc theo cách của bạn. Xe được bảo dưỡng định kỳ, sạch sẽ và an toàn. Giao xe tận nơi theo yêu cầu.",
+    facts: [
+      { label: "Loại xe", value: "Xe máy & Ô tô" },
+      { label: "Thuê theo", value: "Ngày / Tuần" },
+    ],
+    gradient: "bg-gradient-to-br from-primary/70 to-primary-dark",
+    menuHref: null,
+    ctaHref: "/lien-he",
   },
   {
     name: "Đưa Đón",
-    description: "Dịch vụ đưa đón sân bay và các điểm du lịch — đặt lịch trước, đúng giờ, an toàn.",
-    gradient: "bg-gradient-to-br from-accent/20 to-accent-soft",
-    ctaLabel: "Liên Hệ",
-    ctaHref: "/lien-he"
-  }
+    description: "Dịch vụ đưa đón sân bay và các điểm du lịch — đặt lịch trước, đúng giờ, an toàn. Phục vụ tuyến Đà Lạt – Bảo Lộc và các tuyến theo yêu cầu với tài xế kinh nghiệm, am hiểu địa phương.",
+    facts: [
+      { label: "Tuyến", value: "Đà Lạt – Bảo Lộc" },
+      { label: "Đặt trước", value: "1 ngày" },
+    ],
+    gradient: "bg-gradient-to-br from-primary/50 to-accent/40",
+    menuHref: null,
+    ctaHref: "/lien-he",
+  },
+];
+
+const icons = [
+  `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>`,
+  `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 16H6l-2-5h14l-2 5zM5 11l1.5-4h7L15 11"/>`,
+  `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`,
 ];
 ---
 
-<Layout title="Tiện ích — Hải An Villa Hotel" description="Spa, thuê xe máy và ô tô, dịch vụ đưa đón tại Hải An Villa Hotel.">
+<Layout title="Dịch Vụ — Hải An Villa Hotel" description="Spa, thuê xe máy và ô tô, dịch vụ đưa đón tại Hải An Villa Hotel Đà Lạt.">
   <Header />
 
-  {services.map((service, index) => (
-    <section
-      class={`${index % 2 === 0 ? 'bg-surface' : 'bg-background'}${index < services.length - 1 ? ' border-b border-border' : ''}`}
-      aria-label={service.name}
-    >
-      <div class="max-w-container mx-auto px-4 md:px-8 py-14 md:py-20">
-        <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+  <!-- Hero -->
+  <section class="relative overflow-hidden min-h-[340px] md:min-h-[420px] flex items-center justify-center" aria-label="Dịch vụ">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-accent/40" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-primary/40" aria-hidden="true"></div>
+    <div class="relative text-center px-4 md:px-8">
+      <p class="text-white/70 text-sm uppercase tracking-widest mb-3">Hải An Villa Đà Lạt</p>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Dịch Vụ</h1>
+      <div class="w-12 h-0.5 bg-accent mx-auto mb-4"></div>
+      <p class="text-white/70 text-base md:text-lg max-w-xl mx-auto">Tiện ích và dịch vụ bổ sung cho kỳ nghỉ hoàn hảo của bạn</p>
+    </div>
+  </section>
 
-          <!-- Image -->
+  <!-- Services -->
+  <section class="bg-[#EFEFED]" aria-label="Danh sách dịch vụ">
+    <div class="max-w-container mx-auto px-4 md:px-8 py-16 md:py-24">
+      <div class="divide-y divide-border">
+        {services.map((service, index) => (
           <div
-            class={`rounded-2xl aspect-[4/3] ${service.gradient}${index % 2 !== 0 ? ' md:order-2' : ''}`}
-            aria-hidden="true"
-          ></div>
+            class={`grid md:grid-cols-2 overflow-hidden${index === 0 ? ' rounded-t-xl' : ''}${index === services.length - 1 ? ' rounded-b-xl' : ''}`}
+            aria-label={service.name}
+          >
 
-          <!-- Content -->
-          <div class={index % 2 !== 0 ? 'md:order-1' : ''}>
-            <h2 class="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">{service.name}</h2>
-            <div class="w-10 h-0.5 bg-accent mb-5"></div>
-            <p class="text-text-muted leading-relaxed mb-8">{service.description}</p>
-            <a
-              href={service.ctaHref}
-              class="inline-flex items-center justify-center border border-primary text-primary bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-200"
+            <!-- Image panel -->
+            <div
+              class={`relative flex items-center justify-center min-h-[280px] md:min-h-[420px] ${service.gradient}${index % 2 !== 0 ? ' md:order-2' : ''}`}
+              aria-hidden="true"
             >
-              {service.ctaLabel}
-            </a>
-          </div>
+              <svg class="w-24 h-24 text-white/25" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[index]} />
+            </div>
 
-        </div>
+            <!-- Content panel -->
+            <div class={`flex flex-col justify-center p-8 md:p-12 lg:p-16 bg-white${index % 2 !== 0 ? ' md:order-1' : ''}`}>
+              <div class="w-full">
+
+                <h2 class="font-heading font-bold text-2xl lg:text-3xl text-primary mb-5">
+                  {service.name}
+                </h2>
+
+                <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm mb-7">
+                  {service.facts.map(fact => (
+                    <div>
+                      <span class="text-text-muted">{fact.label}: </span>
+                      <span class="text-accent font-medium">{fact.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <p class="text-sm md:text-base text-text-muted leading-relaxed mb-7">
+                  {service.description}
+                </p>
+
+                <div class="h-px bg-border mb-7"></div>
+
+                <div class="flex flex-wrap gap-3">
+                  {service.menuHref && (
+                    <a
+                      href={service.menuHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex border border-primary text-primary text-xs font-semibold uppercase tracking-[0.15em] px-6 py-3 hover:bg-primary hover:text-white transition-colors duration-300"
+                    >
+                      Xem Menu
+                    </a>
+                  )}
+                  <a
+                    href={service.ctaHref}
+                    class="inline-flex bg-primary hover:bg-primary/85 text-white text-xs font-semibold uppercase tracking-[0.15em] px-6 py-3 transition-colors duration-300"
+                  >
+                    Liên Hệ
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        ))}
       </div>
-    </section>
-  ))}
+    </div>
+  </section>
 
   <Footer />
 </Layout>
