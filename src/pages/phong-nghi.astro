@@ -11,7 +11,14 @@ const roomTypes = [
     area: "—",
     bedType: "1 giường đôi",
     capacity: "1–2 người",
-    amenities: ["WiFi miễn phí", "Nước nóng", "TV", "Bàn làm việc", "Khăn tắm", "Dép đi trong nhà", "Điện thoại", "Giá treo quần áo", "Máy sấy tóc", "Nước đóng chai miễn phí", "Netflix", "Tủ lạnh nhỏ trong phòng", "Tủ quần áo", "Vật dụng tắm rửa"],
+    amenities: [
+      { label: "Tiện nghi trong phòng", items: ["TV", "Netflix", "Tủ lạnh nhỏ trong phòng", "Bàn làm việc", "Tủ quần áo", "Giá treo quần áo", "Dép đi trong nhà", "Điện thoại", "Nước đóng chai miễn phí"] },
+      { label: "Phòng tắm", items: ["Nước nóng", "Khăn tắm", "Máy sấy tóc", "Vật dụng tắm rửa"] },
+      { label: "Tiện ích chung", items: ["WiFi miễn phí"] },
+      { label: "Dịch vụ hỗ trợ", items: [] },
+      { label: "Ăn uống", items: [] },
+      { label: "Dịch vụ", items: [] },
+    ],
     images: [
       "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.JPG",
       "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
@@ -26,7 +33,14 @@ const roomTypes = [
     area: "—",
     bedType: "2 giường đôi",
     capacity: "2–4 người",
-    amenities: ["WiFi miễn phí", "Nước nóng", "TV", "Bàn làm việc", "Khăn tắm", "Dép đi trong nhà", "Điện thoại", "Giá treo quần áo", "Máy sấy tóc", "Nước đóng chai miễn phí", "Netflix", "Tủ lạnh nhỏ trong phòng", "Tủ quần áo", "Vật dụng tắm rửa"],
+    amenities: [
+      { label: "Tiện nghi trong phòng", items: ["TV", "Netflix", "Tủ lạnh nhỏ trong phòng", "Bàn làm việc", "Tủ quần áo", "Giá treo quần áo", "Dép đi trong nhà", "Điện thoại", "Nước đóng chai miễn phí"] },
+      { label: "Phòng tắm", items: ["Nước nóng", "Khăn tắm", "Máy sấy tóc", "Vật dụng tắm rửa"] },
+      { label: "Tiện ích chung", items: ["WiFi miễn phí"] },
+      { label: "Dịch vụ hỗ trợ", items: [] },
+      { label: "Ăn uống", items: [] },
+      { label: "Dịch vụ", items: [] },
+    ],
     images: [
       "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.jpg",
       "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
@@ -41,7 +55,14 @@ const roomTypes = [
     area: "—",
     bedType: "1 giường đôi",
     capacity: "1–2 người",
-    amenities: ["WiFi miễn phí", "Nước nóng", "TV", "Ban công riêng", "Bàn làm việc", "Khăn tắm", "Dép đi trong nhà", "Điện thoại", "Giá treo quần áo", "Máy sấy tóc", "Nước đóng chai miễn phí", "Netflix", "Tủ lạnh nhỏ trong phòng", "Tủ quần áo", "Vật dụng tắm rửa"],
+    amenities: [
+      { label: "Tiện nghi trong phòng", items: ["TV", "Netflix", "Tủ lạnh nhỏ trong phòng", "Bàn làm việc", "Tủ quần áo", "Giá treo quần áo", "Dép đi trong nhà", "Điện thoại", "Nước đóng chai miễn phí"] },
+      { label: "Phòng tắm", items: ["Nước nóng", "Khăn tắm", "Máy sấy tóc", "Vật dụng tắm rửa"] },
+      { label: "Tiện ích chung", items: ["WiFi miễn phí", "Ban công riêng"] },
+      { label: "Dịch vụ hỗ trợ", items: [] },
+      { label: "Ăn uống", items: [] },
+      { label: "Dịch vụ", items: [] },
+    ],
     images: [
       "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.JPG",
       "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%201%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
@@ -57,7 +78,14 @@ const roomTypes = [
     area: "—",
     bedType: "2 giường đôi",
     capacity: "2–4 người",
-    amenities: ["WiFi miễn phí", "Nước nóng", "TV", "Ban công riêng", "Bàn làm việc", "Khăn tắm", "Dép đi trong nhà", "Điện thoại", "Giá treo quần áo", "Máy sấy tóc", "Nước đóng chai miễn phí", "Netflix", "Tủ lạnh nhỏ trong phòng", "Tủ quần áo", "Vật dụng tắm rửa"],
+    amenities: [
+      { label: "Tiện nghi trong phòng", items: ["TV", "Netflix", "Tủ lạnh nhỏ trong phòng", "Bàn làm việc", "Tủ quần áo", "Giá treo quần áo", "Dép đi trong nhà", "Điện thoại", "Nước đóng chai miễn phí"] },
+      { label: "Phòng tắm", items: ["Nước nóng", "Khăn tắm", "Máy sấy tóc", "Vật dụng tắm rửa"] },
+      { label: "Tiện ích chung", items: ["WiFi miễn phí", "Ban công riêng"] },
+      { label: "Dịch vụ hỗ trợ", items: [] },
+      { label: "Ăn uống", items: [] },
+      { label: "Dịch vụ", items: [] },
+    ],
     images: [
       "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.jpg",
       "/images/rooms/Ph%C3%B2ng%20Ti%C3%AAu%20Chu%E1%BA%A9n%20C%C3%B3%20Ban%20C%C3%B4ng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.JPG",
@@ -75,7 +103,14 @@ const roomTypes = [
     area: "—",
     bedType: "2 giường đôi",
     capacity: "2–4 người",
-    amenities: ["WiFi miễn phí", "Nước nóng", "TV", "Sân BBQ riêng", "Bàn làm việc", "Khăn tắm", "Dép đi trong nhà", "Điện thoại", "Giá treo quần áo", "Máy sấy tóc", "Nước đóng chai miễn phí", "Netflix", "Tủ lạnh nhỏ trong phòng", "Tủ quần áo", "Vật dụng tắm rửa"],
+    amenities: [
+      { label: "Tiện nghi trong phòng", items: ["TV", "Netflix", "Tủ lạnh nhỏ trong phòng", "Bàn làm việc", "Tủ quần áo", "Giá treo quần áo", "Dép đi trong nhà", "Điện thoại", "Nước đóng chai miễn phí"] },
+      { label: "Phòng tắm", items: ["Nước nóng", "Khăn tắm", "Máy sấy tóc", "Vật dụng tắm rửa"] },
+      { label: "Tiện ích chung", items: ["WiFi miễn phí", "Sân BBQ riêng"] },
+      { label: "Dịch vụ hỗ trợ", items: [] },
+      { label: "Ăn uống", items: [] },
+      { label: "Dịch vụ", items: [] },
+    ],
     images: [
       "/images/rooms/Ph%C3%B2ng%20S%C3%A2n%20BBQ%20Ri%C3%AAng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/1.jpg",
       "/images/rooms/Ph%C3%B2ng%20S%C3%A2n%20BBQ%20Ri%C3%AAng%20%E2%80%93%202%20Gi%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4i/2.jpg",
@@ -206,20 +241,20 @@ const roomTypes = [
               <!-- Amenities -->
               <h3 class="font-heading text-xl text-primary mb-4">Tiện nghi</h3>
               <div class="grid grid-cols-2 gap-x-8 gap-y-2.5 mb-4">
-                {room.amenities.slice(0, 12).map(a => (
+                {room.amenities.flatMap(g => g.items).slice(0, 12).map(a => (
                   <div class="flex items-center gap-2 text-sm text-text-muted">
                     <span class="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" aria-hidden="true"></span>
                     {a}
                   </div>
                 ))}
               </div>
-              {room.amenities.length > 12 && (
+              {room.amenities.flatMap(g => g.items).length > 12 && (
                 <button
                   type="button"
                   class="amenities-open block text-xs text-accent font-semibold hover:underline underline-offset-2 mb-6 transition-colors"
                   data-drawer={`drawer-${index}`}
                 >
-                  Xem tất cả {room.amenities.length} tiện nghi →
+                  Xem tất cả {room.amenities.flatMap(g => g.items).length} tiện nghi →
                 </button>
               )}
 
@@ -259,15 +294,26 @@ const roomTypes = [
           </svg>
         </button>
       </div>
-      <div class="overflow-y-auto flex-1 px-6 py-6">
-        <ul class="space-y-3">
-          {room.amenities.map(a => (
-            <li class="flex items-center gap-3 text-sm text-text-muted">
-              <span class="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" aria-hidden="true"></span>
-              {a}
-            </li>
-          ))}
-        </ul>
+      <div class="overflow-y-auto flex-1 px-6 py-6 space-y-6">
+        {room.amenities.map(group => (
+          <div>
+            <h4 class="font-semibold text-primary text-sm mb-3 pb-2 border-b border-border">{group.label}</h4>
+            {group.items.length > 0 ? (
+              <ul class="space-y-2.5">
+                {group.items.map(item => (
+                  <li class="flex items-center gap-2.5 text-sm text-text-muted">
+                    <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-xs text-text-muted/50 italic">Sẽ cập nhật</p>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   ))}
