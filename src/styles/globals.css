@@ -19,6 +19,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   @apply font-heading font-bold;
   line-height: 1.3;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
 }
 
 h1 {
